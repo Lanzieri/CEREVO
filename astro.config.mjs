@@ -1,8 +1,7 @@
 import { defineConfig } from 'astro/config'
-import tailwindcss from '@tailwindcss/vite'
-
+import tailwind from '@astrojs/tailwind'
 export default defineConfig({
   site: 'https://lanzieri.github.io',
   base: '/DalaInc/',
-  vite: { plugins: [tailwindcss()] },
+  integrations: [tailwind()],
 })

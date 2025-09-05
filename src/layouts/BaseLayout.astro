@@ -4,15 +4,17 @@ const {
   description = "Automatiza procesos y escala tu negocio con IA y n8n",
 } = Astro.props;
 const year = new Date().getFullYear();
+
+// CSS global de Tailwind
 import "../styles/global.css";
 ---
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <!-- usa ruta relativa para que funcione en GitHub Pages con base /DalaInc/ -->
     <link rel="icon" href="favicon.svg" />
   </head>
   <body class="antialiased text-zinc-900 bg-white">
@@ -20,7 +22,6 @@ import "../styles/global.css";
       <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <a href="#" class="font-semibold">Dala Inc</a>
         <nav class="hidden sm:flex gap-6 text-sm">
-          <!-- anclas relativas para no romper el base /DalaInc/ -->
           <a href="#beneficios" class="hover:opacity-75">Beneficios</a>
           <a href="#servicios" class="hover:opacity-75">Servicios</a>
           <a href="#proceso" class="hover:opacity-75">Proceso</a>
