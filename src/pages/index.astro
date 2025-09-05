@@ -17,15 +17,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight animate-soft-in">
             Automatiza hoy. <span class="brand-gradient-text">Lidera mañana.</span>
           </h1>
-          <p class="mt-5 text-lg text-zinc-600 max-w-prose animate-soft-in" style="animation-delay:120ms">
+          <p class="mt-5 text-lg text-zinc-600 max-w-prose animate-soft-in" style="animation-delay:200ms">
             Implementamos automatizaciones y agentes de IA que reducen tiempos operativos, eliminan
             errores y mejoran la experiencia del cliente.
           </p>
-          <div class="mt-7 flex gap-3 animate-soft-in" style="animation-delay:180ms">
+          <div class="mt-7 flex gap-3 animate-soft-in" style="animation-delay:350ms">
             <a href="#contacto" class="btn-primary">Solicitar plan</a>
             <a href="#servicios" class="btn-secondary">Ver servicios</a>
           </div>
-          <div class="mt-6 flex flex-wrap gap-2 text-xs text-zinc-600 animate-soft-in" style="animation-delay:220ms">
+          <div class="mt-6 flex flex-wrap gap-2 text-xs text-zinc-600 animate-soft-in" style="animation-delay:500ms">
             <span class="badge">Implementación ágil</span>
             <span class="badge">Integrable con tu stack</span>
             <span class="badge">Ahorro de horas/mes</span>
@@ -33,16 +33,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
 
         <!-- Columna derecha (logo) -->
-        <div class="rounded-2xl border p-6 bg-white/60 backdrop-blur animate-soft-in" style="animation-delay:120ms">
+        <div class="rounded-2xl border p-6 bg-white/60 backdrop-blur animate-soft-in" style="animation-delay:250ms">
           <p class="text-sm text-zinc-500">Demo / imagen</p>
           <div class="relative aspect-video rounded-xl border mt-2 bg-zinc-100 flex items-center justify-center overflow-hidden">
+            <!-- Logo más grande pero siempre contenido dentro del frame -->
             <img
               src="dala-logo.jpg"
               alt="Dala Inc"
-              class="h-16 md:h-20 lg:h-24 w-auto object-contain animate-soft-in animate-float-slow"
+              class="max-h-[60%] md:max-h-[70%] max-w-[80%] object-contain animate-soft-in animate-float-slow"
               loading="lazy"
               decoding="async"
-              style="animation-delay:200ms"
+              style="animation-delay:400ms"
             />
           </div>
         </div>
