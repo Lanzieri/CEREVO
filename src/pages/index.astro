@@ -7,22 +7,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   description="Implementamos automatizaciones y agentes de IA para ahorrar tiempo y costos."
 >
 
-   <!-- HERO (columna derecha con logo) -->
-<div class="rounded-2xl border p-6 bg-white/60 backdrop-blur">
+<div class="rounded-2xl border p-6 bg-white/60 backdrop-blur animate-soft-in" style="animation-delay:80ms">
   <p class="text-sm text-zinc-500">Demo / imagen</p>
 
-  <!-- Contenedor de la “pantalla” -->
-  <div class="relative aspect-video rounded-xl border mt-2 bg-zinc-100 grid place-items-center overflow-hidden">
-    <!-- Logo centrado y responsivo -->
+  <div class="relative aspect-video rounded-xl border mt-2 bg-zinc-100 flex items-center justify-center overflow-hidden">
     <img
-      src="dala-logo.png"   <!-- cambia por dala-logo.svg / .jpg según tu archivo -->
+      src="dala-logo.png"   <!-- usa el nombre real: .png/.jpg/.svg -->
       alt="Dala Inc"
-      class="max-h-[70%] max-w-[80%] object-contain"
+      class="h-16 md:h-20 lg:h-24 w-auto object-contain animate-soft-in animate-float-slow"
       loading="lazy"
       decoding="async"
+      style="animation-delay:120ms"
     />
   </div>
 </div>
+
+
 
 
   <!-- BENEFICIOS -->
