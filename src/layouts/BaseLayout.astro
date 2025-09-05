@@ -18,16 +18,20 @@ import "../styles/global.css";
     <link rel="icon" href="favicon.svg" />
   </head>
   <body class="antialiased text-zinc-900 bg-white">
-    <header class="border-b">
+    <header class="border-b bg-white/70 backdrop-blur">
       <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#" class="font-semibold">Dala Inc</a>
+        <a href="#" class="inline-flex items-center gap-3">
+          <img src="dala-logo.jpg" alt="Dala Inc" class="h-7 w-auto" loading="lazy" decoding="async" />
+
+          <span class="sr-only">Dala Inc</span>
+        </a>
         <nav class="hidden sm:flex gap-6 text-sm">
           <a href="#beneficios" class="hover:opacity-75">Beneficios</a>
           <a href="#servicios" class="hover:opacity-75">Servicios</a>
           <a href="#proceso" class="hover:opacity-75">Proceso</a>
           <a href="#contacto" class="hover:opacity-75">Contacto</a>
         </nav>
-        <a href="#contacto" class="px-3 py-2 rounded-xl bg-black text-white text-sm">Empezar</a>
+        <a href="#contacto" class="btn-primary text-sm">Empezar</a>
       </div>
     </header>
 
