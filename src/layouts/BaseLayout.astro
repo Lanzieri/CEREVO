@@ -3,6 +3,7 @@ const {
   title = "Dala Inc — Automatizaciones con IA",
   description = "Automatiza procesos y escala tu negocio con IA y n8n",
 } = Astro.props;
+const year = new Date().getFullYear();
 ---
 <html lang="es">
   <head>
@@ -10,19 +11,21 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.svg" />
+    <!-- usa ruta relativa para que funcione en GitHub Pages con base /DalaInc/ -->
+    <link rel="icon" href="favicon.svg" />
   </head>
   <body class="antialiased text-zinc-900 bg-white">
     <header class="border-b">
       <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="/" class="font-semibold">Dala Inc</a>
+        <a href="#" class="font-semibold">Dala Inc</a>
         <nav class="hidden sm:flex gap-6 text-sm">
-          <a href="/#beneficios" class="hover:opacity-75">Beneficios</a>
-          <a href="/#servicios" class="hover:opacity-75">Servicios</a>
-          <a href="/#proceso" class="hover:opacity-75">Proceso</a>
-          <a href="/#contacto" class="hover:opacity-75">Contacto</a>
+          <!-- anclas relativas para no romper el base /DalaInc/ -->
+          <a href="#beneficios" class="hover:opacity-75">Beneficios</a>
+          <a href="#servicios" class="hover:opacity-75">Servicios</a>
+          <a href="#proceso" class="hover:opacity-75">Proceso</a>
+          <a href="#contacto" class="hover:opacity-75">Contacto</a>
         </nav>
-        <a href="/#contacto" class="px-3 py-2 rounded-xl bg-black text-white text-sm">Empezar</a>
+        <a href="#contacto" class="px-3 py-2 rounded-xl bg-black text-white text-sm">Empezar</a>
       </div>
     </header>
 
@@ -32,47 +35,7 @@ const {
 
     <footer class="mt-20 border-t">
       <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-zinc-500 flex flex-col sm:flex-row gap-2 sm:gap-0 sm:items-center justify-between">
-        <p>© {new Date().getFullYear()} Dala Inc</p>
-        <p>Automatización · IA · n8n · Integraciones</p>
-      </div>
-    </footer>
-  </body>
-</html>
----
-const {
-  title = "Dala Inc — Automatizaciones con IA",
-  description = "Automatiza procesos y escala tu negocio con IA y n8n",
-} = Astro.props;
----
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.svg" />
-  </head>
-  <body class="antialiased text-zinc-900 bg-white">
-    <header class="border-b">
-      <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="/" class="font-semibold">Dala Inc</a>
-        <nav class="hidden sm:flex gap-6 text-sm">
-          <a href="/#beneficios" class="hover:opacity-75">Beneficios</a>
-          <a href="/#servicios" class="hover:opacity-75">Servicios</a>
-          <a href="/#proceso" class="hover:opacity-75">Proceso</a>
-          <a href="/#contacto" class="hover:opacity-75">Contacto</a>
-        </nav>
-        <a href="/#contacto" class="px-3 py-2 rounded-xl bg-black text-white text-sm">Empezar</a>
-      </div>
-    </header>
-
-    <main>
-      <slot />
-    </main>
-
-    <footer class="mt-20 border-t">
-      <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-zinc-500 flex flex-col sm:flex-row gap-2 sm:gap-0 sm:items-center justify-between">
-        <p>© {new Date().getFullYear()} Dala Inc</p>
+        <p>© {year} Dala Inc</p>
         <p>Automatización · IA · n8n · Integraciones</p>
       </div>
     </footer>
