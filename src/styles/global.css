@@ -9,16 +9,28 @@
            bg-gradient-to-r from-brand-500 to-brand2-500
            hover:opacity-90 transition;
   }
+
   .btn-secondary {
     @apply px-5 py-3 rounded-xl border text-sm font-medium
            hover:bg-zinc-50 transition;
   }
+
   .badge {
     @apply px-2 py-1 rounded-full border text-xs;
   }
+
+  /* Nueva pastilla con el mismo degradado que el botón principal */
+  .pill-primary {
+    @apply inline-flex items-center gap-1
+           px-3 py-1.5 rounded-full text-xs font-medium
+           text-white bg-gradient-to-r from-brand-500 to-brand2-500
+           shadow-sm hover:opacity-90 transition;
+  }
+
   .brand-gradient-text {
     @apply bg-gradient-to-r from-brand-500 to-brand2-500 bg-clip-text text-transparent;
   }
+
   .surface {
     @apply rounded-2xl bg-white/70 backdrop-blur ring-1 ring-zinc-200/70 shadow-sm;
   }
@@ -31,7 +43,6 @@
     to   { opacity: 1; transform: translateY(0)    scale(1);   }
   }
   .animate-soft-in {
-    /* 3s para que se note más */
     animation: soft-in-up 3s cubic-bezier(.16,.84,.44,1) both;
   }
 
@@ -40,7 +51,6 @@
     50%      { transform: translateY(-10px); }
   }
   .animate-float-slow {
-    /* ciclo lento y sutil */
     animation: float-slow 14s ease-in-out infinite;
   }
 }

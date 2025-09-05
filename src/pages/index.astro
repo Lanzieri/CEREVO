@@ -9,7 +9,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <!-- HERO -->
   <section class="relative overflow-hidden">
-    <!-- Gradiente acorde al fondo más oscuro -->
     <div class="absolute inset-0 bg-gradient-to-b from-zinc-300 via-zinc-300 to-zinc-200"></div>
 
     <div class="relative max-w-6xl mx-auto px-4 pt-20 pb-12">
@@ -27,18 +26,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <a href="#contacto" class="btn-primary">Solicitar plan</a>
             <a href="#servicios" class="btn-secondary">Ver servicios</a>
           </div>
+
+          <!-- PASTILLAS con el mismo fondo que Solicitar plan -->
           <div class="mt-6 flex flex-wrap gap-2 text-xs text-zinc-600 animate-soft-in" style="animation-delay:900ms">
-            <span class="badge">Implementación ágil</span>
-            <span class="badge">Integrable con tu stack</span>
-            <span class="badge">Ahorro de horas/mes</span>
+            <span class="pill-primary">Implementación ágil</span>
+            <span class="pill-primary">Integrable con tu stack</span>
+            <span class="pill-primary">Ahorro de horas/mes</span>
           </div>
         </div>
 
-        <!-- Columna derecha (logo, sin barras/bordes forzados) -->
+        <!-- Columna derecha (logo, sin aspect-ratio ni rings) -->
         <div class="surface p-5 animate-soft-in" style="animation-delay:450ms">
           <p class="text-sm text-zinc-500">Demo / imagen</p>
-
-          <!-- Contenedor sin aspect-ratio fijo ni rings; dejamos al logo su proporción real -->
           <div class="relative mt-2 rounded-xl bg-white flex items-center justify-center overflow-hidden min-h-[260px] md:min-h-[320px]">
             <img
               src="dala-logo.jpg"
