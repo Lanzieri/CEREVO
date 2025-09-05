@@ -10,7 +10,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <!-- HERO -->
   <section class="relative overflow-hidden">
     <!-- Gradiente acorde al fondo más oscuro -->
-    <div class="absolute inset-0 bg-gradient-to-b from-zinc-200 via-zinc-100 to-zinc-100"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-zinc-300 via-zinc-300 to-zinc-200"></div>
 
     <div class="relative max-w-6xl mx-auto px-4 pt-20 pb-12">
       <div class="grid md:grid-cols-2 gap-10 items-center">
@@ -34,17 +34,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
         </div>
 
-        <!-- Columna derecha (logo sin doble borde) -->
-        <div class="surface p-6 animate-soft-in" style="animation-delay:450ms">
+        <!-- Columna derecha (logo, sin barras/bordes forzados) -->
+        <div class="surface p-5 animate-soft-in" style="animation-delay:450ms">
           <p class="text-sm text-zinc-500">Demo / imagen</p>
 
-          <!-- Marco del “video” sin borde grueso -->
-          <div class="relative aspect-video rounded-xl mt-2 bg-zinc-100 flex items-center justify-center overflow-hidden ring-1 ring-zinc-200/60 shadow-sm">
-            <!-- Logo: más grande y limpio -->
+          <!-- Contenedor sin aspect-ratio fijo ni rings; dejamos al logo su proporción real -->
+          <div class="relative mt-2 rounded-xl bg-white flex items-center justify-center overflow-hidden min-h-[260px] md:min-h-[320px]">
             <img
               src="dala-logo.jpg"
               alt="Dala Inc"
-              class="w-[85%] md:w-[80%] xl:w-[70%] h-auto object-contain animate-soft-in animate-float-slow"
+              class="max-h-[240px] md:max-h-[300px] w-auto object-contain animate-soft-in animate-float-slow"
               loading="lazy"
               decoding="async"
               style="animation-delay:900ms"

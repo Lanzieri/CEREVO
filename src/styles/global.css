@@ -19,20 +19,19 @@
   .brand-gradient-text {
     @apply bg-gradient-to-r from-brand-500 to-brand2-500 bg-clip-text text-transparent;
   }
-  /* Tarjetas/surfaces unificadas (sin “doble borde”) */
   .surface {
     @apply rounded-2xl bg-white/70 backdrop-blur ring-1 ring-zinc-200/70 shadow-sm;
   }
 }
 
-/* ---------- Animaciones (más largas) ---------- */
+/* ---------- Animaciones (largas) ---------- */
 @layer utilities {
   @keyframes soft-in-up {
     from { opacity: 0; transform: translateY(22px) scale(.97); }
     to   { opacity: 1; transform: translateY(0)    scale(1);   }
   }
-  /* ↑ 3s de duración para que se note más */
   .animate-soft-in {
+    /* 3s para que se note más */
     animation: soft-in-up 3s cubic-bezier(.16,.84,.44,1) both;
   }
 
@@ -40,9 +39,8 @@
     0%, 100% { transform: translateY(0); }
     50%      { transform: translateY(-10px); }
   }
-  /* ↑ ciclo más lento */
   .animate-float-slow {
+    /* ciclo lento y sutil */
     animation: float-slow 14s ease-in-out infinite;
   }
 }
-
