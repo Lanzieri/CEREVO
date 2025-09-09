@@ -58,66 +58,104 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </section>
 
   <!-- =========================
-       BENEFICIOS
-       ========================= -->
-  <section id="beneficios" class="relative max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-2xl font-semibold text-white">Beneficios clave</h2>
+     BENEFICIOS (NUEVO)
+     ========================= -->
+<section id="beneficios" class="relative max-w-6xl mx-auto px-4 py-20">
+  <!-- Badge -->
+  <div class="flex justify-center">
+    <span class="px-4 py-1 rounded-full text-xs tracking-wide bg-white/10 text-white/80 border border-white/15">
+      BENEFICIOS
+    </span>
+  </div>
 
-    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Card -->
-      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur animate-soft-in">
-        <div class="flex items-start gap-4">
-          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
-            <!-- reloj/tiempo -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z"/></svg>
-          </span>
-          <div>
-            <h3 class="font-medium text-zinc-900">Tiempo liberado</h3>
-            <p class="mt-2 text-sm text-zinc-600">Más foco en tareas de valor; menos repetición.</p>
-          </div>
-        </div>
-      </article>
+  <!-- Título + subtítulo -->
+  <div class="text-center mt-6">
+    <h2 class="text-3xl md:text-5xl font-semibold text-white">
+      Optimiza, acelera y automatiza
+    </h2>
+    <p class="max-w-3xl mx-auto mt-4 text-zinc-300/90">
+      Reduce costos y elimina tareas repetitivas con soluciones inteligentes
+      que elevan la eficiencia y la precisión en cada proceso.
+    </p>
+  </div>
 
-      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur animate-soft-in" style="animation-delay:80ms">
-        <div class="flex items-start gap-4">
-          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
-            <!-- shield/check -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11l3-3m0 0l3 3m-3-3v8m9-4a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </span>
-          <div>
-            <h3 class="font-medium text-zinc-900">Menos errores</h3>
-            <p class="mt-2 text-sm text-zinc-600">Procesos consistentes y trazables.</p>
-          </div>
-        </div>
-      </article>
+  <!-- Tarjetas -->
+  <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+    <!-- Card 1: Reducción trabajo manual (línea/área animada) -->
+    <article class="benefit-card">
+      <div class="benefit-card__grid"></div>
+      <div class="benefit-card__glow"></div>
 
-      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur animate-soft-in" style="animation-delay:140ms">
-        <div class="flex items-start gap-4">
-          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
-            <!-- chat -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h6m-6 8l-4-4V6a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H7z"/></svg>
-          </span>
-          <div>
-            <h3 class="font-medium text-zinc-900">Mejor atención</h3>
-            <p class="mt-2 text-sm text-zinc-600">Respuestas más rápidas para tus clientes.</p>
-          </div>
+      <div class="benefit-card__viz">
+        <div class="linechart">
+          <span class="linechart__scan"></span>
+          <span class="dot dot-1"></span>
+          <span class="dot dot-2"></span>
+          <span class="dot dot-3"></span>
         </div>
-      </article>
+      </div>
 
-      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur animate-soft-in" style="animation-delay:200ms">
-        <div class="flex items-start gap-4">
-          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
-            <!-- trending-up -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17l6-6 4 4 8-8"/></svg>
-          </span>
-          <div>
-            <h3 class="font-medium text-zinc-900">Escalabilidad</h3>
-            <p class="mt-2 text-sm text-zinc-600">Crecé sin sumar carga manual.</p>
-          </div>
+      <div class="benefit-card__content">
+        <h3 class="title">Reducción del trabajo manual</h3>
+        <p class="copy">
+          Automatiza tareas repetitivas y ahorra tiempo. Respuestas a clientes,
+          emails y documentos: la IA se encarga, tu equipo se enfoca en lo importante.
+        </p>
+      </div>
+    </article>
+
+    <!-- Card 2: Mayor velocidad (gauge/medidor) -->
+    <article class="benefit-card">
+      <div class="benefit-card__grid"></div>
+      <div class="benefit-card__glow"></div>
+
+      <div class="benefit-card__viz">
+        <div class="gauge">
+          <span class="gauge__arc"></span>
+          <span class="gauge__sweep"></span>
+          <span class="gauge__tick t1"></span>
+          <span class="gauge__tick t2"></span>
+          <span class="gauge__tick t3"></span>
+          <span class="gauge__tick t4"></span>
+          <span class="gauge__tick t5"></span>
         </div>
-      </article>
-    </div>
-  </section>
+      </div>
+
+      <div class="benefit-card__content">
+        <h3 class="title">Mayor velocidad operativa</h3>
+        <p class="copy">
+          Respuestas en segundos, decisiones en tiempo real. Eliminá cuellos de botella
+          con flujos automatizados y agentes que trabajan 24/7.
+        </p>
+      </div>
+    </article>
+
+    <!-- Card 3: Menos errores (píldoras en flujo) -->
+    <article class="benefit-card">
+      <div class="benefit-card__grid"></div>
+      <div class="benefit-card__glow"></div>
+
+      <div class="benefit-card__viz">
+        <div class="pill-stream">
+          <span class="pill pill--err">Error</span>
+          <span class="pill pill--err" style="animation-delay:.6s">Error</span>
+          <span class="pill pill--ok"  style="animation-delay:1.2s">Resuelto</span>
+          <span class="pill pill--err" style="animation-delay:1.8s">Error</span>
+          <span class="pill pill--err" style="animation-delay:2.4s">Error</span>
+        </div>
+      </div>
+
+      <div class="benefit-card__content">
+        <h3 class="title">Menos errores humanos</h3>
+        <p class="copy">
+          Decisiones más precisas y estandarizadas. Menos fallos, menos retrabajos
+          y más calidad en cada proceso.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
 
   <!-- =========================
        SERVICIOS

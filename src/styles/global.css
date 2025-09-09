@@ -157,3 +157,216 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
           mask-image: radial-gradient(ellipse at center, black 45%, transparent 75%);
   pointer-events: none;
 }
+/* =========================
+   BENEFICIOS — Tarjetas animadas
+   Colores de marca ya definidos:
+   --brand-fuchsia | --brand-purple
+   ========================= */
+
+.benefit-card{
+  position:relative;
+  border-radius:18px;
+  padding:1px; /* borde glow */
+  background:
+    linear-gradient(140deg,
+      rgba(124,58,237,.55) 0%,
+      rgba(192,38,211,.45) 35%,
+      rgba(255,255,255,.12) 100%);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  overflow:hidden;
+  isolation:isolate;
+}
+.benefit-card::before{
+  content:"";
+  position:absolute; inset:-60%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0 70%,
+    rgba(124,58,237,.35),
+    rgba(192,38,211,.35),
+    transparent 100%
+  );
+  filter: blur(26px);
+  animation: bc-rot 18s linear infinite;
+  pointer-events:none;
+  opacity:.55;
+}
+@keyframes bc-rot{ to { transform: rotate(360deg); } }
+
+.benefit-card > .benefit-card__grid,
+.benefit-card > .benefit-card__glow{
+  position:absolute; inset:0; border-radius:16px; pointer-events:none;
+}
+.benefit-card__grid{
+  background:
+    radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px) 0 0/18px 18px;
+  opacity:.45;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 65%, transparent 90%);
+          mask-image: radial-gradient(ellipse at center, black 65%, transparent 90%);
+}
+.benefit-card__glow{
+  background: radial-gradient(420px 260px at 20% 10%, rgba(124,58,237,.18), transparent 60%),
+              radial-gradient(420px 260px at 85% 90%, rgba(192,38,211,.18), transparent 60%);
+  opacity:.75;
+}
+
+.benefit-card__viz{
+  position:relative; height:210px; border-radius:16px;
+  background: rgba(15,16,22,.55);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  border:1px solid rgba(255,255,255,.10);
+  overflow:hidden;
+}
+.benefit-card__content{
+  padding:20px;
+  border-radius:16px;
+  background: rgba(255,255,255,.74);
+  border:1px solid rgba(0,0,0,.04);
+  margin:12px;
+}
+.benefit-card .title{
+  margin:0 0 6px;
+  color:#0f1016;
+  font-weight:600;
+  font-size:1.05rem;
+}
+.benefit-card .copy{
+  color:#2f3140;
+  line-height:1.55;
+  font-size:.95rem;
+}
+
+/* ---------- Card 1: Line/Area chart ---------- */
+.linechart{
+  position:absolute; inset:0;
+  --fg: rgba(239,68,182,.82);              /* pink-500 */
+  --fill: linear-gradient(180deg, rgba(192,38,211,.55), rgba(124,58,237,.25));
+  --stripe: repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,.10) 0 6px,
+      rgba(255,255,255,0) 6px 12px
+  );
+}
+.linechart::before{
+  /* área “rellena” con rayas */
+  content:"";
+  position:absolute; left:8%; right:8%; bottom:8%;
+  height:60%;
+  background:
+    var(--fill),
+    var(--stripe);
+  border-radius:12px;
+  filter: drop-shadow(0 8px 16px rgba(192,38,211,.25));
+  animation: chart-breathe 6s ease-in-out infinite;
+  -webkit-mask-image: linear-gradient(180deg, black 65%, transparent 100%);
+          mask-image: linear-gradient(180deg, black 65%, transparent 100%);
+}
+@keyframes chart-breathe{
+  0%,100% { transform: scaleY(1); }
+  50%     { transform: scaleY(1.08); }
+}
+.linechart__scan{
+  position:absolute; inset:0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+  animation: scan-x 3.8s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+@keyframes scan-x{
+  0%   { transform: translateX(-120%); }
+  50%  { transform: translateX(0%); }
+  100% { transform: translateX(120%); }
+}
+/* Dots pulsantes */
+.dot{
+  position:absolute; width:14px; height:14px; border-radius:9999px;
+  background: var(--brand-fuchsia);
+  box-shadow:
+    0 0 0 4px rgba(192,38,211,.20),
+    0 0 22px rgba(192,38,211,.55);
+  animation: dot-pulse 2.4s ease-in-out infinite;
+}
+.dot-1{ left:16%; top:58%; animation-delay:.0s; }
+.dot-2{ left:42%; top:42%; animation-delay:.35s; }
+.dot-3{ left:70%; top:62%; animation-delay:.7s; }
+@keyframes dot-pulse{
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-6px); }
+}
+
+/* ---------- Card 2: Gauge / velocímetro ---------- */
+.gauge{
+  position:absolute; inset:0; display:grid; place-items:center;
+}
+.gauge__arc{
+  width:280px; height:280px; border-radius:9999px;
+  background:
+    conic-gradient(from 210deg, transparent 0 40deg,
+      rgba(124,58,237,.22) 40deg, rgba(192,38,211,.35) 140deg,
+      transparent 140deg 360deg);
+  -webkit-mask:
+    radial-gradient(circle at 50% 50%, transparent 64%, black 64.2%),
+    radial-gradient(circle at 50% 50%, black 70%, transparent 70.2%);
+          mask:
+    radial-gradient(circle at 50% 50%, transparent 64%, black 64.2%),
+    radial-gradient(circle at 50% 50%, black 70%, transparent 70.2%);
+  filter: blur(2px);
+  opacity:.9;
+}
+.gauge__sweep{
+  position:absolute; width:280px; height:280px; border-radius:9999px;
+  background: conic-gradient(from 210deg, transparent 0, rgba(255,255,255,.22) 20deg, transparent 40deg);
+  -webkit-mask: radial-gradient(circle at 50% 50%, transparent 64%, black 64.2%);
+          mask: radial-gradient(circle at 50% 50%, transparent 64%, black 64.2%);
+  animation: sweep 3.2s cubic-bezier(.2,.8,.2,1) infinite;
+  mix-blend-mode: screen;
+}
+@keyframes sweep{
+  0%   { transform: rotate(0deg);   opacity:.8; }
+  50%  { transform: rotate(120deg); opacity:1;  }
+  100% { transform: rotate(0deg);   opacity:.8; }
+}
+.gauge__tick{
+  position:absolute; width:4px; height:16px; background: rgba(255,255,255,.22);
+  border-radius:2px;
+  transform-origin: bottom center;
+  bottom:36%; left:50%;
+}
+.gauge__tick.t1{ transform: translateX(-50%) rotate(-35deg); }
+.gauge__tick.t2{ transform: translateX(-50%) rotate(-17deg); }
+.gauge__tick.t3{ transform: translateX(-50%) rotate(0deg); }
+.gauge__tick.t4{ transform: translateX(-50%) rotate(17deg); }
+.gauge__tick.t5{ transform: translateX(-50%) rotate(35deg); }
+
+/* ---------- Card 3: Pills (Error → Resuelto) ---------- */
+.pill-stream{
+  position:absolute; inset:0; display:grid; place-items:center;
+}
+.pill{
+  --bg: rgba(239,68,68,.16);
+  --bd: rgba(239,68,68,.45);
+  --fg: #fecaca;
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.35rem .7rem; border-radius:999px; font-size:.8rem;
+  background: var(--bg); color: var(--fg);
+  border:1px solid var(--bd);
+  box-shadow: 0 8px 18px rgba(239,68,68,.15);
+  animation: pillFlow 3.6s ease-in-out infinite;
+}
+.pill--err::before{
+  content:"✕"; font-size:.8rem; opacity:.8;
+}
+.pill--ok{
+  --bg: rgba(34,197,94,.16);
+  --bd: rgba(34,197,94,.45);
+  --fg: #dcfce7;
+  box-shadow: 0 8px 18px rgba(34,197,94,.18);
+}
+.pill--ok::before{ content:"▣"; font-size:.8rem; opacity:.9; }
+
+@keyframes pillFlow{
+  0%   { transform: translateY(22px) scale(.98); opacity:.0; }
+  25%  { opacity:1; }
+  50%  { transform: translateY(-2px)  scale(1); }
+  100% { transform: translateY(-24px) scale(.98); opacity:.0; }
+}
