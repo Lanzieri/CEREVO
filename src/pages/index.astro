@@ -1,238 +1,153 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import logoUrl from "../assets/dala-logo.jpg";
 ---
 
 <BaseLayout
   title="Dala Inc — Automatización & IA"
   description="Implementamos automatizaciones y agentes de IA para ahorrar tiempo y costos."
 >
-  <!-- HERO -->
+  <!-- HERO centrado (sin columna de demo) -->
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-zinc-300 via-zinc-300 to-zinc-200"></div>
+    <!-- Fondo animado -->
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="bg-lines"></div>
+    </div>
 
-    <div class="relative max-w-6xl mx-auto px-4 pt-20 pb-12">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <!-- Izquierda -->
-        <div>
-          <h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight animate-soft-in">
-            Automatiza hoy. <span class="brand-gradient-text">Lidera mañana.</span>
-          </h1>
+    <!-- Contenido centrado -->
+    <div class="relative max-w-4xl mx-auto px-4 pt-24 pb-16 text-center">
+      <h1 class="text-[clamp(2.4rem,6vw,4.2rem)] font-semibold leading-tight tracking-tight">
+        Automatiza hoy.
+        <span class="bg-gradient-to-r from-fuchsia-500 via-fuchsia-400 to-purple-500 bg-clip-text text-transparent">
+          Lidera mañana.
+        </span>
+      </h1>
 
-          <p class="mt-5 text-lg text-zinc-700 max-w-prose animate-soft-in" style="animation-delay:300ms">
-            Implementamos automatizaciones y agentes de IA que reducen tiempos operativos, eliminan
-            errores y mejoran la experiencia del cliente.
-          </p>
+      <p class="mt-5 text-lg text-zinc-300/90">
+        Implementamos automatizaciones y agentes de IA que reducen tiempos operativos,
+        eliminan errores y mejoran la experiencia del cliente.
+      </p>
 
-          <!-- Botones (misma paleta) -->
-          <div class="mt-7 flex gap-3 animate-soft-in" style="animation-delay:600ms">
-            <a href="#contacto" class="btn-primary">Solicitar plan</a>
-            <a href="#servicios" class="btn-primary">Ver servicios</a>
-          </div>
+      <!-- CTAs -->
+      <div class="mt-8 flex items-center justify-center gap-3 flex-wrap">
+        <a href="#contacto"
+           class="inline-flex items-center justify-center px-6 py-3 rounded-xl text-white text-sm font-medium
+                  bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500
+                  shadow-[0_8px_30px_-10px_rgba(168,85,247,.55)] transition-all">
+          Solicitar plan
+        </a>
 
-          <!-- Pastillas (negro + blanco) -->
-          <div class="mt-6 flex flex-wrap gap-3 animate-soft-in" style="animation-delay:900ms">
-            <span class="pill-dark">Implementación ágil</span>
-            <span class="pill-dark">Integrable con tu stack</span>
-            <span class="pill-dark">Ahorro de horas/mes</span>
-          </div>
-        </div>
+        <a href="#servicios"
+           class="inline-flex items-center justify-center px-6 py-3 rounded-xl text-white text-sm font-medium
+                  bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500
+                  shadow-[0_8px_30px_-10px_rgba(168,85,247,.55)] transition-all">
+          Ver servicios
+        </a>
+      </div>
 
-        <!-- Derecha (demo) -->
-        <div class="surface p-5 animate-soft-in" style="animation-delay:450ms">
-          <p class="text-sm text-zinc-500">Demo / imagen</p>
-          <div class="relative mt-2 rounded-xl bg-white flex items-center justify-center overflow-hidden min-h-[260px] md:min-h-[320px]">
-            <img
-              src={logoUrl}
-              alt="Dala Inc"
-              class="max-h-[240px] md:max-h-[300px] w-auto object-contain animate-soft-in animate-float-slow"
-              loading="lazy"
-              decoding="async"
-              style="animation-delay:900ms"
-            />
-          </div>
-        </div>
+      <!-- Badges -->
+      <div class="mt-5 flex items-center justify-center gap-3 flex-wrap">
+        <span class="inline-flex px-4 py-1.5 rounded-full text-xs font-medium bg-black text-white/95 border border-white/10">
+          Implementación ágil
+        </span>
+        <span class="inline-flex px-4 py-1.5 rounded-full text-xs font-medium bg-black text-white/95 border border-white/10">
+          Integrable con tu stack
+        </span>
+        <span class="inline-flex px-4 py-1.5 rounded-full text-xs font-medium bg-black text-white/95 border border-white/10">
+          Ahorro de horas/mes
+        </span>
       </div>
     </div>
   </section>
 
-  <!-- BENEFICIOS (iconos en loop) -->
-  <section id="beneficios" class="max-w-6xl mx-auto px-4 py-16">
+  <!-- ======= BENEFICIOS (con tus tarjetas e íconos) ======= -->
+  <section id="beneficios" class="relative max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-2xl font-semibold">Beneficios clave</h2>
 
     <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Tiempo liberado -->
-      <article class="benefit-card group">
-        <div class="flex items-start gap-3">
-          <div class="icon-wrap group-hover:scale-105 transition-transform">
-            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="8.5" opacity=".95" />
-              <line x1="12" y1="12" x2="12" y2="7" class="clock-hand" />
-              <line x1="12" y1="12" x2="16" y2="12" opacity=".9" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-medium">Tiempo liberado</h3>
-            <p class="mt-2 text-sm text-zinc-600">Más foco en tareas de valor; menos repetición.</p>
-          </div>
+      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
+          ⏱️
         </div>
+        <h3 class="font-medium">Tiempo liberado</h3>
+        <p class="mt-2 text-sm text-zinc-600">Más foco en tareas de valor; menos repetición.</p>
       </article>
 
-      <!-- Menos errores -->
-      <article class="benefit-card group">
-        <div class="flex items-start gap-3">
-          <div class="icon-wrap group-hover:scale-105 transition-transform">
-            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3l7 3v5.5c0 4.5-3.2 7.8-7 9-3.8-1.2-7-4.5-7-9V6l7-3z" opacity=".95"/>
-              <path class="tick-repeat" d="M9 12.5l2 2.2L15.5 10" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-medium">Menos errores</h3>
-            <p class="mt-2 text-sm text-zinc-600">Procesos consistentes y trazables.</p>
-          </div>
+      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
+          🛡️
         </div>
+        <h3 class="font-medium">Menos errores</h3>
+        <p class="mt-2 text-sm text-zinc-600">Procesos consistentes y trazables.</p>
       </article>
 
-      <!-- Mejor atención -->
-      <article class="benefit-card group">
-        <div class="flex items-start gap-3">
-          <div class="icon-wrap group-hover:scale-105 transition-transform">
-            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12c0 3.9-3.6 7-8 7-1.1 0-2.2-.2-3.2-.6L4 20l1.6-3.6C4.9 15.3 4.5 13.7 4.5 12 4.5 8.1 8.1 5 12.5 5S21 8.1 21 12Z" opacity=".95"/>
-              <circle cx="10.2" cy="12.2" r="1.1" class="bubble-dot"/>
-              <circle cx="12.5" cy="12.2" r="1.1" class="bubble-dot delay-1"/>
-              <circle cx="14.8" cy="12.2" r="1.1" class="bubble-dot delay-2"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-medium">Mejor atención</h3>
-            <p class="mt-2 text-sm text-zinc-600">Respuestas más rápidas para tus clientes.</p>
-          </div>
+      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
+          ⚡
         </div>
+        <h3 class="font-medium">Mejor atención</h3>
+        <p class="mt-2 text-sm text-zinc-600">Respuestas más rápidas para tus clientes.</p>
       </article>
 
-      <!-- Escalabilidad -->
-      <article class="benefit-card group">
-        <div class="flex items-start gap-3">
-          <div class="icon-wrap group-hover:scale-105 transition-transform">
-            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 3l7 7-4 1.5-3.5-3.5L14 3z" opacity=".95"/>
-              <path d="M10.5 6.5L14 10l-7.5 7.5-3.5 1 1-3.5L10.5 6.5z" opacity=".95"/>
-              <circle cx="15.7" cy="8.3" r="1.2" />
-              <path class="flame" d="M7 17c1.2 1 1.6 1.8 1.6 2.6S8 21 7 21s-1.6-.7-1.6-1.4S5.8 18 7 17z" fill="white" stroke="none" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-medium">Escalabilidad</h3>
-            <p class="mt-2 text-sm text-zinc-600">Crecé sin sumar carga manual.</p>
-          </div>
+      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
+          📈
         </div>
+        <h3 class="font-medium">Escalabilidad</h3>
+        <p class="mt-2 text-sm text-zinc-600">Crecé sin sumar carga manual.</p>
       </article>
     </div>
   </section>
 
-  <!-- SERVICIOS (iconos en loop) -->
-  <section id="servicios" class="max-w-6xl mx-auto px-4 py-16">
+  <!-- ======= SERVICIOS (como los teníamos) ======= -->
+  <section id="servicios" class="relative max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-2xl font-semibold">Servicios</h2>
 
-    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- WhatsApp / Email -->
-      <article class="service-card group">
-        <div class="flex items-start gap-3">
-          <div class="icon-wrap group-hover:scale-105 transition-transform">
-            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 7h18v10H3z" opacity=".95"/>
-              <path d="M3 7l9 6 9-6" opacity=".95"/>
-              <path d="M19 5c0-1-1.2-2-3-2" class="wave-repeat" />
-            </svg>
-          </div>
-          <div class="flex-1">
-            <h3 class="font-medium">WhatsApp/Email automatizado</h3>
-            <p class="mt-2 text-sm text-zinc-600">
-              Bots, respuestas y funnels de seguimiento.
-            </p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="pill-primary">Ahorro típico</span>
-              <span class="pill-primary">Implementación 2–4 sem</span>
-            </div>
-          </div>
+    <div class="mt-8 grid gap-6 lg:grid-cols-3">
+      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
+          💬
+        </div>
+        <h3 class="font-medium">WhatsApp/Email automatizado</h3>
+        <p class="mt-2 text-sm text-zinc-600">Bots, respuestas y funnels de seguimiento.</p>
+        <div class="mt-4 flex gap-2 text-xs">
+          <span class="px-3 py-1 rounded-full bg-black text-white/95 border border-white/10">Ahorro típico</span>
+          <span class="px-3 py-1 rounded-full bg-black text-white/95 border border-white/10">Implementación 2–4 sem</span>
         </div>
       </article>
 
-      <!-- Facturas -->
-      <article class="service-card group">
-        <div class="flex items-start gap-3">
-          <div class="icon-wrap group-hover:scale-105 transition-transform">
-            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 3h7l4 4v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" opacity=".95"/>
-              <path d="M14 3v4h4" opacity=".95"/>
-              <path class="tick-repeat" d="M8 14l2 2 5-5" />
-            </svg>
-          </div>
-          <div class="flex-1">
-            <h3 class="font-medium">Procesamiento de facturas</h3>
-            <p class="mt-2 text-sm text-zinc-600">
-              Extracción, validación y conciliación contable.
-            </p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="pill-primary">Ahorro típico</span>
-              <span class="pill-primary">Implementación 2–6 sem</span>
-            </div>
-          </div>
+      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
+          📄
+        </div>
+        <h3 class="font-medium">Procesamiento de facturas</h3>
+        <p class="mt-2 text-sm text-zinc-600">Extracción, validación y conciliación contable.</p>
+        <div class="mt-4 flex gap-2 text-xs">
+          <span class="px-3 py-1 rounded-full bg-black text-white/95 border border-white/10">Ahorro típico</span>
+          <span class="px-3 py-1 rounded-full bg-black text-white/95 border border-white/10">Implementación 2–6 sem</span>
         </div>
       </article>
 
-      <!-- Screening de CV con IA -->
-      <article class="service-card group">
-        <div class="flex items-start gap-3">
-          <div class="icon-wrap group-hover:scale-105 transition-transform">
-            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="6.5" class="pulse" />
-              <line x1="16.5" y1="16.5" x2="21" y2="21" />
-            </svg>
-          </div>
-          <div class="flex-1">
-            <h3 class="font-medium">Screening de CV con IA</h3>
-            <p class="mt-2 text-sm text-zinc-600">
-              Lectura de CV/emails, distancia y ranking de compatibilidad.
-            </p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="pill-primary">Ahorro típico</span>
-              <span class="pill-primary">Implementación 2–4 sem</span>
-            </div>
-          </div>
+      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
+          🔎
+        </div>
+        <h3 class="font-medium">Screening de CV con IA</h3>
+        <p class="mt-2 text-sm text-zinc-600">
+          Lectura de CV/emails, distancia y ranking de compatibilidad.
+        </p>
+        <div class="mt-4 flex gap-2 text-xs">
+          <span class="px-3 py-1 rounded-full bg-black text-white/95 border border-white/10">Ahorro típico</span>
+          <span class="px-3 py-1 rounded-full bg-black text-white/95 border border-white/10">Implementación 2–4 sem</span>
         </div>
       </article>
     </div>
-  </section>
-
-  <!-- PROCESO -->
-  <section id="proceso" class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-2xl font-semibold">Cómo trabajamos</h2>
-    <ol class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 list-decimal list-inside">
-      <li class="p-6 rounded-2xl border bg-white/70 backdrop-blur">
-        <h3 class="font-medium">Descubrimiento</h3>
-        <p class="mt-2 text-sm text-zinc-600">Entendemos procesos y definimos alcance.</p>
-      </li>
-      <li class="p-6 rounded-2xl border bg-white/70 backdrop-blur">
-        <h3 class="font-medium">Prototipo</h3>
-        <p class="mt-2 text-sm text-zinc-600">Validación rápida con tu feedback.</p>
-      </li>
-      <li class="p-6 rounded-2xl border bg-white/70 backdrop-blur">
-        <h3 class="font-medium">Testing en paralelo</h3>
-        <p class="mt-2 text-sm text-zinc-600">Sin afectar la operación actual.</p>
-      </li>
-      <li class="p-6 rounded-2xl border bg-white/70 backdrop-blur">
-        <h3 class="font-medium">Producción + soporte</h3>
-        <p class="mt-2 text-sm text-zinc-600">Métricas y mejoras continuas.</p>
-      </li>
-    </ol>
   </section>
 
   <!-- CONTACTO -->
-  <section id="contacto" class="max-w-6xl mx-auto px-4 py-16">
-    <div class="surface p-8">
+  <section id="contacto" class="relative max-w-6xl mx-auto px-4 py-16">
+    <div class="rounded-2xl border p-8 bg-white/70 backdrop-blur">
       <h2 class="text-2xl font-semibold">¿Listo para automatizar?</h2>
       <p class="mt-2 text-sm text-zinc-600">Dejá tus datos y te contactamos.</p>
       <form class="mt-6 grid sm:grid-cols-2 gap-4">
@@ -251,5 +166,4 @@ import logoUrl from "../assets/dala-logo.jpg";
       </form>
     </div>
   </section>
-
 </BaseLayout>
