@@ -7,9 +7,9 @@
    Marca & base global
    ========================= */
 :root {
-  --brand-fuchsia: #c026d3;
-  --brand-purple:  #7c3aed;
-  --page-bg:       #0f1016;  /* fondo oscuro */
+  --brand-fuchsia: #c026d3; /* fucsia */
+  --brand-purple:  #7c3aed; /* violeta */
+  --page-bg:       #0f1016; /* fondo oscuro */
 }
 
 html { scroll-behavior: smooth; }
@@ -61,37 +61,35 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 
 /* =========================
    Fondo animado del HERO
-   (usado en index.astro)
    ========================= */
+
+/* Orbs de color (más visibles) */
 .orb {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(42px);
+  filter: blur(36px);
   mix-blend-mode: screen;
-  opacity: .35;
+  opacity: .50;
   pointer-events: none;
 }
-
 .orb-1 {
-  width: 44rem;
-  height: 44rem;
+  width: 48rem;
+  height: 48rem;
   left: -12rem;
   top: -10rem;
   background:
     radial-gradient(circle at 30% 30%, var(--brand-fuchsia) 0%, var(--brand-purple) 35%, transparent 60%);
   animation: orbFloat1 22s ease-in-out infinite;
 }
-
 .orb-2 {
-  width: 48rem;
-  height: 48rem;
+  width: 52rem;
+  height: 52rem;
   right: -14rem;
   bottom: -12rem;
   background:
     radial-gradient(circle at 70% 70%, #ec4899 0%, #7c3aed 30%, transparent 60%);
   animation: orbFloat2 26s ease-in-out infinite;
 }
-
 @keyframes orbFloat1 {
   0%   { transform: translate(0, 0) rotate(0deg); }
   50%  { transform: translate(26px, 8px) rotate(6deg); }
@@ -103,21 +101,59 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
   100% { transform: translate(0, 0) rotate(0deg); }
 }
 
-/* Líneas y máscara radial para dar profundidad */
+/* Aurora giratoria */
+.aurora::before {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0 55%,
+    rgba(124,58,237,.18) 70%,
+    rgba(192,38,211,.22) 86%,
+    transparent 100%
+  );
+  filter: blur(80px);
+  animation: auroraSpin 18s linear infinite;
+  mix-blend-mode: screen;
+  opacity: .55;
+  pointer-events: none;
+}
+@keyframes auroraSpin { to { transform: rotate(360deg); } }
+
+/* Líneas de fondo */
 .bg-lines {
   position: absolute;
   inset: 0;
-  opacity: .55;
+  opacity: .32;
   background:
     radial-gradient(transparent 60%, rgba(255,255,255,.03) 61%),
     repeating-linear-gradient(
       90deg,
-      rgba(255,255,255,.05) 0px,
-      rgba(255,255,255,.05) 1px,
+      rgba(255,255,255,.06) 0px,
+      rgba(255,255,255,.06) 1px,
       transparent 1px,
       transparent 80px
     );
   -webkit-mask-image: radial-gradient(ellipse at center, black 60%, transparent 100%);
           mask-image: radial-gradient(ellipse at center, black 60%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Spotlight central para levantar contraste del título */
+.hero-spotlight {
+  position: absolute; inset: 0;
+  background: radial-gradient(720px 440px at 50% 45%, rgba(255,255,255,.12), transparent 62%);
+  pointer-events: none;
+}
+
+/* (opcional) tenue resplandor vertical */
+.aurora::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,.06) 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 45%, transparent 75%);
+          mask-image: radial-gradient(ellipse at center, black 45%, transparent 75%);
   pointer-events: none;
 }

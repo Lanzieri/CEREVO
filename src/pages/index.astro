@@ -3,153 +3,190 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="Dala Inc — Automatización & IA"
-  description="Implementamos automatizaciones y agentes de IA para ahorrar tiempo y costos."
+  title="Dala Inc — Automatizaciones con IA"
+  description="Automatiza procesos con IA y n8n para ahorrar tiempo y costos."
 >
-  <!-- HERO centrado (sin columna de demo) -->
-  <section class="relative overflow-hidden">
+  <!-- =========================
+       HERO centrado (sin demo/imagen)
+       ========================= -->
+  <section class="relative min-h-[76vh] flex items-center justify-center overflow-hidden">
     <!-- Fondo animado -->
-    <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="bg-lines"></div>
-    </div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="aurora"></div>
+    <div class="bg-lines"></div>
+    <div class="hero-spotlight"></div>
 
-    <!-- Contenido centrado -->
-    <div class="relative max-w-4xl mx-auto px-4 pt-24 pb-16 text-center">
-      <h1 class="text-[clamp(2.4rem,6vw,4.2rem)] font-semibold leading-tight tracking-tight">
-        Automatiza hoy.
-        <span class="bg-gradient-to-r from-fuchsia-500 via-fuchsia-400 to-purple-500 bg-clip-text text-transparent">
-          Lidera mañana.
+    <!-- Contenido -->
+    <div class="relative z-10 w-full max-w-4xl mx-auto px-6 text-center animate-soft-in">
+      <h1 class="text-white drop-shadow-[0_6px_22px_rgba(0,0,0,.45)] tracking-tight">
+        <span class="block text-5xl md:text-6xl lg:text-7xl font-semibold opacity-[.98]">
+          Automatiza hoy.
+        </span>
+        <span
+          class="mt-3 block text-4xl md:text-5xl lg:text-6xl font-semibold bg-clip-text text-transparent
+                 bg-gradient-to-r from-[#c026d3] via-[#a855f7] to-[#7c3aed]">
+          Eficiencia que se nota.
         </span>
       </h1>
 
-      <p class="mt-5 text-lg text-zinc-300/90">
-        Implementamos automatizaciones y agentes de IA que reducen tiempos operativos,
-        eliminan errores y mejoran la experiencia del cliente.
+      <p class="mt-6 text-base md:text-lg text-zinc-300/90 max-w-2xl mx-auto">
+        Implementamos automatizaciones y agentes de IA que reducen tiempos operativos, eliminan errores
+        y mejoran la experiencia del cliente.
       </p>
 
-      <!-- CTAs -->
-      <div class="mt-8 flex items-center justify-center gap-3 flex-wrap">
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
         <a href="#contacto"
-           class="inline-flex items-center justify-center px-6 py-3 rounded-xl text-white text-sm font-medium
-                  bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500
-                  shadow-[0_8px_30px_-10px_rgba(168,85,247,.55)] transition-all">
+           class="px-5 py-3 rounded-xl text-white text-sm font-medium
+                  bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
           Solicitar plan
         </a>
 
         <a href="#servicios"
-           class="inline-flex items-center justify-center px-6 py-3 rounded-xl text-white text-sm font-medium
-                  bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500
-                  shadow-[0_8px_30px_-10px_rgba(168,85,247,.55)] transition-all">
+           class="px-5 py-3 rounded-xl text-white text-sm font-medium
+                  bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
           Ver servicios
         </a>
       </div>
 
-      <!-- Badges -->
-      <div class="mt-5 flex items-center justify-center gap-3 flex-wrap">
-        <span class="inline-flex px-4 py-1.5 rounded-full text-xs font-medium bg-black text-white/95 border border-white/10">
-          Implementación ágil
-        </span>
-        <span class="inline-flex px-4 py-1.5 rounded-full text-xs font-medium bg-black text-white/95 border border-white/10">
-          Integrable con tu stack
-        </span>
-        <span class="inline-flex px-4 py-1.5 rounded-full text-xs font-medium bg-black text-white/95 border border-white/10">
-          Ahorro de horas/mes
-        </span>
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
+        <span class="px-4 py-2 rounded-full bg-black/80 text-white text-xs">Implementación ágil</span>
+        <span class="px-4 py-2 rounded-full bg-black/80 text-white text-xs">Integrable con tu stack</span>
+        <span class="px-4 py-2 rounded-full bg-black/80 text-white text-xs">Ahorro de horas/mes</span>
       </div>
     </div>
   </section>
 
-  <!-- ======= BENEFICIOS (con tus tarjetas e íconos) ======= -->
+  <!-- =========================
+       BENEFICIOS
+       ========================= -->
   <section id="beneficios" class="relative max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-2xl font-semibold">Beneficios clave</h2>
+    <h2 class="text-2xl font-semibold text-white">Beneficios clave</h2>
 
     <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
-          ⏱️
-        </div>
-        <h3 class="font-medium">Tiempo liberado</h3>
-        <p class="mt-2 text-sm text-zinc-600">Más foco en tareas de valor; menos repetición.</p>
-      </article>
-
-      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
-          🛡️
-        </div>
-        <h3 class="font-medium">Menos errores</h3>
-        <p class="mt-2 text-sm text-zinc-600">Procesos consistentes y trazables.</p>
-      </article>
-
-      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
-          ⚡
-        </div>
-        <h3 class="font-medium">Mejor atención</h3>
-        <p class="mt-2 text-sm text-zinc-600">Respuestas más rápidas para tus clientes.</p>
-      </article>
-
-      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
-          📈
-        </div>
-        <h3 class="font-medium">Escalabilidad</h3>
-        <p class="mt-2 text-sm text-zinc-600">Crecé sin sumar carga manual.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ======= SERVICIOS (como los teníamos) ======= -->
-  <section id="servicios" class="relative max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-2xl font-semibold">Servicios</h2>
-
-    <div class="mt-8 grid gap-6 lg:grid-cols-3">
-      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
-          💬
-        </div>
-        <h3 class="font-medium">WhatsApp/Email automatizado</h3>
-        <p class="mt-2 text-sm text-zinc-600">Bots, respuestas y funnels de seguimiento.</p>
-        <div class="mt-4 flex gap-2 text-xs">
-          <span class="px-3 py-1 rounded-full bg-black text-white/95 border border-white/10">Ahorro típico</span>
-          <span class="px-3 py-1 rounded-full bg-black text-white/95 border border-white/10">Implementación 2–4 sem</span>
+      <!-- Card -->
+      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur animate-soft-in">
+        <div class="flex items-start gap-4">
+          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
+            <!-- reloj/tiempo -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z"/></svg>
+          </span>
+          <div>
+            <h3 class="font-medium text-zinc-900">Tiempo liberado</h3>
+            <p class="mt-2 text-sm text-zinc-600">Más foco en tareas de valor; menos repetición.</p>
+          </div>
         </div>
       </article>
 
-      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
-          📄
-        </div>
-        <h3 class="font-medium">Procesamiento de facturas</h3>
-        <p class="mt-2 text-sm text-zinc-600">Extracción, validación y conciliación contable.</p>
-        <div class="mt-4 flex gap-2 text-xs">
-          <span class="px-3 py-1 rounded-full bg-black text-white/95 border border-white/10">Ahorro típico</span>
-          <span class="px-3 py-1 rounded-full bg-black text-white/95 border border-white/10">Implementación 2–6 sem</span>
+      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur animate-soft-in" style="animation-delay:80ms">
+        <div class="flex items-start gap-4">
+          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
+            <!-- shield/check -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11l3-3m0 0l3 3m-3-3v8m9-4a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </span>
+          <div>
+            <h3 class="font-medium text-zinc-900">Menos errores</h3>
+            <p class="mt-2 text-sm text-zinc-600">Procesos consistentes y trazables.</p>
+          </div>
         </div>
       </article>
 
-      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center text-white shadow-md mb-3">
-          🔎
+      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur animate-soft-in" style="animation-delay:140ms">
+        <div class="flex items-start gap-4">
+          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
+            <!-- chat -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h6m-6 8l-4-4V6a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H7z"/></svg>
+          </span>
+          <div>
+            <h3 class="font-medium text-zinc-900">Mejor atención</h3>
+            <p class="mt-2 text-sm text-zinc-600">Respuestas más rápidas para tus clientes.</p>
+          </div>
         </div>
-        <h3 class="font-medium">Screening de CV con IA</h3>
-        <p class="mt-2 text-sm text-zinc-600">
-          Lectura de CV/emails, distancia y ranking de compatibilidad.
-        </p>
-        <div class="mt-4 flex gap-2 text-xs">
-          <span class="px-3 py-1 rounded-full bg-black text-white/95 border border-white/10">Ahorro típico</span>
-          <span class="px-3 py-1 rounded-full bg-black text-white/95 border border-white/10">Implementación 2–4 sem</span>
+      </article>
+
+      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur animate-soft-in" style="animation-delay:200ms">
+        <div class="flex items-start gap-4">
+          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
+            <!-- trending-up -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17l6-6 4 4 8-8"/></svg>
+          </span>
+          <div>
+            <h3 class="font-medium text-zinc-900">Escalabilidad</h3>
+            <p class="mt-2 text-sm text-zinc-600">Crecé sin sumar carga manual.</p>
+          </div>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- CONTACTO -->
-  <section id="contacto" class="relative max-w-6xl mx-auto px-4 py-16">
-    <div class="rounded-2xl border p-8 bg-white/70 backdrop-blur">
-      <h2 class="text-2xl font-semibold">¿Listo para automatizar?</h2>
-      <p class="mt-2 text-sm text-zinc-600">Dejá tus datos y te contactamos.</p>
+  <!-- =========================
+       SERVICIOS
+       ========================= -->
+  <section id="servicios" class="relative max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-semibold text-white">Servicios</h2>
+
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur">
+        <div class="flex items-start gap-4">
+          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
+            <!-- mail -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </span>
+          <div class="flex-1">
+            <h3 class="font-medium text-zinc-900">WhatsApp/Email automatizado</h3>
+            <p class="mt-2 text-sm text-zinc-600">Bots, respuestas y funnels de seguimiento.</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-black/80 text-white">Ahorro típico</span>
+              <span class="px-3 py-1 rounded-full bg-black/80 text-white">Implementación 2–4 sem</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur">
+        <div class="flex items-start gap-4">
+          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
+            <!-- document -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M9 8h6m2-6H7a2 2 0 00-2 2v16l4-4h8a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
+          </span>
+          <div class="flex-1">
+            <h3 class="font-medium text-zinc-900">Procesamiento de facturas</h3>
+            <p class="mt-2 text-sm text-zinc-600">Extracción, validación y conciliación contable.</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-black/80 text-white">Ahorro típico</span>
+              <span class="px-3 py-1 rounded-full bg-black/80 text-white">Implementación 2–6 sem</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur">
+        <div class="flex items-start gap-4">
+          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
+            <!-- search -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10 18a8 8 0 110-16 8 8 0 010 16z"/></svg>
+          </span>
+          <div class="flex-1">
+            <h3 class="font-medium text-zinc-900">Screening de CV con IA</h3>
+            <p class="mt-2 text-sm text-zinc-600">Lectura de CV/emails, distancia y ranking de compatibilidad.</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-black/80 text-white">Ahorro típico</span>
+              <span class="px-3 py-1 rounded-full bg-black/80 text-white">Implementación 2–4 sem</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- =========================
+       CONTACTO (para el botón)
+       ========================= -->
+  <section id="contacto" class="relative max-w-3xl mx-auto px-4 py-16">
+    <div class="rounded-2xl border bg-white/80 backdrop-blur p-8">
+      <h2 class="text-xl font-semibold text-zinc-900">¿Listo para automatizar?</h2>
+      <p class="mt-2 text-sm text-zinc-600">Dejanos tus datos y te contactamos.</p>
+
       <form class="mt-6 grid sm:grid-cols-2 gap-4">
         <input class="border rounded-xl px-3 py-2" placeholder="Nombre" />
         <input class="border rounded-xl px-3 py-2" placeholder="Email" type="email" />
@@ -160,7 +197,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <option>Interés: Facturas</option>
           <option>Interés: Otros</option>
         </select>
-        <button class="px-4 py-3 rounded-xl bg-black text-white text-sm sm:col-span-2" type="button">
+        <button class="px-4 py-3 rounded-xl bg-gradient-to-r from-[#c026d3] to-[#7c3aed] text-white text-sm sm:col-span-2" type="button">
           Enviar
         </button>
       </form>
