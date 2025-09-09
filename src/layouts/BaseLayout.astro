@@ -7,7 +7,7 @@ const {
 const year = new Date().getFullYear();
 
 import "../styles/global.css";
-import logoUrl from "../assets/dala-logo.jpg"; // <-- asset import, resuelve base automáticamente
+import logoUrl from "../assets/dala-logo.jpg"; // asset base-safe
 ---
 <!doctype html>
 <html lang="es">
@@ -23,11 +23,9 @@ import logoUrl from "../assets/dala-logo.jpg"; // <-- asset import, resuelve bas
     <meta property="og:type" content="website" />
     <meta property="og:image" content="og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-
-    <!-- Color del navegador -->
     <meta name="theme-color" content="#C02F8B" />
 
-    <!-- Favicon & App icons (rutas relativas para que funcionen en /DalaInc/) -->
+    <!-- Favicons (rutas relativas para funcionar en /DalaInc/) -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="favicon-32.png" sizes="32x32" />
     <link rel="icon" href="favicon-192.png" sizes="192x192" />

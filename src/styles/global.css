@@ -2,55 +2,132 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---------- Componentes de marca ---------- */
-@layer components {
-  .btn-primary {
-    @apply px-5 py-3 rounded-xl text-white font-medium
-           bg-gradient-to-r from-brand-500 to-brand2-500
-           hover:opacity-90 transition;
-  }
-
-  .btn-secondary {
-    @apply px-5 py-3 rounded-xl border text-sm font-medium
-           hover:bg-zinc-50 transition;
-  }
-
-  .badge {
-    @apply px-2 py-1 rounded-full border text-xs;
-  }
-
-  /* Nueva pastilla con el mismo degradado que el botón principal */
-  .pill-primary {
-    @apply inline-flex items-center gap-1
-           px-3 py-1.5 rounded-full text-xs font-medium
-           text-white bg-gradient-to-r from-brand-500 to-brand2-500
-           shadow-sm hover:opacity-90 transition;
-  }
-
-  .brand-gradient-text {
-    @apply bg-gradient-to-r from-brand-500 to-brand2-500 bg-clip-text text-transparent;
-  }
-
-  .surface {
-    @apply rounded-2xl bg-white/70 backdrop-blur ring-1 ring-zinc-200/70 shadow-sm;
-  }
+/* ---------- Utilidades de marca ---------- */
+.brand-gradient { background: linear-gradient(135deg, #C02F8B 0%, #7D2FB6 100%); }
+.brand-gradient-text {
+  background: linear-gradient(135deg, #C02F8B 0%, #7D2FB6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-/* ---------- Animaciones (largas) ---------- */
-@layer utilities {
-  @keyframes soft-in-up {
-    from { opacity: 0; transform: translateY(22px) scale(.97); }
-    to   { opacity: 1; transform: translateY(0)    scale(1);   }
-  }
-  .animate-soft-in {
-    animation: soft-in-up 3s cubic-bezier(.16,.84,.44,1) both;
-  }
+/* Botón primario con la paleta de marca */
+.btn-primary{
+  @apply inline-flex items-center justify-center px-4 py-3 rounded-xl text-white font-medium shadow-md transition-transform;
+  background: linear-gradient(135deg, #C02F8B 0%, #7D2FB6 100%);
+}
+.btn-primary:hover{ transform: translateY(-1px); }
+.btn-primary:active{ transform: translateY(0); }
 
-  @keyframes float-slow {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-10px); }
-  }
-  .animate-float-slow {
-    animation: float-slow 14s ease-in-out infinite;
-  }
+/* Pastilla negra */
+.pill-dark{
+  @apply px-3 py-1.5 rounded-full text-xs font-medium bg-black text-white shadow-sm;
+}
+
+/* Pastilla primaria (para tarjetas de servicios) */
+.pill-primary{
+  @apply px-2.5 py-1 rounded-full text-[11px] font-medium text-white;
+  background: linear-gradient(135deg, #C02F8B 0%, #7D2FB6 100%);
+}
+
+/* Superficie “cristal” */
+.surface{
+  @apply rounded-2xl border bg-white/70 backdrop-blur;
+}
+
+.shadow-soft{
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+/* ---------- Animaciones genéricas ---------- */
+@keyframes soft-in{
+  from{ opacity: 0; transform: translateY(8px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+.animate-soft-in{ animation: soft-in .85s ease forwards; }
+
+@keyframes float-slow{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-4px); }
+}
+.animate-float-slow{ animation: float-slow 4.5s ease-in-out infinite; }
+
+/* ---------- Benefit Cards ---------- */
+.benefit-card{
+  @apply p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-soft transition-all duration-500;
+}
+.benefit-card:hover{
+  @apply -translate-y-1 shadow-lg;
+}
+
+/* Icon container con gradiente de marca */
+.icon-wrap{
+  @apply relative h-12 w-12 rounded-xl flex items-center justify-center text-white;
+  background: linear-gradient(135deg, #C02F8B 0%, #7D2FB6 100%);
+  box-shadow: 0 8px 24px rgba(125,47,182,.25);
+}
+.icon-wrap::after{
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: radial-gradient(70% 70% at 30% 30%, rgba(255,255,255,.35), transparent 60%);
+  filter: blur(10px);
+  opacity: .6;
+  pointer-events: none;
+}
+
+/* Micro-animaciones SVG */
+.clock-hand{
+  transform-origin: 12px 12px;
+  animation: rotate-slow 6s linear infinite;
+}
+.draw .tick{
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: draw 1.2s ease forwards .2s;
+}
+.bubble-dot{
+  animation: bubble 1.2s ease-in-out infinite;
+}
+.bubble-dot.delay-1{ animation-delay: .15s; }
+.bubble-dot.delay-2{ animation-delay: .3s; }
+.flame{
+  transform-origin: 7px 19px;
+  animation: flicker .9s ease-in-out infinite alternate;
+}
+
+/* Servicios */
+.service-card{
+  @apply p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-soft transition-all duration-500;
+}
+.service-card:hover{ @apply -translate-y-1 shadow-lg; }
+
+/* Onda del sobre */
+.wave{
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation: draw 1.4s ease forwards .25s;
+}
+
+/* Lupa pulse */
+.pulse{
+  transform-origin: 11px 11px;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes rotate-slow{ to{ transform: rotate(360deg); } }
+@keyframes draw{ to{ stroke-dashoffset: 0; } }
+@keyframes bubble{
+  0%, 80%, 100%{ transform: translateY(0); opacity: .9; }
+  40%{ transform: translateY(-2px); opacity: 1; }
+}
+@keyframes flicker{
+  from{ transform: scaleY(.9); opacity:.9; }
+  to{ transform: scaleY(1.06); opacity:1; }
+}
+@keyframes pulse{
+  0%,100%{ transform: scale(1); opacity:.95; }
+  50%{ transform: scale(1.06); opacity:1; }
 }

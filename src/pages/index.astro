@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import logoUrl from "../assets/dala-logo.jpg"; // logo como asset (base-safe)
+import logoUrl from "../assets/dala-logo.jpg";
 ---
 
 <BaseLayout
@@ -13,7 +13,7 @@ import logoUrl from "../assets/dala-logo.jpg"; // logo como asset (base-safe)
 
     <div class="relative max-w-6xl mx-auto px-4 pt-20 pb-12">
       <div class="grid md:grid-cols-2 gap-10 items-center">
-        <!-- Columna izquierda -->
+        <!-- Izquierda -->
         <div>
           <h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight animate-soft-in">
             Automatiza hoy. <span class="brand-gradient-text">Lidera mañana.</span>
@@ -24,27 +24,21 @@ import logoUrl from "../assets/dala-logo.jpg"; // logo como asset (base-safe)
             errores y mejoran la experiencia del cliente.
           </p>
 
-          <!-- BOTONES: ambos con la misma paleta (gradiente de marca) -->
+          <!-- Botones (misma paleta) -->
           <div class="mt-7 flex gap-3 animate-soft-in" style="animation-delay:600ms">
             <a href="#contacto" class="btn-primary">Solicitar plan</a>
             <a href="#servicios" class="btn-primary">Ver servicios</a>
           </div>
 
-          <!-- PASTILLAS: fondo negro + texto blanco -->
+          <!-- Pastillas (negro + blanco) -->
           <div class="mt-6 flex flex-wrap gap-3 animate-soft-in" style="animation-delay:900ms">
-            <span class="px-3 py-1.5 rounded-full text-xs font-medium bg-black text-white shadow-sm">
-              Implementación ágil
-            </span>
-            <span class="px-3 py-1.5 rounded-full text-xs font-medium bg-black text-white shadow-sm">
-              Integrable con tu stack
-            </span>
-            <span class="px-3 py-1.5 rounded-full text-xs font-medium bg-black text-white shadow-sm">
-              Ahorro de horas/mes
-            </span>
+            <span class="pill-dark">Implementación ágil</span>
+            <span class="pill-dark">Integrable con tu stack</span>
+            <span class="pill-dark">Ahorro de horas/mes</span>
           </div>
         </div>
 
-        <!-- Columna derecha (demo/imagen) -->
+        <!-- Derecha (demo) -->
         <div class="surface p-5 animate-soft-in" style="animation-delay:450ms">
           <p class="text-sm text-zinc-500">Demo / imagen</p>
           <div class="relative mt-2 rounded-xl bg-white flex items-center justify-center overflow-hidden min-h-[260px] md:min-h-[320px]">
@@ -62,61 +56,165 @@ import logoUrl from "../assets/dala-logo.jpg"; // logo como asset (base-safe)
     </div>
   </section>
 
-  <!-- BENEFICIOS -->
+  <!-- BENEFICIOS (iconos animados) -->
   <section id="beneficios" class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-2xl font-semibold">Beneficios clave</h2>
+
     <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="p-6 rounded-2xl border bg-white/70 backdrop-blur">
-        <h3 class="font-medium">Tiempo liberado</h3>
-        <p class="mt-2 text-sm text-zinc-600">Más foco en tareas de valor; menos repetición.</p>
-      </div>
-      <div class="p-6 rounded-2xl border bg-white/70 backdrop-blur">
-        <h3 class="font-medium">Menos errores</h3>
-        <p class="mt-2 text-sm text-zinc-600">Procesos consistentes y trazables.</p>
-      </div>
-      <div class="p-6 rounded-2xl border bg-white/70 backdrop-blur">
-        <h3 class="font-medium">Mejor atención</h3>
-        <p class="mt-2 text-sm text-zinc-600">Respuestas más rápidas para tus clientes.</p>
-      </div>
-      <div class="p-6 rounded-2xl border bg-white/70 backdrop-blur">
-        <h3 class="font-medium">Escalabilidad</h3>
-        <p class="mt-2 text-sm text-zinc-600">Crecé sin sumar carga manual.</p>
-      </div>
+      <!-- Tiempo liberado -->
+      <article class="benefit-card group">
+        <div class="flex items-start gap-3">
+          <div class="icon-wrap group-hover:scale-105 transition-transform">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8.5" opacity=".95" />
+              <line x1="12" y1="12" x2="12" y2="7" class="clock-hand" />
+              <line x1="12" y1="12" x2="16" y2="12" opacity=".9" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-medium">Tiempo liberado</h3>
+            <p class="mt-2 text-sm text-zinc-600">
+              Más foco en tareas de valor; menos repetición.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Menos errores -->
+      <article class="benefit-card group">
+        <div class="flex items-start gap-3">
+          <div class="icon-wrap group-hover:scale-105 transition-transform">
+            <svg viewBox="0 0 24 24" class="h-6 w-6 draw" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 3v5.5c0 4.5-3.2 7.8-7 9-3.8-1.2-7-4.5-7-9V6l7-3z" opacity=".95"/>
+              <path class="tick" d="M9 12.5l2 2.2L15.5 10" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-medium">Menos errores</h3>
+            <p class="mt-2 text-sm text-zinc-600">
+              Procesos consistentes y trazables.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Mejor atención -->
+      <article class="benefit-card group">
+        <div class="flex items-start gap-3">
+          <div class="icon-wrap group-hover:scale-105 transition-transform">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12c0 3.9-3.6 7-8 7-1.1 0-2.2-.2-3.2-.6L4 20l1.6-3.6C4.9 15.3 4.5 13.7 4.5 12 4.5 8.1 8.1 5 12.5 5S21 8.1 21 12Z" opacity=".95"/>
+              <circle cx="10.2" cy="12.2" r="1.1" class="bubble-dot"/>
+              <circle cx="12.5" cy="12.2" r="1.1" class="bubble-dot delay-1"/>
+              <circle cx="14.8" cy="12.2" r="1.1" class="bubble-dot delay-2"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-medium">Mejor atención</h3>
+            <p class="mt-2 text-sm text-zinc-600">
+              Respuestas más rápidas para tus clientes.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Escalabilidad -->
+      <article class="benefit-card group">
+        <div class="flex items-start gap-3">
+          <div class="icon-wrap group-hover:scale-105 transition-transform">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 3l7 7-4 1.5-3.5-3.5L14 3z" opacity=".95"/>
+              <path d="M10.5 6.5L14 10l-7.5 7.5-3.5 1 1-3.5L10.5 6.5z" opacity=".95"/>
+              <circle cx="15.7" cy="8.3" r="1.2" />
+              <path class="flame" d="M7 17c1.2 1 1.6 1.8 1.6 2.6S8 21 7 21s-1.6-.7-1.6-1.4S5.8 18 7 17z" fill="white" stroke="none" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-medium">Escalabilidad</h3>
+            <p class="mt-2 text-sm text-zinc-600">
+              Crecé sin sumar carga manual.
+            </p>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- SERVICIOS -->
+  <!-- SERVICIOS (con iconos) -->
   <section id="servicios" class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-2xl font-semibold">Servicios</h2>
+
     <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur">
-        <h3 class="font-medium">WhatsApp/Email automatizado</h3>
-        <p class="mt-2 text-sm text-zinc-600">Bots, respuestas y funnels de seguimiento.</p>
-        <div class="mt-3 flex flex-wrap gap-2 text-xs">
-          <span class="pill-primary">Ahorro típico</span>
-          <span class="pill-primary">Implementación 2–4 sem</span>
+      <!-- WhatsApp / Email -->
+      <article class="service-card group">
+        <div class="flex items-start gap-3">
+          <div class="icon-wrap group-hover:scale-105 transition-transform">
+            <!-- Sobre con “onda” -->
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7h18v10H3z" opacity=".95"/>
+              <path d="M3 7l9 6 9-6" opacity=".95"/>
+              <path d="M19 5c0-1-1.2-2-3-2" class="wave" />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-medium">WhatsApp/Email automatizado</h3>
+            <p class="mt-2 text-sm text-zinc-600">
+              Bots, respuestas y funnels de seguimiento.
+            </p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="pill-primary">Ahorro típico</span>
+              <span class="pill-primary">Implementación 2–4 sem</span>
+            </div>
+          </div>
         </div>
       </article>
 
-      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur">
-        <h3 class="font-medium">Procesamiento de facturas</h3>
-        <p class="mt-2 text-sm text-zinc-600">Extracción, validación y conciliación contable.</p>
-        <div class="mt-3 flex flex-wrap gap-2 text-xs">
-          <span class="pill-primary">Ahorro típico</span>
-          <span class="pill-primary">Implementación 2–6 sem</span>
+      <!-- Facturas -->
+      <article class="service-card group">
+        <div class="flex items-start gap-3">
+          <div class="icon-wrap group-hover:scale-105 transition-transform">
+            <!-- Documento + tilde -->
+            <svg viewBox="0 0 24 24" class="h-6 w-6 draw" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 3h7l4 4v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" opacity=".95"/>
+              <path d="M14 3v4h4" opacity=".95"/>
+              <path class="tick" d="M8 14l2 2 5-5" />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-medium">Procesamiento de facturas</h3>
+            <p class="mt-2 text-sm text-zinc-600">
+              Extracción, validación y conciliación contable.
+            </p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="pill-primary">Ahorro típico</span>
+              <span class="pill-primary">Implementación 2–6 sem</span>
+            </div>
+          </div>
         </div>
       </article>
 
-      <article class="p-6 rounded-2xl border bg-white/70 backdrop-blur">
-        <h3 class="font-medium">Screening de CV con IA</h3>
-        <p class="mt-2 text-sm text-zinc-600">Lectura de CV/emails, distancia y ranking de compatibilidad.</p>
-        <div class="mt-3 flex flex-wrap gap-2 text-xs">
-          <span class="pill-primary">Ahorro típico</span>
-          <span class="pill-primary">Implementación 2–4 sem</span>
+      <!-- Screening de CV con IA -->
+      <article class="service-card group">
+        <div class="flex items-start gap-3">
+          <div class="icon-wrap group-hover:scale-105 transition-transform">
+            <!-- Lupa “pulse” -->
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="6.5" class="pulse" />
+              <line x1="16.5" y1="16.5" x2="21" y2="21" />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-medium">Screening de CV con IA</h3>
+            <p class="mt-2 text-sm text-zinc-600">
+              Lectura de CV/emails, distancia y ranking de compatibilidad.
+            </p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="pill-primary">Ahorro típico</span>
+              <span class="pill-primary">Implementación 2–4 sem</span>
+            </div>
+          </div>
         </div>
       </article>
-
     </div>
   </section>
 
