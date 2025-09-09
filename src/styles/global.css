@@ -52,19 +52,26 @@
 }
 .animate-float-slow{ animation: float-slow 4.5s ease-in-out infinite; }
 
-/* ---------- Benefit Cards ---------- */
+/* ---------- Benefit / Service Cards ---------- */
 .benefit-card{
   @apply p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-soft transition-all duration-500;
 }
-.benefit-card:hover{
-  @apply -translate-y-1 shadow-lg;
-}
+.benefit-card:hover{ @apply -translate-y-1 shadow-lg; }
 
-/* Icon container con gradiente de marca */
+.service-card{
+  @apply p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-soft transition-all duration-500;
+}
+.service-card:hover{ @apply -translate-y-1 shadow-lg; }
+
+/* ---------- Contenedor de iconos con gradiente animado + flotación ---------- */
 .icon-wrap{
   @apply relative h-12 w-12 rounded-xl flex items-center justify-center text-white;
-  background: linear-gradient(135deg, #C02F8B 0%, #7D2FB6 100%);
+  background: linear-gradient(135deg, #C02F8B, #7D2FB6, #C02F8B);
+  background-size: 220% 220%;
   box-shadow: 0 8px 24px rgba(125,47,182,.25);
+  animation:
+    gradientShift 9s ease-in-out infinite alternate,
+    float-slow 6s ease-in-out infinite;
 }
 .icon-wrap::after{
   content: "";
@@ -76,47 +83,52 @@
   opacity: .6;
   pointer-events: none;
 }
+@keyframes gradientShift{
+  0%{ background-position: 0% 50%; }
+  100%{ background-position: 100% 50%; }
+}
 
-/* Micro-animaciones SVG */
+/* ---------- Micro-animaciones SVG (loop permanente) ---------- */
+/* Aguja del reloj */
 .clock-hand{
   transform-origin: 12px 12px;
   animation: rotate-slow 6s linear infinite;
 }
-.draw .tick{
+
+/* Check que se dibuja y borra en bucle */
+.tick-repeat{
   stroke-dasharray: 60;
   stroke-dashoffset: 60;
-  animation: draw 1.2s ease forwards .2s;
+  animation: draw 1.8s ease-in-out infinite alternate .2s;
 }
+
+/* Onda del sobre que se dibuja y borra en bucle */
+.wave-repeat{
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation: draw 2.2s ease-in-out infinite alternate .25s;
+}
+
+/* Burbujas del chat */
 .bubble-dot{
   animation: bubble 1.2s ease-in-out infinite;
 }
 .bubble-dot.delay-1{ animation-delay: .15s; }
 .bubble-dot.delay-2{ animation-delay: .3s; }
+
+/* Llama del cohete */
 .flame{
   transform-origin: 7px 19px;
   animation: flicker .9s ease-in-out infinite alternate;
 }
 
-/* Servicios */
-.service-card{
-  @apply p-6 rounded-2xl border bg-white/70 backdrop-blur shadow-soft transition-all duration-500;
-}
-.service-card:hover{ @apply -translate-y-1 shadow-lg; }
-
-/* Onda del sobre */
-.wave{
-  stroke-dasharray: 20;
-  stroke-dashoffset: 20;
-  animation: draw 1.4s ease forwards .25s;
-}
-
-/* Lupa pulse */
+/* Lupa */
 .pulse{
   transform-origin: 11px 11px;
   animation: pulse 2.2s ease-in-out infinite;
 }
 
-/* Keyframes */
+/* Keyframes compartidos */
 @keyframes rotate-slow{ to{ transform: rotate(360deg); } }
 @keyframes draw{ to{ stroke-dashoffset: 0; } }
 @keyframes bubble{
@@ -130,4 +142,13 @@
 @keyframes pulse{
   0%,100%{ transform: scale(1); opacity:.95; }
   50%{ transform: scale(1.06); opacity:1; }
+}
+
+/* ---------- Accesibilidad: respeta reduce motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  .animate-soft-in, .animate-float-slow, .icon-wrap,
+  .clock-hand, .tick-repeat, .wave-repeat, .bubble-dot,
+  .flame, .pulse {
+    animation: none !important;
+  }
 }
