@@ -3,9 +3,11 @@ const {
   title = "Dala Inc — Automatizaciones con IA",
   description = "Automatiza procesos y escala tu negocio con IA y n8n",
 } = Astro.props;
+
 const year = new Date().getFullYear();
 
 import "../styles/global.css";
+import logoUrl from "../assets/dala-logo.jpg"; // <-- asset import, resuelve base automáticamente
 ---
 <!doctype html>
 <html lang="es">
@@ -19,24 +21,24 @@ import "../styles/global.css";
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image" content="og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Color del navegador -->
     <meta name="theme-color" content="#C02F8B" />
 
-    <!-- Favicon & App icons (poné estos archivos en /public/) -->
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon-32.png" sizes="32x32" />
-    <link rel="icon" href="/favicon-192.png" sizes="192x192" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <!-- Favicon & App icons (rutas relativas para que funcionen en /DalaInc/) -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="favicon-192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
   </head>
 
   <body class="antialiased text-zinc-900 bg-zinc-300">
     <header class="border-b bg-white/80 backdrop-blur">
       <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#" class="inline-flex items-center gap-3">
-          <img src="/dala-logo.jpg" alt="Dala Inc" class="h-7 w-auto" />
+        <a href="." class="inline-flex items-center gap-3">
+          <img src={logoUrl} alt="Dala Inc" class="h-7 w-auto" />
           <span class="sr-only">Dala Inc</span>
         </a>
         <nav class="hidden sm:flex gap-6 text-sm">
