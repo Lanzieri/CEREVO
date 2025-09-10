@@ -172,7 +172,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <div class="pills">
             <!-- varios errores y 3 resueltos -->
             <span class="pill pill--err"   style="--i:0">✕ Error</span>
-            <span class="pill pill--err"   style="--i:1">✕ Error</span>
+            
+            <span class="pill pill--ok"   style="--i:1">✕ Error</span>
             <span class="pill pill--err"   style="--i:2">✕ Error</span>
             <span class="pill pill--ok"    style="--i:3">▣ Resuelto</span>
             <span class="pill pill--err"   style="--i:4">✕ Error</span>
@@ -195,68 +196,353 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 </section>
 
 
+<!-- ===================== SERVICIOS (dinámico) ===================== -->
+<section id="servicios" class="relative z-[1] py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">Servicios de Automatización</h2>
+      <p class="mt-4 text-zinc-300 max-w-3xl mx-auto">
+        Implementamos flujos con n8n, LLMs y APIs para reducir tiempos, errores y costos.
+        Elegí un servicio y <button class="btn-link js-open-calc align-middle" data-service="General">calculá tu ahorro</button>.
+      </p>
+    </div>
 
-
-
-  <!-- =========================
-       SERVICIOS
-       ========================= -->
-  <section id="servicios" class="relative max-w-6xl mx-auto px-4 py-10">
-    <h2 class="text-2xl font-semibold text-white">Servicios</h2>
-
-    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur">
-        <div class="flex items-start gap-4">
-          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
-            <!-- mail -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          </span>
-          <div class="flex-1">
-            <h3 class="font-medium text-zinc-900">WhatsApp/Email automatizado</h3>
-            <p class="mt-2 text-sm text-zinc-600">Bots, respuestas y funnels de seguimiento.</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="px-3 py-1 rounded-full bg-black/80 text-white">Ahorro típico</span>
-              <span class="px-3 py-1 rounded-full bg-black/80 text-white">Implementación 2–4 sem</span>
-            </div>
+    <div class="grid gap-6 md:gap-8 md:grid-cols-2">
+      <!-- ========== 1) Filtro de candidatos con IA ========== -->
+      <article class="simple-card service-card js-reveal">
+        <div class="service-card__header">
+          <div class="service-icon floaty">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <defs><linearGradient id="sg1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#c026d3"/><stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient></defs>
+              <rect x="4" y="3" width="14" height="18" rx="2" fill="url(#sg1)"/>
+              <path d="M9 7h6M9 11h6M9 15h4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="6" cy="9" r="1.3" fill="#fff"/><circle cx="6" cy="13" r="1.3" fill="#fff"/>
+            </svg>
           </div>
+          <h3 class="title">Filtro de candidatos con IA</h3>
+        </div>
+        <p class="copy">
+          Ingesta de CVs desde Gmail/Zimbra/Plataformas, extracción de datos, geolocalización a la dirección del puesto
+          y ranking por distancia + experiencia.
+        </p>
+        <ul class="service-list">
+          <li>Entrada: PDF, DOCX, email o foto de CV</li>
+          <li>Salida: Google Sheets con ranking y métricas</li>
+          <li>Integraciones: Gmail, Drive, Sheets, Webhooks</li>
+        </ul>
+        <div class="service-badges">
+          <span class="badge">Implementación: <b class="metric" data-to="14">0</b> días</span>
+          <span class="badge">Ahorro típico: <b class="metric" data-to="20">0</b> h/sem</span>
+        </div>
+        <div class="service-cta">
+          <button class="btn-primary js-open-calc" data-service="Filtro de candidatos">Calcular ahorro</button>
+          <a href="#contacto" class="btn-secondary">Quiero esto</a>
+          <button class="btn-link js-toggle-details">Ver detalles</button>
+        </div>
+        <div class="service-extra">
+          <ul>
+            <li>Normalización de direcciones y cálculo de distancia (geocoding libre).</li>
+            <li>Reglas personalizadas de ranking (experiencia, disponibilidad, zona).</li>
+            <li>Auditoría: registro de decisiones y trazabilidad por candidato.</li>
+          </ul>
         </div>
       </article>
 
-      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur">
-        <div class="flex items-start gap-4">
-          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
-            <!-- document -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M9 8h6m2-6H7a2 2 0 00-2 2v16l4-4h8a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
-          </span>
-          <div class="flex-1">
-            <h3 class="font-medium text-zinc-900">Procesamiento de facturas</h3>
-            <p class="mt-2 text-sm text-zinc-600">Extracción, validación y conciliación contable.</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="px-3 py-1 rounded-full bg-black/80 text-white">Ahorro típico</span>
-              <span class="px-3 py-1 rounded-full bg-black/80 text-white">Implementación 2–6 sem</span>
-            </div>
+      <!-- ========== 2) Procesamiento de facturas/OCR ========== -->
+      <article class="simple-card service-card js-reveal">
+        <div class="service-card__header">
+          <div class="service-icon floaty">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <defs><linearGradient id="sg2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#c026d3"/><stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient></defs>
+              <path d="M6 3h10a2 2 0 0 1 2 2v14l-3-2-3 2-3-2-3 2V5a2 2 0 0 1 2-2z" fill="url(#sg2)"/>
+              <path d="M8 8h6M8 11h8M8 14h4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
           </div>
+          <h3 class="title">Procesamiento de facturas</h3>
+        </div>
+        <p class="copy">OCR + extracción (monto, IVA, proveedor, fecha) y volcado a planilla o sistema.</p>
+        <ul class="service-list">
+          <li>Entrada: Email adjunto / carpeta Drive</li>
+          <li>Validaciones: totales, IVA, moneda</li>
+          <li>Salida: Google Sheets / Webhook ERP</li>
+        </ul>
+        <div class="service-badges">
+          <span class="badge">Implementación: <b class="metric" data-to="10">0</b> días</span>
+          <span class="badge">Ahorro típico: <b class="metric" data-to="12">0</b> h/sem</span>
+        </div>
+        <div class="service-cta">
+          <button class="btn-primary js-open-calc" data-service="Procesamiento de facturas">Calcular ahorro</button>
+          <a href="#contacto" class="btn-secondary">Quiero esto</a>
+          <button class="btn-link js-toggle-details">Ver detalles</button>
+        </div>
+        <div class="service-extra">
+          <ul>
+            <li>Detección de duplicados y alertas de diferencias en totales/IVA.</li>
+            <li>Exportación a PDF “normalizado” (para archivo/legal).</li>
+            <li>Webhook listo para APIs contables.</li>
+          </ul>
         </div>
       </article>
 
-      <article class="p-6 rounded-2xl bg-white/70 border backdrop-blur">
-        <div class="flex items-start gap-4">
-          <span class="inline-flex h-10 w-10 rounded-xl bg-gradient-to-br from-[#c026d3] to-[#7c3aed] text-white items-center justify-center shadow">
-            <!-- search -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10 18a8 8 0 110-16 8 8 0 010 16z"/></svg>
-          </span>
-          <div class="flex-1">
-            <h3 class="font-medium text-zinc-900">Screening de CV con IA</h3>
-            <p class="mt-2 text-sm text-zinc-600">Lectura de CV/emails, distancia y ranking de compatibilidad.</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="px-3 py-1 rounded-full bg-black/80 text-white">Ahorro típico</span>
-              <span class="px-3 py-1 rounded-full bg-black/80 text-white">Implementación 2–4 sem</span>
-            </div>
+      <!-- ========== 3) Captación de leads (con scraping) ========== -->
+      <article class="simple-card service-card js-reveal">
+        <div class="service-card__header">
+          <div class="service-icon floaty">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <defs><linearGradient id="sg3" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#c026d3"/><stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient></defs>
+              <path d="M6 7h4v5a2 2 0 1 1-4 0V7zm8 0h4v5a2 2 0 1 1-4 0V7z" fill="url(#sg3)"/>
+              <path d="M6 7V6a6 6 0 0 1 12 0v1" stroke="#fff" stroke-width="1.6"/>
+            </svg>
           </div>
+          <h3 class="title">Captación de leads</h3>
+        </div>
+        <p class="copy">
+          Formularios, chat de calificación y rutas automáticas. **Incluye scraping** (sitio propio/competencias,
+          listados/portales) para enriquecer leads con datos clave.
+        </p>
+        <ul class="service-list">
+          <li>Entrada: Webform/chat/WhatsApp + scraping</li>
+          <li>Reglas: scoring, asignación, recordatorios</li>
+          <li>Salida: CRM / Sheets / Email</li>
+        </ul>
+        <div class="service-badges">
+          <span class="badge">Implementación: <b class="metric" data-to="12">0</b> días</span>
+          <span class="badge">Ahorro típico: <b class="metric" data-to="10">0</b> h/sem</span>
+        </div>
+        <div class="service-cta">
+          <button class="btn-primary js-open-calc" data-service="Captación de leads">Calcular ahorro</button>
+          <a href="#contacto" class="btn-secondary">Quiero esto</a>
+          <button class="btn-link js-toggle-details">Ver detalles</button>
+        </div>
+        <div class="service-extra">
+          <ul>
+            <li>Scrapers configurables con límites éticos/legales y rotación de user-agents.</li>
+            <li>Enriquecimiento con IA (normalización de nombre/empresa/redes).</li>
+            <li>Dash de conversiones básico + alertas a WhatsApp/Telegram.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- ========== 4) Alimentos & Mercados ========== -->
+      <article class="simple-card service-card js-reveal">
+        <div class="service-card__header">
+          <div class="service-icon floaty">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <defs><linearGradient id="sg4" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#c026d3"/><stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient></defs>
+              <path d="M6 6h14l-2 8H8L6 6z" fill="url(#sg4)"/>
+              <circle cx="9" cy="18" r="1.6" fill="#fff"/><circle cx="17" cy="18" r="1.6" fill="#fff"/>
+            </svg>
+          </div>
+          <h3 class="title">Alimentos & Mercados</h3>
+        </div>
+        <p class="copy">Pedidos, control de stock y alertas de reposición. Reportes diarios a WhatsApp o email.</p>
+        <ul class="service-list">
+          <li>Integración con Sheets/ERP</li>
+          <li>Alertas: mínimos de stock, vencimientos</li>
+          <li>Panel básico con métricas</li>
+        </ul>
+        <div class="service-badges">
+          <span class="badge">Implementación: <b class="metric" data-to="20">0</b> días</span>
+          <span class="badge">Ahorro típico: <b class="metric" data-to="15">0</b> h/sem</span>
+        </div>
+        <div class="service-cta">
+          <button class="btn-primary js-open-calc" data-service="Alimentos y mercados">Calcular ahorro</button>
+          <a href="#contacto" class="btn-secondary">Quiero esto</a>
+          <button class="btn-link js-toggle-details">Ver detalles</button>
+        </div>
+        <div class="service-extra">
+          <ul>
+            <li>Picking list automático y comprobantes de entrega.</li>
+            <li>Integración con balanzas/lectores (según soporte).</li>
+            <li>Proyecciones simples de demanda.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- ========== 5) Base de datos + Chatbot ==========
+           (RAG sobre tus docs + chat interno) -->
+      <article class="simple-card service-card js-reveal">
+        <div class="service-card__header">
+          <div class="service-icon floaty">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <defs><linearGradient id="sg5" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#c026d3"/><stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient></defs>
+              <path d="M4 7h16v10H4z" fill="url(#sg5)"/>
+              <circle cx="8" cy="12" r="1.4" fill="#fff"/><circle cx="12" cy="12" r="1.4" fill="#fff"/><circle cx="16" cy="12" r="1.4" fill="#fff"/>
+            </svg>
+          </div>
+          <h3 class="title">Base de datos + Chatbot</h3>
+        </div>
+        <p class="copy">
+          Unificamos PDFs, Docs, Emails y Sheets en una base vectorial y montamos un chatbot privado que contesta con tus políticas y documentos.
+        </p>
+        <ul class="service-list">
+          <li>Indexación segura (RAG) y panel de ingestión</li>
+          <li>Chat web/Slack/WhatsApp con citas y fuentes</li>
+          <li>Control de acceso por roles</li>
+        </ul>
+        <div class="service-badges">
+          <span class="badge">MVP: 7–10 días</span>
+          <span class="badge">Entrenamiento incremental</span>
+        </div>
+        <div class="service-cta">
+          <button class="btn-primary js-open-calc" data-service="Base de datos + Chatbot">Calcular ahorro</button>
+          <a href="#contacto" class="btn-secondary">Quiero esto</a>
+          <button class="btn-link js-toggle-details">Ver detalles</button>
+        </div>
+        <div class="service-extra">
+          <ul>
+            <li>Soporte para múltiples idiomas y documentos escaneados.</li>
+            <li>Modo seguro: respuestas solo con citas verificables.</li>
+            <li>API para que otras apps consulten tu base.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- ========== 6) Automatización a medida ========== -->
+      <article class="simple-card service-card js-reveal">
+        <div class="service-card__header">
+          <div class="service-icon floaty">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <defs><linearGradient id="sg6" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#c026d3"/><stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient></defs>
+              <path d="M6 6h12v12H6z" fill="url(#sg6)"/>
+              <path d="M6 12h12M12 6v12" stroke="#fff" stroke-width="1.6"/>
+            </svg>
+          </div>
+          <h3 class="title">Automatización a medida</h3>
+        </div>
+        <p class="copy">
+          Diseñamos una solución 100% personalizada para tu proceso: discovery, PoC, implementación y soporte.
+        </p>
+        <ul class="service-list">
+          <li>Discovery de 2–4 días: mapeo de procesos y KPIs</li>
+          <li>PoC en 1–2 semanas (según complejidad)</li>
+          <li>Integraciones a medida y documentación</li>
+        </ul>
+        <div class="service-badges">
+          <span class="badge">Roadmap + entregables</span>
+          <span class="badge">SLA de soporte</span>
+        </div>
+        <div class="service-cta">
+          <button class="btn-primary js-open-calc" data-service="Automatización a medida">Calcular ahorro</button>
+          <a href="#contacto" class="btn-secondary">Quiero esto</a>
+          <button class="btn-link js-toggle-details">Ver detalles</button>
+        </div>
+        <div class="service-extra">
+          <ul>
+            <li>Conectamos con tus apps internas/externas (APIs, webhooks, RPA).</li>
+            <li>Entrenamos al equipo y dejamos paneles de monitoreo.</li>
+            <li>Iteramos por sprints con metas claras.</li>
+          </ul>
         </div>
       </article>
     </div>
-  </section>
+  </div>
+
+  <!-- ===== Modal Calculadora (reutilizada) ===== -->
+  <dialog id="calcModal" class="calc-modal">
+    <form method="dialog" class="calc-card">
+      <header class="calc-header">
+        <h4 id="calcTitle">Calculador de ahorro</h4>
+        <button class="calc-close" aria-label="Cerrar">✕</button>
+      </header>
+
+      <div class="calc-grid">
+        <label>Tareas por semana <input type="number" min="0" step="1" value="50" id="c_tasks"/></label>
+        <label>Minutos por tarea <input type="number" min="0" step="1" value="6" id="c_minutes"/></label>
+        <label>Costo hora (USD) <input type="number" min="0" step="0.5" value="10" id="c_rate"/></label>
+      </div>
+
+      <div class="calc-out">
+        <div><span>Horas/mes ahorradas</span><strong id="c_hours">0</strong></div>
+        <div><span>Ahorro mensual (USD)</span><strong id="c_saving">0</strong></div>
+      </div>
+
+      <footer class="calc-footer">
+        <button class="btn-primary" value="default">Cerrar</button>
+        <a href="#contacto" class="btn-secondary">Quiero este ahorro</a>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- ===== Script: micro-interacciones ===== -->
+  <script type="module">
+    // Calculadora
+    const modal = document.getElementById('calcModal');
+    const title = document.getElementById('calcTitle');
+    const tasks = document.getElementById('c_tasks');
+    const minutes = document.getElementById('c_minutes');
+    const rate = document.getElementById('c_rate');
+    const outH = document.getElementById('c_hours');
+    const outS = document.getElementById('c_saving');
+    const WEEK_TO_MONTH = 4.33;
+    const recalc = () => {
+      const t = Math.max(0, Number(tasks.value||0));
+      const m = Math.max(0, Number(minutes.value||0));
+      const r = Math.max(0, Number(rate.value||0));
+      const hours = ((t*m)/60)*WEEK_TO_MONTH;
+      outH.textContent = hours.toFixed(1);
+      outS.textContent = (hours*r).toFixed(0);
+    };
+    [tasks, minutes, rate].forEach(i => i.addEventListener('input', recalc));
+    document.querySelectorAll('.js-open-calc').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        title.textContent = `Calculador de ahorro — ${btn.dataset.service||'General'}`;
+        recalc(); modal.showModal();
+      });
+    });
+    modal?.addEventListener('click', e=>{
+      const card = modal.querySelector('.calc-card').getBoundingClientRect();
+      const o = e.clientX<card.left||e.clientX>card.right||e.clientY<card.top||e.clientY>card.bottom;
+      if(o) modal.close();
+    });
+    modal?.querySelector('.calc-close')?.addEventListener('click', ()=>modal.close());
+
+    // Desplegables "Ver detalles"
+    document.querySelectorAll('.service-card').forEach(card=>{
+      card.querySelector('.js-toggle-details')?.addEventListener('click', ()=>{
+        card.classList.toggle('open');
+      });
+    });
+
+    // Aparición suave + contadores en badges
+    const appear = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          // animate counters inside this card only once
+          e.target.querySelectorAll('.metric').forEach(el=>{
+            if(el.dataset.animated) return;
+            el.dataset.animated = '1';
+            const to = Number(el.dataset.to||0);
+            let cur = 0;
+            const step = Math.max(1, Math.ceil(to/40));
+            const tick = () => {
+              cur = Math.min(cur+step, to);
+              el.textContent = cur;
+              if(cur < to) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          });
+          appear.unobserve(e.target);
+        }
+      });
+    }, {threshold: .2});
+    document.querySelectorAll('.service-card.js-reveal').forEach(el=>appear.observe(el));
+  </script>
+</section>
+
 
   <!-- =========================
        CONTACTO (para el botón)
