@@ -465,3 +465,993 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
   50%  { transform: translate3d(0,-2px,30px) scale(1); }
   100% { transform: translate3d(0,-24px,30px) scale(.98); opacity:.0; }
 }
+/* ===========================================================
+   TARJETA 1 — downchart (reducción animada “hacia abajo”)
+   =========================================================== */
+.downchart { position:relative; height:230px; border-radius:16px; overflow:hidden; }
+.downchart__grid{
+  position:absolute; inset:0;
+  background:
+    repeating-linear-gradient(-45deg, rgba(255,255,255,.08) 0 8px, rgba(255,255,255,0) 8px 16px),
+    radial-gradient(transparent 60%, rgba(255,255,255,.06) 61%);
+  opacity:.35;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 65%, transparent 90%);
+          mask-image: radial-gradient(ellipse at center, black 65%, transparent 90%);
+}
+.downchart__bars{ position:absolute; inset:14% 6% 10% 6%; display:flex; align-items:flex-end; gap:10px; }
+.downchart .bar{
+  flex:1 0 auto; border-radius:8px 8px 4px 4px;
+  background:
+    linear-gradient(180deg, rgba(192,38,211,.65), rgba(124,58,237,.25)),
+    repeating-linear-gradient(180deg, rgba(255,255,255,.12) 0 6px, rgba(255,255,255,0) 6px 12px);
+  box-shadow: 0 8px 18px rgba(124,58,237,.25);
+  height: 70%;
+  animation: barFall 5s ease-in-out infinite;
+}
+.downchart .bar.b1  { animation-delay: .0s;  }
+.downchart .bar.b2  { animation-delay: .25s; }
+.downchart .bar.b3  { animation-delay: .5s;  }
+.downchart .bar.b4  { animation-delay: .75s; }
+.downchart .bar.b5  { animation-delay: 1s;   }
+.downchart .bar.b6  { animation-delay: 1.25s;}
+.downchart .bar.b7  { animation-delay: 1.5s; }
+.downchart .bar.b8  { animation-delay: 1.75s;}
+.downchart .bar.b9  { animation-delay: 2s;   }
+.downchart .bar.b10 { animation-delay: 2.25s;}
+
+@keyframes barFall{
+  0%   { height:78%; transform:translateY(0);     }
+  30%  { height:66%; transform:translateY(0);     }
+  55%  { height:48%; transform:translateY(0);     }
+  75%  { height:38%; transform:translateY(0);     }
+  90%  { height:32%; transform:translateY(-2px);  }
+  100% { height:28%; transform:translateY(0);     }
+}
+
+/* línea de tendencia descendente */
+.downchart__trend{
+  position:absolute; left:8%; right:10%; top:36%;
+  height:3px; background: linear-gradient(90deg, rgba(255,255,255,.0), rgba(255,255,255,.75), rgba(255,255,255,.0));
+  transform: rotate(-14deg);
+  filter: drop-shadow(0 0 6px rgba(255,255,255,.45));
+  animation: trendBlink 2.4s ease-in-out infinite;
+}
+@keyframes trendBlink{
+  0%,100% { opacity:.65; } 50% { opacity:1; }
+}
+
+/* brillo que recorre la línea */
+.downchart__glint{
+  position:absolute; left:8%; top:36%;
+  width:18px; height:18px; border-radius:9999px; transform: rotate(-14deg) translateY(-7px);
+  background: radial-gradient(#fff, rgba(255,255,255,.2) 60%, transparent 70%);
+  animation: glintRun 2.4s linear infinite;
+}
+@keyframes glintRun{
+  0%   { transform: rotate(-14deg) translateX(0)    translateY(-7px); opacity:.0; }
+  10%  { opacity:1; }
+  50%  { transform: rotate(-14deg) translateX(560px) translateY(-7px); }
+  90%  { opacity:1; }
+  100% { transform: rotate(-14deg) translateX(1120px) translateY(-7px); opacity:.0; }
+}
+
+/* flecha “hacia abajo” */
+.downchart__arrow{
+  position:absolute; right:22px; bottom:22px;
+  width:18px; height:18px; border-left:3px solid #fff; border-bottom:3px solid #fff; transform: rotate(-45deg);
+  filter: drop-shadow(0 0 6px rgba(255,255,255,.65));
+}
+
+/* ===========================================================
+   TARJETA 2 — gauge (encaja completo y más nítido)
+   =========================================================== */
+.card-visual.gauge { height:240px; }
+.gauge--fit{ transform: scale(.94); transform-origin:center 60%; }
+
+.gauge{
+  position:relative; border-radius:16px; overflow:hidden;
+  background: rgba(18,19,28,.75);
+  border:1px solid rgba(192,38,211,.14);
+  backdrop-filter: blur(8px) saturate(140%);
+}
+.gauge__arc{
+  position:absolute; left:50%; top:62%; width:300px; height:300px;
+  transform:translate(-50%,-50%);
+  border-radius:9999px;
+  background:
+    conic-gradient(from 210deg, transparent 0 40deg,
+      rgba(124,58,237,.26) 40deg, rgba(192,38,211,.42) 140deg,
+      transparent 140deg 360deg);
+  -webkit-mask:
+    radial-gradient(circle at 50% 50%, transparent 64%, black 64.2%),
+    radial-gradient(circle at 50% 50%, black 70%, transparent 70.2%);
+          mask:
+    radial-gradient(circle at 50% 50%, transparent 64%, black 64.2%),
+    radial-gradient(circle at 50% 50%, black 70%, transparent 70.2%);
+  filter: blur(1.2px);
+}
+.gauge__sweep{
+  position:absolute; left:50%; top:62%; width:300px; height:300px;
+  transform:translate(-50%,-50%);
+  border-radius:9999px;
+  background: conic-gradient(from 210deg, transparent 0, rgba(255,255,255,.22) 20deg, transparent 40deg);
+  -webkit-mask: radial-gradient(circle at 50% 50%, transparent 64%, black 64.2%);
+          mask: radial-gradient(circle at 50% 50%, transparent 64%, black 64.2%);
+  animation: sweep 3s cubic-bezier(.2,.8,.2,1) infinite;
+  mix-blend-mode: screen;
+}
+@keyframes sweep{
+  0%   { transform: translate(-50%,-50%) rotate(0deg);   opacity:.8; }
+  50%  { transform: translate(-50%,-50%) rotate(120deg); opacity:1;  }
+  100% { transform: translate(-50%,-50%) rotate(0deg);   opacity:.8; }
+}
+.gauge__needle{
+  position:absolute; left:50%; top:62%;
+  width:4px; height:98px; border-radius:2px;
+  background: linear-gradient(180deg, #fff, #f1e1ff);
+  transform-origin: 50% 84%;
+  transform: translate(-50%,-50%) rotate(-18deg);
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.65));
+  animation: needle-swing 2.6s ease-in-out infinite;
+}
+@keyframes needle-swing{
+  0%   { transform: translate(-50%,-50%) rotate(-18deg); }
+  50%  { transform: translate(-50%,-50%) rotate(32deg);  }
+  100% { transform: translate(-50%,-50%) rotate(-18deg); }
+}
+.gauge__tick{
+  position:absolute; left:50%; top:62%; width:4px; height:16px; border-radius:2px;
+  background: rgba(255,255,255,.22); transform-origin: bottom center;
+  transform: translate(-50%,-50%);
+  animation: tick-glow 2.4s ease-in-out infinite;
+}
+.gauge__tick.t1 { transform: translate(-50%,-50%) rotate(-35deg); animation-delay: .0s; }
+.gauge__tick.t2 { transform: translate(-50%,-50%) rotate(-17deg); animation-delay: .2s; }
+.gauge__tick.t3 { transform: translate(-50%,-50%) rotate(0deg);   animation-delay: .4s; }
+.gauge__tick.t4 { transform: translate(-50%,-50%) rotate(17deg);  animation-delay: .6s; }
+.gauge__tick.t5 { transform: translate(-50%,-50%) rotate(35deg);  animation-delay: .8s; }
+@keyframes tick-glow{
+  0%,100% { background: rgba(255,255,255,.22); box-shadow:none; }
+  50%     { background: rgba(255,255,255,.55); box-shadow: 0 0 10px rgba(255,255,255,.35); }
+}
+
+/* ===========================================================
+   TARJETA 3 — más “error/resuelto” a ambos lados
+   =========================================================== */
+.pill-board{ position:relative; height:230px; border-radius:16px; overflow:hidden;
+  background: rgba(18,19,28,.75); border:1px solid rgba(192,38,211,.14); }
+
+.pill-stream{ position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; }
+.pill-stream.center { inset:0; }
+.pill-stream.side.left  { left:4%;  right:auto; width:26%; }
+.pill-stream.side.right { right:4%; left:auto;  width:26%; }
+
+.pill{ --bg: rgba(239,68,68,.16); --bd: rgba(239,68,68,.45); --fg:#fecaca;
+  display:inline-flex; align-items:center; gap:.45rem; padding:.35rem .7rem;
+  border-radius:999px; font-size:.8rem; background:var(--bg); color:var(--fg);
+  border:1px solid var(--bd); box-shadow:0 8px 18px rgba(239,68,68,.18);
+  animation: pillFlow 3.2s ease-in-out infinite; transform: translateZ(30px); }
+.pill--ok{ --bg: rgba(34,197,94,.16); --bd: rgba(34,197,94,.45); --fg:#dcfce7;
+  box-shadow: 0 8px 18px rgba(34,197,94,.22), 0 0 24px rgba(34,197,94,.25) inset; }
+@keyframes pillFlow{
+  0%   { transform: translate3d(0,22px,30px) scale(.98); opacity:.0; }
+  25%  { opacity:1; }
+  50%  { transform: translate3d(0,-2px,30px)  scale(1); }
+  100% { transform: translate3d(0,-24px,30px) scale(.98); opacity:.0; }
+}
+
+/* desfases para que haya “muchas” pastillas */
+.pill-stream.side.left  .pill:nth-child(1){ animation-delay:.0s;  }
+.pill-stream.side.left  .pill:nth-child(2){ animation-delay:.35s; }
+.pill-stream.side.left  .pill:nth-child(3){ animation-delay:.7s;  }
+.pill-stream.center     .pill:nth-child(1){ animation-delay:.2s;  }
+.pill-stream.center     .pill:nth-child(2){ animation-delay:.55s; }
+.pill-stream.center     .pill:nth-child(3){ animation-delay:.9s;  }
+.pill-stream.center     .pill:nth-child(4){ animation-delay:1.4s; }
+.pill-stream.side.right .pill:nth-child(1){ animation-delay:.15s; }
+.pill-stream.side.right .pill:nth-child(2){ animation-delay:.5s;  }
+.pill-stream.side.right .pill:nth-child(3){ animation-delay:.85s; }
+
+/* Modo “reducir efectos” (toggle) */
+:root.effects-low .downchart .bar,
+:root.effects-low .downchart__glint,
+:root.effects-low .downchart__trend,
+:root.effects-low .gauge__sweep,
+:root.effects-low .gauge__needle,
+:root.effects-low .pill{ animation-duration: 40% !important; animation-iteration-count: 0 !important; }
+/* =========================================================
+   BENEFICIOS — Tarjetas + animaciones (versión final)
+   ========================================================= */
+
+.benefits-section { position: relative; }
+
+/* Grid */
+.benefits-grid { align-items: stretch; }
+
+/* ----------------- Card shell ----------------- */
+.benefit-card{
+  position:relative; border-radius:18px; padding:1px;
+  background:
+    linear-gradient(140deg,
+      rgba(124,58,237,.45) 0%,
+      rgba(192,38,211,.35) 35%,
+      rgba(255,255,255,.08) 100%);
+  box-shadow: 0 14px 38px rgba(0,0,0,.45);
+  overflow:hidden; isolation:isolate;
+}
+
+/* Panel visual (arriba) */
+.viz{
+  height:220px; border-radius:16px; margin:18px; position:relative; overflow:hidden;
+  background: rgba(16,16,24,.78);
+  border:1px solid rgba(192,38,211,.14);
+  backdrop-filter: blur(6px) saturate(140%);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+}
+
+/* Panel de contenido (abajo) – OSCURO + texto BLANCO */
+.card-body{
+  padding:20px; border-radius:16px; margin:12px 18px 18px;
+  background: linear-gradient(180deg, rgba(12,13,20,.95), rgba(17,18,26,.92));
+  border:1px solid rgba(192,38,211,.22);
+  color:#E8EAF2; position:relative;
+}
+.card-title{ margin:0 0 6px; color:#fff; font-weight:800; font-size:1.05rem; }
+.card-text{ color:#E5E7EB; line-height:1.6; font-size:.95rem; }
+
+/* ======= Card 1: Gráfica descendente ======= */
+.viz-bars{
+  background:
+    repeating-linear-gradient(-45deg, rgba(255,255,255,.05) 0 12px, transparent 12px 24px),
+    radial-gradient(900px 500px at -20% -30%, rgba(124,58,237,.25), transparent 60%),
+    radial-gradient(900px 500px at 120% 120%, rgba(192,38,211,.25), transparent 60%),
+    rgba(16,16,24,.75);
+}
+.viz-bars .bars{ position:absolute; left:6%; right:6%; bottom:10%; height:70%; }
+.viz-bars .bar{
+  position:absolute; bottom:0; width:7%;
+  border-radius:8px 8px 4px 4px;
+  background:
+    linear-gradient(180deg, rgba(192,38,211,.8), rgba(124,58,237,.55));
+  box-shadow: 0 8px 18px rgba(192,38,211,.22);
+  animation: barWave 6.2s ease-in-out infinite;
+}
+.viz-bars .b1{ left:0%;    --h:72%; animation-delay:0s; }
+.viz-bars .b2{ left:10%;   --h:68%; animation-delay:.2s; }
+.viz-bars .b3{ left:20%;   --h:65%; animation-delay:.4s; }
+.viz-bars .b4{ left:30%;   --h:60%; animation-delay:.6s; }
+.viz-bars .b5{ left:40%;   --h:54%; animation-delay:.8s; }
+.viz-bars .b6{ left:50%;   --h:48%; animation-delay:1.0s; }
+.viz-bars .b7{ left:60%;   --h:42%; animation-delay:1.2s; }
+.viz-bars .b8{ left:70%;   --h:36%; animation-delay:1.4s; }
+.viz-bars .b9{ left:80%;   --h:30%; animation-delay:1.6s; }
+.viz-bars .b10{ left:90%;  --h:24%; animation-delay:1.8s; }
+
+@keyframes barWave{
+  0%,100%{ height: calc(var(--h) * .95); }
+  40%    { height: calc(var(--h)); }
+  70%    { height: calc(var(--h) * .55); }
+}
+
+/* línea de tendencia + chispa */
+.trend-line{
+  position:absolute; left:8%; right:8%; top:24%;
+  height:2px; background: linear-gradient(90deg, rgba(255,255,255,.0), rgba(255,255,255,.55), rgba(255,255,255,0));
+  transform: rotate(6deg); /* leve pendiente */
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.35));
+}
+.trend-spark{
+  position:absolute; top:22%; left:8%;
+  width:12px; height:12px; border-radius:999px; background:#fff;
+  box-shadow: 0 0 10px #fff, 0 0 24px var(--brand-fuchsia), 0 0 40px var(--brand-fuchsia);
+  animation: sparkRun 2.6s linear infinite;
+  transform: rotate(6deg) translateY(0);
+}
+@keyframes sparkRun{
+  0%   { transform: translateX(0) rotate(6deg); opacity:.0; }
+  10%  { opacity:1; }
+  50%  { transform: translateX(55vw) rotate(6deg); }
+  90%  { opacity:1; }
+  100% { transform: translateX(110vw) rotate(6deg); opacity:.0; }
+}
+
+/* ======= Card 2: Velocímetro ======= */
+.viz-speedo{ display:grid; place-items:center; }
+.viz-speedo .speedo-arc{
+  position:absolute; width:320px; height:320px; border-radius:9999px;
+  background:
+    conic-gradient(from 210deg,
+      transparent 0 25deg,
+      rgba(124,58,237,.35) 25deg 140deg,
+      transparent 140deg 360deg);
+  -webkit-mask:
+    radial-gradient(circle at 50% 50%, transparent 66%, black 66.2%),
+    radial-gradient(circle at 50% 50%, black 74%, transparent 74.2%);
+          mask:
+    radial-gradient(circle at 50% 50%, transparent 66%, black 66.2%),
+    radial-gradient(circle at 50% 50%, black 74%, transparent 74.2%);
+  filter: blur(1px);
+}
+.viz-speedo .speedo-glow{
+  position:absolute; width:340px; height:340px; border-radius:9999px;
+  background: radial-gradient(220px 120px at 50% 75%, rgba(192,38,211,.25), transparent 60%);
+  mix-blend-mode: screen; pointer-events:none;
+}
+.viz-speedo .speedo-needle{
+  position:absolute; width:4px; height:120px; background: linear-gradient(#fff,#f1e1ff);
+  border-radius:2px; transform-origin: bottom center; bottom:26%; left:50%;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.55));
+  animation: needleSweep 2.8s ease-in-out infinite;
+}
+@keyframes needleSweep{
+  0%   { transform: translateX(-50%) rotate(-22deg); }
+  50%  { transform: translateX(-50%) rotate(32deg); }
+  100% { transform: translateX(-50%) rotate(-22deg); }
+}
+/* ticks (cada 20) */
+.viz-speedo .tick{
+  position:absolute; width:4px; height:18px; background: rgba(255,255,255,.28); border-radius:2px;
+  bottom:26%; left:50%; transform-origin: bottom center;
+}
+.viz-speedo .tick.t-40{ transform: translateX(-50%) rotate(-40deg); }
+.viz-speedo .tick.t-20{ transform: translateX(-50%) rotate(-20deg); }
+.viz-speedo .tick.t0  { transform: translateX(-50%) rotate(0deg);   }
+.viz-speedo .tick.t20 { transform: translateX(-50%) rotate(20deg);  }
+.viz-speedo .tick.t40 { transform: translateX(-50%) rotate(40deg);  }
+.viz-speedo .tick.t60 { transform: translateX(-50%) rotate(60deg);  }
+.viz-speedo .tick.t80 { transform: translateX(-50%) rotate(80deg);  }
+.viz-speedo .tick.t100{ transform: translateX(-50%) rotate(100deg); }
+.viz-speedo .tick.t120{ transform: translateX(-50%) rotate(120deg); }
+
+/* ======= Card 3: Errores — columnas izquierda/derecha ======= */
+.viz-errors{ display:grid; place-items:center; }
+.viz-errors .col{ position:absolute; top:-30%; bottom:-30%; width:40%; pointer-events:none; }
+.viz-errors .col-left{ left:2%; }
+.viz-errors .col-right{ right:2%; }
+.viz-errors .pill{
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.35rem .7rem; border-radius:999px; font-size:.85rem; white-space:nowrap;
+  margin:.5rem 0; position:relative;
+}
+.pill-err{
+  color:#fecaca; background: rgba(239,68,68,.16); border:1px solid rgba(239,68,68,.45);
+  box-shadow: 0 8px 18px rgba(239,68,68,.18);
+  animation: fallLoop 6s linear infinite;
+}
+.pill-ok{
+  color:#dcfce7; background: rgba(34,197,94,.16); border:1px solid rgba(34,197,94,.45);
+  box-shadow: 0 8px 18px rgba(34,197,94,.22);
+  position:absolute; bottom:16%; padding:.5rem 1rem;
+}
+@keyframes fallLoop{
+  0%   { transform: translateY(-120%); opacity:.0; }
+  10%  { opacity:1; }
+  90%  { opacity:1; }
+  100% { transform: translateY(120%); opacity:.0; }
+}
+.viz-errors .col-left .pill:nth-child(1){ animation-delay:.0s; }
+.viz-errors .col-left .pill:nth-child(2){ animation-delay:.8s; }
+.viz-errors .col-left .pill:nth-child(3){ animation-delay:1.6s; }
+.viz-errors .col-left .pill:nth-child(4){ animation-delay:2.4s; }
+.viz-errors .col-right .pill:nth-child(1){ animation-delay:.4s; }
+.viz-errors .col-right .pill:nth-child(2){ animation-delay:1.2s; }
+.viz-errors .col-right .pill:nth-child(3){ animation-delay:2.0s; }
+.viz-errors .col-right .pill:nth-child(4){ animation-delay:2.8s; }
+
+/* -------- Modo “reducir efectos” -------- */
+.effects-low .viz-bars .bar{ animation-duration: 10s; }
+.effects-low .trend-spark{ animation-duration: 4s; }
+.effects-low .speedo-needle{ animation-duration: 4.5s; }
+.effects-low .pill-err{ animation-duration: 9s; }
+
+/* Hover tilt feedback (sutil) */
+.benefit-card:hover .viz{
+  box-shadow: 0 10px 30px rgba(124,58,237,.24), 0 30px 60px rgba(0,0,0,.35);
+  transition: box-shadow .3s ease;
+}
+/* =========================
+   Beneficios – contenedor
+   ========================= */
+.benefits-section {}
+.benefits-grid { align-items: stretch; }
+
+.benefit-card{
+  position:relative; border-radius:18px; padding:1px;
+  background: linear-gradient(140deg,
+      rgba(124,58,237,.45) 0%,
+      rgba(192,38,211,.35) 35%,
+      rgba(255,255,255,.08) 100%);
+  box-shadow: 0 14px 38px rgba(0,0,0,.45);
+  overflow:hidden; isolation:isolate;
+}
+
+/* Panel visual arriba */
+.viz{
+  height:220px; border-radius:16px; margin:18px; position:relative; overflow:hidden;
+  background: rgba(16,16,24,.78);
+  border:1px solid rgba(192,38,211,.14);
+  backdrop-filter: blur(6px) saturate(140%);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+}
+
+/* Panel de contenido abajo: oscuro + texto blanco */
+.card-body{
+  padding:20px; border-radius:16px; margin:12px 18px 18px;
+  background: linear-gradient(180deg, rgba(12,13,20,.95), rgba(17,18,26,.92));
+  border:1px solid rgba(192,38,211,.22);
+  color:#E8EAF2;
+}
+.card-title{ margin:0 0 6px; color:#fff; font-weight:800; font-size:1.05rem; }
+.card-text{ color:#E5E7EB; line-height:1.6; font-size:.95rem; }
+
+/* =========================================
+   CARD 1 — BARRAS DESCENDENTES + LÍNEA
+   ========================================= */
+.viz-bars{
+  background:
+    repeating-linear-gradient(-45deg, rgba(255,255,255,.055) 0 12px, transparent 12px 24px),
+    radial-gradient(900px 500px at -20% -30%, rgba(124,58,237,.25), transparent 60%),
+    radial-gradient(900px 500px at 120% 120%, rgba(192,38,211,.25), transparent 60%),
+    rgba(16,16,24,.75);
+}
+.viz-bars .bars{ position:absolute; left:6%; right:6%; bottom:12%; height:68%; }
+.viz-bars .bar{
+  position:absolute; bottom:0; width:7%;
+  border-radius:8px 8px 4px 4px;
+  background: linear-gradient(180deg, rgba(192,38,211,.9), rgba(124,58,237,.55));
+  box-shadow: 0 8px 18px rgba(192,38,211,.22);
+  animation: barWave 5.6s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.play-on-visible.is-playing .bar{ animation-play-state: running; }
+
+.viz-bars .b1{ left:0%;    --h:72%; animation-delay:0s; }
+.viz-bars .b2{ left:10%;   --h:68%; animation-delay:.15s; }
+.viz-bars .b3{ left:20%;   --h:63%; animation-delay:.30s; }
+.viz-bars .b4{ left:30%;   --h:58%; animation-delay:.45s; }
+.viz-bars .b5{ left:40%;   --h:52%; animation-delay:.60s; }
+.viz-bars .b6{ left:50%;   --h:46%; animation-delay:.75s; }
+.viz-bars .b7{ left:60%;   --h:40%; animation-delay:.90s; }
+.viz-bars .b8{ left:70%;   --h:34%; animation-delay:1.05s; }
+.viz-bars .b9{ left:80%;   --h:28%; animation-delay:1.20s; }
+.viz-bars .b10{ left:90%;  --h:22%; animation-delay:1.35s; }
+
+@keyframes barWave{
+  0%,100%{ height: calc(var(--h) * .95); }
+  35%    { height: calc(var(--h)); }
+  70%    { height: calc(var(--h) * .55); }
+}
+
+/* línea oblicua + chispa + flecha final */
+.trend-line{
+  position:absolute; left:8%; right:12%; top:26%;
+  height:2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.6), rgba(255,255,255,0));
+  transform: rotate(6deg);
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.35));
+  animation: lineGlow 2.6s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.play-on-visible.is-playing .trend-line{ animation-play-state: running; }
+@keyframes lineGlow{
+  0%,100%{ opacity:.75 }
+  50%    { opacity:1 }
+}
+.trend-spark{
+  position:absolute; top:24%; left:8%;
+  width:12px; height:12px; border-radius:999px; background:#fff;
+  box-shadow: 0 0 10px #fff, 0 0 24px var(--brand-fuchsia), 0 0 40px var(--brand-fuchsia);
+  transform: rotate(6deg) translateY(0);
+  animation: sparkRun 2.6s linear infinite;
+  animation-play-state: paused;
+}
+.play-on-visible.is-playing .trend-spark{ animation-play-state: running; }
+@keyframes sparkRun{
+  0%   { transform: translateX(0) rotate(6deg); opacity:0; }
+  10%  { opacity:1; }
+  90%  { opacity:1; }
+  100% { transform: translateX(78vw) rotate(6deg); opacity:0; }
+}
+.trend-arrow{
+  position:absolute; right:8%; top:45%;
+  width:0; height:0;
+  border-left:8px solid transparent;
+  border-right:8px solid transparent;
+  border-top:12px solid rgba(255,255,255,.9);
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.35));
+  animation: arrowPulse 1.8s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.play-on-visible.is-playing .trend-arrow{ animation-play-state: running; }
+@keyframes arrowPulse{
+  0%,100%{ transform: translateY(0); opacity:.8; }
+  50%    { transform: translateY(6px); opacity:1; }
+}
+/* scan diagonal */
+.viz-bars .scan{
+  position:absolute; inset:0;
+  background: linear-gradient(110deg, transparent 45%, rgba(255,255,255,.06) 50%, transparent 55%);
+  mix-blend-mode: screen;
+  animation: scanMove 3.8s linear infinite;
+  animation-play-state: paused;
+}
+.play-on-visible.is-playing .scan{ animation-play-state: running; }
+@keyframes scanMove{
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+/* =========================================
+   CARD 2 — VELOCÍMETRO COMPLETO
+   ========================================= */
+.viz-speedo{ display:grid; place-items:center; }
+.speedo-arc{
+  position:absolute; width:320px; height:320px; border-radius:9999px;
+  background:
+    conic-gradient(from 210deg, transparent 0 25deg,
+      rgba(124,58,237,.35) 25deg 140deg, transparent 140deg 360deg);
+  -webkit-mask:
+    radial-gradient(circle at 50% 50%, transparent 66%, black 66.2%),
+    radial-gradient(circle at 50% 50%, black 74%, transparent 74.2%);
+          mask:
+    radial-gradient(circle at 50% 50%, transparent 66%, black 66.2%),
+    radial-gradient(circle at 50% 50%, black 74%, transparent 74.2%);
+  filter: blur(1px);
+}
+.speedo-glow{
+  position:absolute; width:340px; height:340px; border-radius:9999px;
+  background: radial-gradient(220px 120px at 50% 75%, rgba(192,38,211,.25), transparent 60%);
+  mix-blend-mode: screen;
+}
+
+/* Segmentos que se iluminan en secuencia */
+.seg{
+  position:absolute; width:8px; height:26px; border-radius:4px;
+  background: rgba(255,255,255,.14);
+  bottom:28%; left:50%; transform-origin: bottom center;
+  animation: segBlink 2.8s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.play-on-visible.is-playing .seg{ animation-play-state: running; }
+@keyframes segBlink{
+  0%,100%{ background: rgba(255,255,255,.14); box-shadow:none; }
+  50%    { background: rgba(255,255,255,.6); box-shadow:0 0 12px rgba(255,255,255,.5); }
+}
+.seg.s1{ transform: translateX(-50%) rotate(-10deg);  animation-delay:.0s; }
+.seg.s2{ transform: translateX(-50%) rotate( 10deg);  animation-delay:.15s; }
+.seg.s3{ transform: translateX(-50%) rotate( 30deg);  animation-delay:.30s; }
+.seg.s4{ transform: translateX(-50%) rotate( 50deg);  animation-delay:.45s; }
+.seg.s5{ transform: translateX(-50%) rotate( 70deg);  animation-delay:.60s; }
+.seg.s6{ transform: translateX(-50%) rotate( 90deg);  animation-delay:.75s; }
+.seg.s7{ transform: translateX(-50%) rotate(110deg);  animation-delay:.90s; }
+.seg.s8{ transform: translateX(-50%) rotate(125deg);  animation-delay:1.05s; }
+
+/* Ticks */
+.tick{
+  position:absolute; width:4px; height:18px; background: rgba(255,255,255,.28); border-radius:2px;
+  bottom:26%; left:50%; transform-origin: bottom center;
+}
+.tick.t-40{ transform: translateX(-50%) rotate(-40deg); }
+.tick.t-20{ transform: translateX(-50%) rotate(-20deg); }
+.tick.t0  { transform: translateX(-50%) rotate(0deg);   }
+.tick.t20 { transform: translateX(-50%) rotate(20deg);  }
+.tick.t40 { transform: translateX(-50%) rotate(40deg);  }
+.tick.t60 { transform: translateX(-50%) rotate(60deg);  }
+.tick.t80 { transform: translateX(-50%) rotate(80deg);  }
+.tick.t100{ transform: translateX(-50%) rotate(100deg); }
+.tick.t120{ transform: translateX(-50%) rotate(120deg); }
+
+/* Aguja con elasticidad */
+.speedo-needle{
+  position:absolute; width:4px; height:120px; background: linear-gradient(#fff,#f1e1ff);
+  border-radius:2px; transform-origin: bottom center; bottom:26%; left:50%;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.55));
+  animation: needleSweep 2.7s cubic-bezier(.22,.9,.12,1.02) infinite;
+  animation-play-state: paused;
+}
+.play-on-visible.is-playing .speedo-needle{ animation-play-state: running; }
+@keyframes needleSweep{
+  0%   { transform: translateX(-50%) rotate(-22deg); }
+  48%  { transform: translateX(-50%) rotate(34deg); }
+  60%  { transform: translateX(-50%) rotate(31deg); } /* rebote */
+  100% { transform: translateX(-50%) rotate(-22deg); }
+}
+
+/* Display digital */
+.speedo-digital{
+  position:absolute; bottom:24%; left:50%; transform: translateX(-50%);
+  font-variant-numeric: tabular-nums; font-weight:700;
+  color:#e9e9ff; background: rgba(124,58,237,.18);
+  border:1px solid rgba(124,58,237,.4);
+  padding:.2rem .5rem; border-radius:.4rem; font-size:.9rem;
+  box-shadow: inset 0 0 12px rgba(192,38,211,.25);
+}
+
+/* =========================================
+   CARD 3 — ERRORES A AMBOS LADOS
+   ========================================= */
+.viz-errors{ display:grid; place-items:center; }
+.viz-errors .col{ position:absolute; top:-35%; bottom:-35%; width:40%; pointer-events:none; }
+.viz-errors .col-left{ left:2%; }
+.viz-errors .col-right{ right:2%; }
+
+.pill{
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.35rem .7rem; border-radius:999px; font-size:.85rem; white-space:nowrap;
+  margin:.6rem 0; position:relative;
+}
+.pill-err{
+  color:#fecaca; background: rgba(239,68,68,.16); border:1px solid rgba(239,68,68,.45);
+  box-shadow: 0 8px 18px rgba(239,68,68,.18);
+  animation: fallLoop 6.4s linear infinite, drift 3.6s ease-in-out infinite;
+  animation-play-state: paused, paused;
+}
+.play-on-visible.is-playing .pill-err{ animation-play-state: running, running; }
+.pill-ok{
+  color:#dcfce7; background: rgba(34,197,94,.16); border:1px solid rgba(34,197,94,.45);
+  box-shadow: 0 8px 18px rgba(34,197,94,.22);
+  position:absolute; bottom:16%; padding:.5rem 1rem;
+  animation: okPulse 2.2s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.play-on-visible.is-playing .pill-ok{ animation-play-state: running; }
+
+@keyframes fallLoop{
+  0%   { transform: translateY(-120%); opacity:.0; }
+  10%  { opacity:1; }
+  90%  { opacity:1; }
+  100% { transform: translateY(120%); opacity:.0; }
+}
+@keyframes drift{
+  0%,100%{ transform: translateX(0) }
+  50%    { transform: translateX(6px) }
+}
+@keyframes okPulse{
+  0%,100%{ box-shadow: 0 0 0 0 rgba(34,197,94,.0); }
+  50%    { box-shadow: 0 0 18px 4px rgba(34,197,94,.25); }
+}
+
+/* ===== Modo “reducir efectos” ===== */
+.effects-low .bar{ animation-duration: 9s; }
+.effects-low .trend-spark{ animation-duration: 4s; }
+.effects-low .scan{ animation-duration: 6s; }
+.effects-low .seg{ animation-duration: 4.2s; }
+.effects-low .speedo-needle{ animation-duration: 4.5s; }
+.effects-low .pill-err{ animation-duration: 9s; }
+/* ==========================================================
+   BENEFICIOS — estilo base de tarjetas (sin tocar tu paleta)
+   ========================================================== */
+
+.benefit-card{
+  position:relative;
+  border-radius:18px;
+  padding:1px; /* borde glow */
+  background:
+    linear-gradient(140deg,
+      rgba(124,58,237,.45) 0%,
+      rgba(192,38,211,.35) 35%,
+      rgba(255,255,255,.08) 100%);
+  box-shadow: 0 14px 38px rgba(0,0,0,.45);
+  overflow:hidden;
+  isolation:isolate;
+  transform-style: preserve-3d;
+}
+.benefit-card > .card-visual{
+  position:relative; height:220px; border-radius:16px;
+  background: rgba(18,19,28,.75);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  border:1px solid rgba(192,38,211,.14);
+  overflow:hidden;
+}
+.benefit-card > .card-body{
+  padding:20px;
+  border-radius:16px;
+  margin:12px;
+  background:
+    linear-gradient(180deg, rgba(12,13,20,.92), rgba(17,18,26,.9));
+  border:1px solid rgba(192,38,211,.22);
+  color:#E8EAF2; /* <<< texto claro SIEMPRE */
+}
+.card-title{ margin:0 0 6px; color:#fff; font-weight:700; font-size:1.05rem; }
+.card-text{ color:#E5E7EB; line-height:1.6; font-size:.95rem }
+
+/* ==== Modo "menos efectos" (móvil / toggle) ==== */
+.effects-low .benefit-card .lg-path{ animation-duration: 10s !important; }
+.effects-low .benefit-card .lg-scan{ animation-duration: 8s !important; opacity:.25; }
+.effects-low .benefit-card .g-needle{ animation-duration: 5.2s !important; }
+.effects-low .benefit-card .pill{ animation-duration: 7s !important; opacity:.8; }
+
+/* ==========================================================
+   TARJETA 1 — Línea descendente animada
+   ========================================================== */
+
+.viz-linegraph{
+  --stripe: repeating-linear-gradient(-45deg, rgba(255,255,255,.06) 0 6px, rgba(255,255,255,0) 6px 12px);
+  background:
+    radial-gradient(1200px 600px at 110% -20%, rgba(192,38,211,.10), transparent 60%),
+    var(--stripe),
+    rgba(18,19,28,.75);
+}
+.lg-svg{ position:absolute; inset:0 }
+.lg-path{
+  filter: drop-shadow(0 0 9px rgba(192,38,211,.45));
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: lg-draw 4.6s cubic-bezier(.2,.8,.2,1) forwards,
+             lg-breathe 5s ease-in-out 4.6s infinite alternate;
+}
+@keyframes lg-draw{
+  to{ stroke-dashoffset: 0; }
+}
+@keyframes lg-breathe{
+  0%  { filter: drop-shadow(0 0 8px rgba(192,38,211,.35)); }
+  100%{ filter: drop-shadow(0 0 14px rgba(192,38,211,.6));  }
+}
+/* Scan/brillo que pasa */
+.lg-scan{
+  position:absolute; inset:0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+  mix-blend-mode: screen;
+  animation: lg-scan 5.2s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes lg-scan{
+  0%   { transform: translateX(-120%); }
+  50%  { transform: translateX(0%); }
+  100% { transform: translateX(120%); }
+}
+
+/* ==========================================================
+   TARJETA 2 — Velocímetro simple (1 aguja)
+   ========================================================== */
+
+.viz-gauge{ display:grid; place-items:center; }
+.g-ring{
+  width: 240px; height: 240px; border-radius:9999px;
+  /* arco con conic + máscara donut para que se vea el aro solamente */
+  background:
+    conic-gradient(from 210deg,
+      rgba(124,58,237,.18) 0deg,
+      rgba(192,38,211,.35) 150deg,
+      transparent 150deg 360deg);
+  -webkit-mask:
+    radial-gradient(circle at 50% 50%, transparent 62%, black 62.3%),
+    radial-gradient(circle at 50% 50%, black 70%, transparent 70.3%);
+          mask:
+    radial-gradient(circle at 50% 50%, transparent 62%, black 62.3%),
+    radial-gradient(circle at 50% 50%, black 70%, transparent 70.3%);
+  filter: blur(0.7px);
+  opacity:.95;
+}
+
+/* ticks */
+.g-tick{
+  position:absolute; width:4px; height:16px; background: rgba(255,255,255,.22);
+  border-radius:2px; bottom:calc(50% - 10px); left:50%; transform-origin: bottom center;
+}
+.g-tick.t-40{ transform: translateX(-50%) rotate(-40deg); }
+.g-tick.t-20{ transform: translateX(-50%) rotate(-20deg); }
+.g-tick.t0  { transform: translateX(-50%) rotate(0); }
+.g-tick.t20 { transform: translateX(-50%) rotate(20deg); }
+.g-tick.t40 { transform: translateX(-50%) rotate(40deg); }
+
+/* aguja única */
+.g-needle{
+  position:absolute; left:50%; bottom:calc(50% - 12px);
+  width: 4px; height: 100px; border-radius:3px;
+  background: linear-gradient(180deg, #fff, #f1e1ff);
+  transform-origin: 50% 100%;
+  transform: translateX(-50%) rotate(-14deg);
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.6));
+  animation: g-sweep 3.8s cubic-bezier(.2,.8,.2,1) infinite;
+}
+@keyframes g-sweep{
+  0%   { transform: translateX(-50%) rotate(-18deg); }
+  50%  { transform: translateX(-50%) rotate(36deg);  }
+  100% { transform: translateX(-50%) rotate(-18deg); }
+}
+
+/* ==========================================================
+   TARJETA 3 — Error / Resuelto (más densidad)
+   ========================================================== */
+
+.viz-errors{ position:relative; }
+.pill{
+  --bg: rgba(239,68,68,.16);
+  --bd: rgba(239,68,68,.45);
+  --fg: #fecaca;
+
+  position:absolute;
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.35rem .7rem; border-radius:999px; font-size:.82rem;
+  background: var(--bg); color: var(--fg);
+  border:1px solid var(--bd);
+  box-shadow: 0 8px 18px rgba(239,68,68,.18);
+  animation: pillFloat 6s ease-in-out infinite;
+  pointer-events:none;
+}
+.pill.pos-l{ left:6%;  top: var(--y); }
+.pill.pos-r{ right:6%; top: var(--y); }
+
+.pill-ok{
+  --bg: rgba(34,197,94,.16);
+  --bd: rgba(34,197,94,.45);
+  --fg: #dcfce7;
+  left: var(--okx); top: var(--oky);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px 18px rgba(34,197,94,.22), 0 0 24px rgba(34,197,94,.25) inset;
+}
+@keyframes pillFloat{
+  0%   { transform: translateY(12px) scale(.98); opacity:.0; }
+  15%  { opacity:1; }
+  50%  { transform: translateY(-2px)  scale(1); }
+  85%  { opacity:1; }
+  100% { transform: translateY(-16px) scale(.98); opacity:.0; }
+}
+
+/* Tilt cursors */
+.js-tilt{ will-change: transform, box-shadow; transition: transform .2s, box-shadow .2s; }
+/* ===========================================================
+   BENEFICIOS — tarjetas simples + ICONOS animados (CSS only)
+   =========================================================== */
+
+.simple-card{
+  position: relative;
+  border-radius: 18px;
+  padding: 1px; /* borde suave */
+  background: linear-gradient(160deg, rgba(124,58,237,.35), rgba(192,38,211,.25) 40%, rgba(255,255,255,.04));
+  box-shadow: 0 14px 38px rgba(0,0,0,.45);
+  overflow: hidden;
+  isolation: isolate;
+}
+.simple-card::before{
+  content:"";
+  position:absolute; inset:-30%;
+  background: radial-gradient(500px 300px at 15% 10%, rgba(124,58,237,.15), transparent 60%),
+              radial-gradient(500px 300px at 85% 90%, rgba(192,38,211,.15), transparent 60%);
+  filter: blur(10px);
+  opacity: .8;
+  pointer-events: none;
+}
+.simple-card:hover { transform: translateY(-2px); transition: transform .25s ease; }
+
+.icon-visual{
+  height: 220px;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(12,13,20,.78);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  border: 1px solid rgba(192,38,211,.18);
+  border-radius: 16px;
+  margin: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.simple-card__body{
+  margin: 12px 16px 18px;
+  padding: 18px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(12,13,20,.95), rgba(17,18,26,.92));
+  border: 1px solid rgba(192,38,211,.22);
+  color: #E8EAF2;
+}
+.simple-card__body .title{
+  margin:0 0 8px; font-weight:700; color:#fff; font-size:1.05rem;
+}
+.simple-card__body .copy{
+  color:#E5E7EB; line-height:1.6; font-size:.97rem;
+}
+
+/* ---------- Icono 1: engranaje + check ---------- */
+.gear-icon{
+  width: 128px; height: 128px;
+  filter: drop-shadow(0 6px 18px rgba(192,38,211,.35));
+}
+.gear-icon .gear-teeth rect{
+  fill: url(#gradPurple);
+}
+.gear-icon { animation: gear-spin 10s linear infinite; }
+.check-icon{
+  position:absolute; width:128px; height:128px;
+  animation: check-pulse 2.4s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.6));
+}
+
+@keyframes gear-spin { to { transform: rotate(360deg); } }
+@keyframes check-pulse {
+  0%,100% { transform: scale(.96); opacity:.85; }
+  50%     { transform: scale(1.03); opacity:1; }
+}
+
+/* ---------- Icono 2: velocímetro ---------- */
+.speed-icon{ width: 160px; height: 160px; }
+.speed-icon .needle{
+  transform-origin: 60px 80px;
+  animation: needle-swing 2.8s ease-in-out infinite;
+}
+.speed-icon .needle-glow{
+  transform-origin: 60px 80px;
+  animation: halo-follow 2.8s ease-in-out infinite;
+}
+@keyframes needle-swing{
+  0%   { transform: rotate(-22deg); }
+  50%  { transform: rotate(30deg);  }
+  100% { transform: rotate(-22deg); }
+}
+@keyframes halo-follow{
+  0%   { transform: rotate(-22deg) translate(0,0); opacity:.16; }
+  50%  { transform: rotate(30deg)  translate(2px,-2px); opacity:.26; }
+  100% { transform: rotate(-22deg) translate(0,0); opacity:.16; }
+}
+
+/* ---------- Icono 3: escudo + pills ---------- */
+.pills{
+  position:absolute; inset:0; display:grid; place-items:center; pointer-events:none;
+}
+.pill{
+  --delay: calc(var(--i, 0) * .35s);
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.35rem .7rem; border-radius:999px; font-size:.8rem;
+  border:1px solid currentColor; color:#fecaca;
+  background: rgba(239,68,68,.16);
+  box-shadow: 0 8px 18px rgba(239,68,68,.18);
+  animation: pillFloat 3.1s ease-in-out infinite var(--delay);
+}
+.pill--ok{
+  color:#dcfce7; background: rgba(34,197,94,.18);
+  box-shadow: 0 8px 18px rgba(34,197,94,.22);
+}
+@keyframes pillFloat{
+  0%   { transform: translateY(18px) scale(.98); opacity:.0; }
+  20%  { opacity:1; }
+  50%  { transform: translateY(-2px) scale(1); }
+  100% { transform: translateY(-18px) scale(.98); opacity:.0; }
+}
+
+/* Accesibilidad: si el usuario prefiere menos movimiento, congelamos */
+@media (prefers-reduced-motion: reduce){
+  .gear-icon, .check-icon, .speed-icon .needle, .speed-icon .needle-glow, .pill { animation: none !important; }
+}
+/* ======= ICONOS MÁS GRANDES (override) ======= */
+
+/* más alto el panel visual para que el icono respire mejor */
+.icon-visual{
+  /* antes: height: 220px; */
+  height: clamp(240px, 28vw, 340px);
+  padding: 12px;
+}
+
+/* tamaño base para TODOS los SVG dentro del panel */
+.icon-visual svg{
+  width: clamp(180px, 78%, 340px);
+  height: auto;
+}
+
+/* el velocímetro un poco más grande que el resto */
+.speed-icon{
+  width: clamp(200px, 88%, 380px);
+}
+
+/* check centrado y escalado sobre el engranaje */
+.check-icon{
+  position: absolute;
+  inset: 0;               /* centra en el contenedor */
+  margin: auto;
+  width: clamp(180px, 74%, 330px);
+  height: auto;
+}
+
+/* el escudo también un poquito más grande */
+.shield-icon{
+  width: clamp(180px, 82%, 360px);
+}
+
+/* pills no se recortan y siguen centradas */
+.icon-visual .pills{ inset: 0; }
+
+/* ajuste suave en móvil: un poco menos de altura para que quepa todo */
+@media (max-width: 640px){
+  .icon-visual{ height: clamp(220px, 42vw, 280px); }
+}

@@ -57,104 +57,145 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </section>
 
-  <!-- =========================
-     BENEFICIOS (NUEVO)
-     ========================= -->
-<section id="beneficios" class="relative max-w-6xl mx-auto px-4 py-20">
-  <!-- Badge -->
-  <div class="flex justify-center">
-    <span class="px-4 py-1 rounded-full text-xs tracking-wide bg-white/10 text-white/80 border border-white/15">
-      BENEFICIOS
-    </span>
-  </div>
+---
+// (no hace falta script/JS)
+---
+<section id="beneficios" class="relative z-[1] py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">
+        Optimiza, acelera y automatiza
+      </h2>
+      <p class="mt-4 text-zinc-300 max-w-3xl mx-auto">
+        Reduce costos y elimina tareas repetitivas con soluciones inteligentes que elevan la eficiencia y la precisión
+        en cada proceso.
+      </p>
+    </div>
 
-  <!-- Título + subtítulo -->
-  <div class="text-center mt-6">
-    <h2 class="text-3xl md:text-5xl font-semibold text-white">
-      Optimiza, acelera y automatiza
-    </h2>
-    <p class="max-w-3xl mx-auto mt-4 text-zinc-300/90">
-      Reduce costos y elimina tareas repetitivas con soluciones inteligentes
-      que elevan la eficiencia y la precisión en cada proceso.
-    </p>
-  </div>
+    <div class="grid gap-6 md:gap-8 md:grid-cols-3">
+      <!-- ================= TARJETA 1: Reducción trabajo manual ================= -->
+      <article class="simple-card">
+        <div class="icon-visual">
+          <!-- Icono: engranaje + check -->
+          <svg class="gear-icon" viewBox="0 0 100 100" aria-hidden="true">
+            <!-- aro -->
+            <circle cx="50" cy="50" r="20" fill="none" stroke="url(#gradPurple)" stroke-width="6"/>
+            <!-- dientes -->
+            <g class="gear-teeth">
+              <rect x="48" y="22" width="4" height="10" rx="2"/>
+              <rect x="48" y="68" width="4" height="10" rx="2"/>
+              <rect x="22" y="48" width="10" height="4" rx="2"/>
+              <rect x="68" y="48" width="10" height="4" rx="2"/>
+              <rect x="30" y="30" width="8" height="4" rx="2" transform="rotate(-45 34 32)"/>
+              <rect x="62" y="66" width="8" height="4" rx="2" transform="rotate(-45 66 68)"/>
+              <rect x="66" y="30" width="8" height="4" rx="2" transform="rotate(45 70 32)"/>
+              <rect x="30" y="66" width="8" height="4" rx="2" transform="rotate(45 34 68)"/>
+            </g>
+            <!-- gradiente de marca -->
+            <defs>
+              <linearGradient id="gradPurple" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%"  stop-color="#c026d3"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+          </svg>
 
-  <!-- Tarjetas -->
-  <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-    <!-- Card 1: Reducción trabajo manual (línea/área animada) -->
-    <article class="benefit-card">
-      <div class="benefit-card__grid"></div>
-      <div class="benefit-card__glow"></div>
-
-      <div class="benefit-card__viz">
-        <div class="linechart">
-          <span class="linechart__scan"></span>
-          <span class="dot dot-1"></span>
-          <span class="dot dot-2"></span>
-          <span class="dot dot-3"></span>
+          <svg class="check-icon" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M28 52 L44 68 L74 36" fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-      </div>
 
-      <div class="benefit-card__content">
-        <h3 class="title">Reducción del trabajo manual</h3>
-        <p class="copy">
-          Automatiza tareas repetitivas y ahorra tiempo. Respuestas a clientes,
-          emails y documentos: la IA se encarga, tu equipo se enfoca en lo importante.
-        </p>
-      </div>
-    </article>
-
-    <!-- Card 2: Mayor velocidad (gauge/medidor) -->
-    <article class="benefit-card">
-      <div class="benefit-card__grid"></div>
-      <div class="benefit-card__glow"></div>
-
-      <div class="benefit-card__viz">
-        <div class="gauge">
-          <span class="gauge__arc"></span>
-          <span class="gauge__sweep"></span>
-          <span class="gauge__tick t1"></span>
-          <span class="gauge__tick t2"></span>
-          <span class="gauge__tick t3"></span>
-          <span class="gauge__tick t4"></span>
-          <span class="gauge__tick t5"></span>
+        <div class="simple-card__body">
+          <h3 class="title">Reducción del trabajo manual</h3>
+          <p class="copy">
+            Automatiza tareas repetitivas y ahorra tiempo. Respuestas a clientes, emails y documentos:
+            la IA se encarga, tu equipo se enfoca en lo importante.
+          </p>
         </div>
-      </div>
+      </article>
 
-      <div class="benefit-card__content">
-        <h3 class="title">Mayor velocidad operativa</h3>
-        <p class="copy">
-          Respuestas en segundos, decisiones en tiempo real. Eliminá cuellos de botella
-          con flujos automatizados y agentes que trabajan 24/7.
-        </p>
-      </div>
-    </article>
-
-    <!-- Card 3: Menos errores (píldoras en flujo) -->
-    <article class="benefit-card">
-      <div class="benefit-card__grid"></div>
-      <div class="benefit-card__glow"></div>
-
-      <div class="benefit-card__viz">
-        <div class="pill-stream">
-          <span class="pill pill--err">Error</span>
-          <span class="pill pill--err" style="animation-delay:.6s">Error</span>
-          <span class="pill pill--ok"  style="animation-delay:1.2s">Resuelto</span>
-          <span class="pill pill--err" style="animation-delay:1.8s">Error</span>
-          <span class="pill pill--err" style="animation-delay:2.4s">Error</span>
+      <!-- ================= TARJETA 2: Mayor velocidad ================= -->
+      <article class="simple-card">
+        <div class="icon-visual">
+          <!-- Icono: velocímetro -->
+          <svg class="speed-icon" viewBox="0 0 120 120" aria-hidden="true">
+            <!-- arco -->
+            <path d="M20 80 A40 40 0 1 1 100 80" fill="none" stroke="url(#gradPurple2)" stroke-width="10" stroke-linecap="round"/>
+            <!-- ticks -->
+            <g class="ticks" stroke="rgba(255,255,255,.45)" stroke-width="3" stroke-linecap="round">
+              <line x1="60" y1="32" x2="60" y2="24"/>
+              <line x1="86" y1="44" x2="92" y2="38"/>
+              <line x1="34" y1="44" x2="28" y2="38"/>
+              <line x1="96" y1="66" x2="104" y2="66"/>
+              <line x1="16" y1="66" x2="24" y2="66"/>
+            </g>
+            <!-- aguja -->
+            <g class="needle">
+              <circle cx="60" cy="80" r="5" fill="white"/>
+              <line x1="60" y1="80" x2="95" y2="60" stroke="white" stroke-width="4" stroke-linecap="round"/>
+            </g>
+            <!-- halo que sigue a la aguja -->
+            <circle class="needle-glow" cx="60" cy="80" r="18" fill="url(#gradPurple2)" opacity=".18"/>
+            <defs>
+              <linearGradient id="gradPurple2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%"  stop-color="#c026d3"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
-      </div>
 
-      <div class="benefit-card__content">
-        <h3 class="title">Menos errores humanos</h3>
-        <p class="copy">
-          Decisiones más precisas y estandarizadas. Menos fallos, menos retrabajos
-          y más calidad en cada proceso.
-        </p>
-      </div>
-    </article>
+        <div class="simple-card__body">
+          <h3 class="title">Mayor velocidad operativa</h3>
+          <p class="copy">
+            Respuestas en segundos, decisiones en tiempo real. Eliminá cuellos de botella con
+            flujos automatizados y agentes que trabajan 24/7.
+          </p>
+        </div>
+      </article>
+
+      <!-- ================= TARJETA 3: Menos errores ================= -->
+      <article class="simple-card">
+        <div class="icon-visual">
+          <!-- Icono: escudo + pills X / Resuelto -->
+          <svg class="shield-icon" viewBox="0 0 24 24" width="120" height="120" aria-hidden="true">
+            <path d="M12 2l7 4v6c0 5-3.5 9.5-7 11-3.5-1.5-7-6-7-11V6l7-4z"
+                  fill="url(#gradPurple3)" stroke="rgba(255,255,255,.35)" stroke-width=".7"/>
+            <defs>
+              <linearGradient id="gradPurple3" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%"  stop-color="#6b21a8"/>
+                <stop offset="100%" stop-color="#a21caf"/>
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <div class="pills">
+            <!-- varios errores y 3 resueltos -->
+            <span class="pill pill--err"   style="--i:0">✕ Error</span>
+            <span class="pill pill--err"   style="--i:1">✕ Error</span>
+            <span class="pill pill--err"   style="--i:2">✕ Error</span>
+            <span class="pill pill--ok"    style="--i:3">▣ Resuelto</span>
+            <span class="pill pill--err"   style="--i:4">✕ Error</span>
+            <span class="pill pill--ok"    style="--i:5">▣ Resuelto</span>
+            <span class="pill pill--err"   style="--i:6">✕ Error</span>
+            <span class="pill pill--ok"    style="--i:7">▣ Resuelto</span>
+          </div>
+        </div>
+
+        <div class="simple-card__body">
+          <h3 class="title">Menos errores humanos</h3>
+          <p class="copy">
+            Decisiones más precisas y estandarizadas. Menos fallos, menos retrabajos y más
+            calidad en cada proceso.
+          </p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
+
+
+
 
 
   <!-- =========================
