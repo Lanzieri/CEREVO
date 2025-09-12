@@ -373,3 +373,20 @@ button[type="submit"]:hover {
 .bg-white/[.02] { background-color: rgba(255,255,255,0.02); }
 .bg-black/90 { background-color: rgba(0,0,0,0.9); }
 
+/* =========================
+   BADGES EN HERO - MÁS GRANDES Y VISIBLES
+========================= */
+.feature-badge {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.75rem 1.25rem; /* Más padding */
+  border-radius: 12px; /* Más redondeado */
+  font-size: 0.9rem; /* Tamaño de fuente mayor */
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.feature-badge:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
