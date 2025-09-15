@@ -64,61 +64,72 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
 
     <div class="grid gap-6 md:gap-8 md:grid-cols-3">
-      <!-- Tarjeta 1: Reducción del trabajo manual -->
-      <article class="benefit-card js-reveal">
-        <div class="icon-visual">
-          <svg class="clock-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="30" fill="none" stroke="#c026d3" stroke-width="6"/>
-            <line x1="50" y1="50" x2="68" y2="50" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-            <line x1="50" y1="50" x2="50" y2="32" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="simple-card__body">
-          <h3 class="benefit-title">Reducción del trabajo manual</h3>
-          <p class="copy">Automatizamos tareas repetitivas para liberar a tu equipo.</p>
-          <div class="badges">
-            <span class="badge"><b class="metric" data-to="45">0</b>% menos tiempo operativo</span>
-          </div>
-        </div>
-      </article>
+
+<!-- Tarjeta 1: Reducción del trabajo manual -->
+<article class="benefit-card js-reveal">
+  <div class="icon-visual flex justify-center mb-4">
+    <svg class="clock-icon" width="80" height="80" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#c026d3">
+      <path d="M12,6a.99974.99974,0,0,0-1,1v4.38379L8.56934,12.60693a.99968.99968,0,1,0,.89843,1.78614l2.98145-1.5A.99874.99874,0,0,0,13,12V7A.99974.99974,0,0,0,12,6Zm0-4A10,10,0,1,0,22,12,10.01146,10.01146,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20Z" />
+    </svg>
+  </div>
+  <div class="simple-card__body text-center">
+    <h3 class="benefit-title text-[#c026d3] font-bold text-lg">Reducción del trabajo manual</h3>
+    <p class="copy text-white/80 mt-2">Automatizamos tareas repetitivas para liberar a tu equipo.</p>
+    <div class="badges mt-3">
+      <span class="badge bg-black/50 border border-[#c026d3] text-[#c026d3] rounded-full px-3 py-1 inline-block">
+        <b class="metric" data-to="45">0</b>% menos tiempo operativo
+      </span>
+    </div>
+  </div>
+</article>
 
       <!-- Tarjeta 2: Mayor velocidad operativa -->
       <article class="benefit-card js-reveal">
-        <div class="icon-visual">
-          <svg class="bolt-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M45,15 L65,45 L55,45 L70,85 L40,50 L52,50" fill="#c026d3"/>
+        <div class="icon-visual flex justify-center mb-4">
+          <svg class="dashboard-icon" width="80" height="80" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#c026d3">
+            <g id="Octicons" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+              <g id="dashboard" fill="currentColor">
+                <path id="Shape" d="M9 5H8V4h1v1zm4 3h-1v1h1V8zM6 5H5v1h1V5zM5 8H4v1h1V8zm11-5.5l-.5-.5L9 7c-.06-.02-1 0-1 0-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-.92l6-5.58zm-1.59 4.09c.19.61.3 1.25.3 1.91 0 3.42-2.78 6.2-6.2 6.2-3.42 0-6.21-2.78-6.21-6.2 0-3.42 2.78-6.2 6.2-6.2 1.2 0 2.31.34 3.27.94l.94-.94A7.459 7.459 0 0 0 8.51 1C4.36 1 1 4.36 1 8.5 1 12.64 4.36 16 8.5 16c4.14 0 7.5-3.36 7.5-7.5 0-1.03-.2-2.02-.59-2.91l-1 1z"></path>
+              </g>
+            </g>
           </svg>
         </div>
-        <div class="simple-card__body">
-          <h3 class="benefit-title">Mayor velocidad operativa</h3>
-          <p class="copy">Flujos más ágiles, respuestas en minutos y no en horas.</p>
-          <div class="badges">
-            <span class="badge"><b class="metric" data-to="10">0</b> veces más rápido, eficiencia que se nota.</span>
+        <div class="simple-card__body text-center">
+          <h3 class="benefit-title text-[#c026d3] font-bold text-lg">Mayor velocidad operativa</h3>
+          <p class="copy text-white/80 mt-2">Flujos más ágiles, respuestas en minutos y no en horas.</p>
+          <div class="badges mt-3">
+            <span class="badge bg-black/50 border border-[#c026d3] text-[#c026d3] rounded-full px-3 py-1 inline-block">
+              <b class="metric" data-to="10">0</b> veces más rápido, eficiencia que se nota.
+            </span>
           </div>
         </div>
       </article>
 
       <!-- Tarjeta 3: Menos errores humanos -->
       <article class="benefit-card js-reveal">
-        <div class="icon-visual">
-          <svg class="check-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M28,52 L44,68 L74,36" stroke="#c026d3" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <div class="icon-visual flex justify-center mb-4">
+          <svg class="alert-icon" width="80" height="80" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#c026d3">
+            <g id="Octicons" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+              <g id="alert" fill="currentColor">
+                <path id="Shape" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"></path>
+              </g>
+            </g>
           </svg>
         </div>
-        <div class="simple-card__body">
-          <h3 class="benefit-title">Menos errores humanos</h3>
-          <p class="copy">
-            Decisiones más precisas y estandarizadas. Menos fallos, menos retrabajos y más calidad en cada proceso.
-          </p>
-          <div class="badges">
-            <span class="badge"><b class="metric" data-to="60">0</b>% menos incidencias</span>
+        <div class="simple-card__body text-center">
+          <h3 class="benefit-title text-[#c026d3] font-bold text-lg">Menos errores humanos</h3>
+          <p class="copy text-white/80 mt-2">Decisiones más precisas y estandarizadas. Menos fallos, menos retrabajos y más calidad en cada proceso.</p>
+          <div class="badges mt-3">
+            <span class="badge bg-black/50 border border-[#c026d3] text-[#c026d3] rounded-full px-3 py-1 inline-block">
+              <b class="metric" data-to="60">0</b>% menos incidencias
+            </span>
           </div>
         </div>
       </article>
+
     </div>
   </div>
 </section>
-
   <!-- =========================
        SERVICIOS
        ========================= -->
