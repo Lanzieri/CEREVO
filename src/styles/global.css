@@ -410,7 +410,7 @@ html {
 }
 
 .benefit-title {
-  color: #e0e0e0;
+  color: #c026d3;
   font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
@@ -443,5 +443,5 @@ html {
   height: 80px;
   display: block;
   margin: 0 auto;
-  fill: #e0e0e0;
+  fill: #c026d3;
 }
