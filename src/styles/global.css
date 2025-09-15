@@ -230,7 +230,7 @@ body {
 }
 .metric {
   font-weight: bold;
-  color: #c026d3;
+  color: #e0e0e0;
 }
 .service-cta {
   display: flex;
@@ -384,7 +384,7 @@ html {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: rgba(255, 255, 255, 0.01);
+  background: #e0e0e0(255, 255, 255, 0.01);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
@@ -405,12 +405,12 @@ html {
 .benefit-card .icon-visual svg {
   width: 80px;
   height: 80px;
-  fill: #c026d3; /* Color morado principal */
+  fill: #e0e0e0; /* Color morado principal */
   stroke: none;
 }
 
 .benefit-title {
-  color: #c026d3;
+  color: #e0e0e0;
   font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
@@ -436,12 +436,12 @@ html {
 
 .metric {
   font-weight: bold;
-  color: #c026d3;
+  color: #e0e0e0;
 }
 .icon-visual svg {
   width: 80px;
   height: 80px;
   display: block;
   margin: 0 auto;
-  fill: #c026d3;
+  fill: #e0e0e0;
 }
