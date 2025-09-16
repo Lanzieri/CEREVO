@@ -1,10 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-// ✅ Importo los SVG para BENEFICIOS (más robusto que usar /src/assets/... en <img>)
-import clockIcon from "../assets/clock.svg?url";
-import dashboardIcon from "../assets/dashboard.svg?url";
-import alertIcon from "../assets/alert.svg?url";
 ---
 
 <BaseLayout
@@ -41,95 +36,74 @@ import alertIcon from "../assets/alert.svg?url";
       </div>
       <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
         <span class="px-5 py-3 rounded-xl text-white text-sm font-medium bg-black/80 backdrop-blur-sm">Implementación ágil</span>
-        <span class="px-5 py-3 rounded-xl text-white text-sm font-medium bg-black/80 backdrop-blur-sm">Integrable con tus procesos</span>
-        <span class="px-5 py-3 rounded-xl text-white text-sm font-medium bg-black/80 backdrop-blur-sm">Ahorro de costo operativo</span>
+        <span class="px-5 py-3 rounded-xl text-white text-sm font-medium bg-black/80 backdrop-blur-sm">Integrable con tu stack</span>
+        <span class="px-5 py-3 rounded-xl text-white text-sm font-medium bg-black/80 backdrop-blur-sm">Ahorro de horas</span>
       </div>
     </div>
   </section>
 
-  <!-- =========================
-   BENEFICIOS 
-   ========================= -->
-<section id="beneficios" class="relative z-[1] py-20">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="text-center mb-10">
-      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">
-        Optimiza, acelera y <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#c026d3] to-[#7c3aed]">automatiza</span>
-      </h2>
-      <p class="mt-3 text-white/80">
-        Resultados medibles desde la primera semana. Integramos IA con lo que ya usás. Reduce tareas repetitivas para que tu equipo se concentre en lo importante.
-      </p>
-    </div>
-
-    <div class="grid gap-6 md:gap-8 md:grid-cols-3">
-
-<!-- Tarjeta 1: Reducción del trabajo manual -->
-<article class="benefit-card js-reveal">
-  <div class="icon-visual flex justify-center mb-4">
-    <svg class="clock-icon" width="80" height="80" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#c026d3">
-      <path d="M12,6a.99974.99974,0,0,0-1,1v4.38379L8.56934,12.60693a.99968.99968,0,1,0,.89843,1.78614l2.98145-1.5A.99874.99874,0,0,0,13,12V7A.99974.99974,0,0,0,12,6Zm0-4A10,10,0,1,0,22,12,10.01146,10.01146,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20Z" />
-    </svg>
-  </div>
-  <div class="simple-card__body text-center">
-    <h3 class="benefit-title text-[#c026d3] font-bold text-lg">Reducción del trabajo manual</h3>
-    <p class="copy text-white/80 mt-2">Automatizamos tareas repetitivas para liberar a tu equipo.</p>
-    <div class="badges mt-3">
-      <span class="badge bg-black/50 border border-[#c026d3] text-[#c026d3] rounded-full px-3 py-1 inline-block">
-        <b class="metric" data-to="45">0</b>% menos tiempo operativo
-      </span>
-    </div>
-  </div>
-</article>
-
-      <!-- Tarjeta 2: Mayor velocidad operativa -->
-      <article class="benefit-card js-reveal">
-        <div class="icon-visual flex justify-center mb-4">
-          <svg class="dashboard-icon" width="80" height="80" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#c026d3">
-            <g id="Octicons" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
-              <g id="dashboard" fill="currentColor">
-                <path id="Shape" d="M9 5H8V4h1v1zm4 3h-1v1h1V8zM6 5H5v1h1V5zM5 8H4v1h1V8zm11-5.5l-.5-.5L9 7c-.06-.02-1 0-1 0-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-.92l6-5.58zm-1.59 4.09c.19.61.3 1.25.3 1.91 0 3.42-2.78 6.2-6.2 6.2-3.42 0-6.21-2.78-6.21-6.2 0-3.42 2.78-6.2 6.2-6.2 1.2 0 2.31.34 3.27.94l.94-.94A7.459 7.459 0 0 0 8.51 1C4.36 1 1 4.36 1 8.5 1 12.64 4.36 16 8.5 16c4.14 0 7.5-3.36 7.5-7.5 0-1.03-.2-2.02-.59-2.91l-1 1z"></path>
-              </g>
-            </g>
-          </svg>
-        </div>
-        <div class="simple-card__body text-center">
-          <h3 class="benefit-title text-[#c026d3] font-bold text-lg">Mayor velocidad operativa</h3>
-          <p class="copy text-white/80 mt-2">Flujos más ágiles, respuestas en minutos y no en horas.</p>
-          <div class="badges mt-3">
-            <span class="badge bg-black/50 border border-[#c026d3] text-[#c026d3] rounded-full px-3 py-1 inline-block">
-              <b class="metric" data-to="10">0</b> veces más rápido, eficiencia que se nota.
-            </span>
+  <!-- BENEFICIOS -->
+  <section id="beneficios" class="relative z-[1] py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">
+          Optimiza, acelera y <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#c026d3] to-[#7c3aed]">automatiza</span>
+        </h2>
+        <p class="mt-3 text-white/80">
+          Resultados medibles desde la primera semana. Integramos IA con lo que ya usás. Reduce tareas repetitivas para que tu equipo se concentre en lo importante.
+        </p>
+      </div>
+      <div class="grid gap-6 md:gap-8 md:grid-cols-3">
+        <!-- Tarjeta 1: Reducción del trabajo manual -->
+        <article class="benefit-card js-reveal">
+          <div class="icon-visual flex justify-center mb-4">
+            <img src="/src/assets/clock.svg" alt="Reloj" class="w-20 h-20" />
           </div>
-        </div>
-      </article>
-
-      <!-- Tarjeta 3: Menos errores humanos -->
-      <article class="benefit-card js-reveal">
-        <div class="icon-visual flex justify-center mb-4">
-          <svg class="alert-icon" width="80" height="80" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#c026d3">
-            <g id="Octicons" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
-              <g id="alert" fill="currentColor">
-                <path id="Shape" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"></path>
-              </g>
-            </g>
-          </svg>
-        </div>
-        <div class="simple-card__body text-center">
-          <h3 class="benefit-title text-[#c026d3] font-bold text-lg">Menos errores humanos</h3>
-          <p class="copy text-white/80 mt-2">Decisiones más precisas y estandarizadas. Menos fallos y más calidad en cada proceso.</p>
-          <div class="badges mt-3">
-            <span class="badge bg-black/50 border border-[#c026d3] text-[#c026d3] rounded-full px-3 py-1 inline-block">
-              <b class="metric" data-to="60">0</b>% menos incidencias
-            </span>
+          <div class="simple-card__body text-center">
+            <h3 class="benefit-title text-[#c026d3] font-bold text-lg">Reducción del trabajo manual</h3>
+            <p class="copy text-white/80 mt-2">Automatizamos tareas repetitivas para liberar a tu equipo.</p>
+            <div class="badges mt-3">
+              <span class="badge bg-black/50 border border-[#c026d3] text-[#c026d3] rounded-full px-3 py-1 inline-block">
+                <b class="metric" data-to="45">0</b>% menos tiempo operativo
+              </span>
+            </div>
           </div>
-        </div>
-      </article>
-
+        </article>
+        <!-- Tarjeta 2: Mayor velocidad operativa -->
+        <article class="benefit-card js-reveal">
+          <div class="icon-visual flex justify-center mb-4">
+            <img src="/src/assets/dashboard.svg" alt="Dashboard" class="w-20 h-20" />
+          </div>
+          <div class="simple-card__body text-center">
+            <h3 class="benefit-title text-[#c026d3] font-bold text-lg">Mayor velocidad operativa</h3>
+            <p class="copy text-white/80 mt-2">Flujos más ágiles, respuestas en minutos y no en horas.</p>
+            <div class="badges mt-3">
+              <span class="badge bg-black/50 border border-[#c026d3] text-[#c026d3] rounded-full px-3 py-1 inline-block">
+                <b class="metric" data-to="10">0</b> veces más rápido, eficiencia que se nota.
+              </span>
+            </div>
+          </div>
+        </article>
+        <!-- Tarjeta 3: Menos errores humanos -->
+        <article class="benefit-card js-reveal">
+          <div class="icon-visual flex justify-center mb-4">
+            <img src="/src/assets/alert.svg" alt="Alerta" class="w-20 h-20" />
+          </div>
+          <div class="simple-card__body text-center">
+            <h3 class="benefit-title text-[#c026d3] font-bold text-lg">Menos errores humanos</h3>
+            <p class="copy text-white/80 mt-2">Decisiones más precisas y estandarizadas. Menos fallos, menos retrabajos y más calidad en cada proceso.</p>
+            <div class="badges mt-3">
+              <span class="badge bg-black/50 border border-[#c026d3] text-[#c026d3] rounded-full px-3 py-1 inline-block">
+                <b class="metric" data-to="60">0</b>% menos incidencias
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-    <!-- SERVICIOS -->
+  <!-- SERVICIOS -->
   <section id="servicios" class="relative z-[1] py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-10">
@@ -140,22 +114,17 @@ import alertIcon from "../assets/alert.svg?url";
           Roles digitales de Dala para acelerar tu negocio.
         </p>
       </div>
-
       <div class="grid gap-6 md:gap-8 md:grid-cols-2">
-
         <!-- 1) Asistente para Selección de Candidatos -->
         <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
+          <div class="service-card__header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="4" y="3" width="14" height="18" rx="2" fill="none" stroke="#c026d3" stroke-width="1.6"/>
                 <path d="M7 7h8M7 10h8M7 13h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
               </svg>
             </div>
-            <!-- 👇 título con más protagonismo -->
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Asistente para Selección de Candidatos
-            </h3>
+            <h3 class="title">Asistente para Selección de Candidatos</h3>
           </div>
           <p class="copy text-center">Filtra y clasifica automáticamente los CVs.</p>
           <ul class="service-list text-center">
@@ -163,26 +132,25 @@ import alertIcon from "../assets/alert.svg?url";
             <li>Entrega un ranking listo para decidir más rápido.</li>
             <li>Optimiza todo el proceso de contratación de inicio a fin.</li>
           </ul>
-          <!-- ❌ Eliminado: Ahorro semanal -->
+          <div class="service-badges">
+            <span class="badge">Ahorro semanal: <b class="metric" data-to="20">0</b> h/sem</span>
+          </div>
           <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
             <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
               Quiero esto
             </a>
           </div>
         </article>
-
         <!-- 2) Agente Comercial que Nunca Duerme -->
         <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
+          <div class="service-card__header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M4 4h16v6H4z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
                 <path d="M4 14h10l2 3 2-3h2v6H4z" fill="#fff" opacity=".1"/>
               </svg>
             </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Agente Comercial que Nunca Duerme
-            </h3>
+            <h3 class="title">Agente Comercial que Nunca Duerme</h3>
           </div>
           <p class="copy text-center">Extrae datos de potenciales clientes de distintas fuentes.</p>
           <ul class="service-list text-center">
@@ -190,53 +158,53 @@ import alertIcon from "../assets/alert.svg?url";
             <li>Mantiene tu pipeline de ventas activo las 24 horas.</li>
             <li>Aumenta la eficiencia de todo tu proceso comercial.</li>
           </ul>
-          <!-- ❌ Eliminado: Automatizaciones -->
+          <div class="service-badges">
+            <span class="badge">Automatizaciones: <b class="metric" data-to="12">0</b> h/sem</span>
+          </div>
           <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
             <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
               Quiero esto
             </a>
           </div>
         </article>
-
         <!-- 3) Auxiliar Contable Automatizado -->
         <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 7h18v10H3z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
-                <path d="M3 7l9 6 9-6" fill="none" stroke="#fff" stroke-width="1.6"/>
+          <div class="service-card__header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 3h10a2 2 0 0 1 2 2v14l-3-2-3 2-3-2-3 2V5a2 2 0 0 1 2-2z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
+                <path d="M8 8h6M8 11h8M8 14h4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
               </svg>
             </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Auxiliar Contable Automatizado
-            </h3>
+            <h3 class="title">Auxiliar Contable Automatizado</h3>
           </div>
-          <p class="copy text-center">Registra facturas, clasifica gastos e integra con tu sistema.</p>
+          <p class="copy text-center">Procesa facturas y recibos sin intervención manual.</p>
           <ul class="service-list text-center">
-            <li>Conciliación y reportes automáticos.</li>
-            <li>Alertas de vencimientos.</li>
-            <li>Menos carga manual y menos errores.</li>
+            <li>Detecta errores, duplicados o inconsistencias.</li>
+            <li>Actualiza registros contables al instante.</li>
+            <li>Asegura una gestión financiera ordenada y confiable.</li>
           </ul>
-          <!-- ❌ Eliminado: Ahorro estimado -->
+          <div class="service-badges">
+            <span class="badge">Implementación: <b class="metric" data-to="10">0</b> días</span>
+          </div>
           <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
             <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
               Quiero esto
             </a>
           </div>
         </article>
-
-        <!-- 4) Base de Datos + Chatbot Interno -->
+        <!-- 4) Administrador de Bases de Datos con Respuesta Inmediata -->
         <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 4h16v12H4z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
-                <path d="M7 7h10M7 10h8M7 13h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+          <div class="service-card__header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 7h16v10H4z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
+                <circle cx="8" cy="12" r="1.4" fill="#fff"/>
+                <circle cx="12" cy="12" r="1.4" fill="#fff"/>
+                <circle cx="16" cy="12" r="1.4" fill="#fff"/>
               </svg>
             </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Base de Datos + Chatbot Interno
-            </h3>
+            <h3 class="title">Administrador de Bases de Datos con Respuesta Inmediata</h3>
           </div>
           <p class="copy text-center">Gestiona información de clientes, productos o empleados.</p>
           <ul class="service-list text-center">
@@ -244,54 +212,52 @@ import alertIcon from "../assets/alert.svg?url";
             <li>Evita pérdidas de tiempo buscando datos dispersos.</li>
             <li>Centraliza y organiza el conocimiento de tu empresa.</li>
           </ul>
-          <!-- ❌ Eliminado: Ahorro estimado -->
+          <div class="service-badges">
+            <span class="badge">Ahorro mensual: <b class="metric" data-to="50">0</b> h/mes</span>
+          </div>
           <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
             <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
               Quiero esto
             </a>
           </div>
         </article>
-
-        <!-- 5) Recepcionista Automatizado (IA de voz) -->
+        <!-- 5) Recepcionista Automatizado Siempre Disponible (IA de voz) -->
         <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
+          <div class="service-card__header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6 6h14l-2 8H8L6 6z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
                 <circle cx="9" cy="18" r="1.6" fill="#fff"/>
                 <circle cx="17" cy="18" r="1.6" fill="#fff"/>
               </svg>
             </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Recepcionista Automatizado Siempre Disponible (IA de voz)
-            </h3>
+            <h3 class="title">Recepcionista Automatizado Siempre Disponible (IA de voz)</h3>
           </div>
           <p class="copy text-center">IA de voz que atiende llamadas entrantes automáticamente.</p>
           <ul class="service-list text-center">
             <li>Identifica intención y deriva al área correcta.</li>
             <li>Disponible 24/7 sin ampliar el equipo.</li>
-            <li>Mejora la experiencia del cliente.</li>
+            <li>Mejora la experiencia del cliente desde el primer contacto.</li>
           </ul>
-          <!-- ❌ Eliminado: Ahorro estimado -->
+          <div class="service-badges">
+            <span class="badge">Atención: <b class="metric" data-to="18">0</b> h/sem</span>
+          </div>
           <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
             <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
               Quiero esto
             </a>
           </div>
         </article>
-
         <!-- 6) Automatización Personalizada -->
         <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
+          <div class="service-card__header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6 6h12v12H6z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
                 <path d="M6 12h12M12 6v12" stroke="#fff" stroke-width="1.6"/>
               </svg>
             </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Automatización Personalizada
-            </h3>
+            <h3 class="title">Automatización Personalizada</h3>
           </div>
           <p class="copy text-center">Diseñamos un flujo único adaptado a tu negocio.</p>
           <ul class="service-list text-center">
@@ -299,23 +265,18 @@ import alertIcon from "../assets/alert.svg?url";
             <li>Escalamos soluciones a medida según tus objetivos.</li>
             <li>Automatizamos lo que tu empresa necesite de forma integral.</li>
           </ul>
-          <!-- ❌ Eliminado: Ahorro estimado -->
+          <div class="service-badges">
+            <span class="badge">SLA de soporte</span>
+          </div>
           <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
             <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
               Quiero esto
             </a>
           </div>
         </article>
-
       </div>
     </div>
   </section>
-
-  <!-- CÓMO TRABAJAMOS, CONTACTO, etc… (sin cambios) -->
-  <!-- … resto de tu página como ya lo tenías … -->
-
-</BaseLayout>
-
 
   <!-- CÓMO TRABAJAMOS -->
   <section id="como-trabajamos" class="relative z-[1] py-20 mt-16">

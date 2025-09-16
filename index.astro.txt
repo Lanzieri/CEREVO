@@ -1,32 +1,33 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-// ✅ Importo los SVG para BENEFICIOS (más robusto que usar /src/assets/... en <img>)
-import clockIcon from "../assets/clock.svg?url";
-import dashboardIcon from "../assets/dashboard.svg?url";
-import alertIcon from "../assets/alert.svg?url";
 ---
-
 <BaseLayout
   title="Dala Inc — Automatizaciones con IA"
   description="Automatiza procesos con inteligencia artificial para ahorrar tiempo y costos."
 >
-  <!-- HERO -->
+  <!-- =========================
+       HERO centrado (sin demo/imagen)
+       ========================= -->
   <section class="relative min-h-[76vh] flex items-center justify-center overflow-hidden">
+    <!-- Fondo animado -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="aurora"></div>
     <div class="lines"></div>
     <div class="spotlight"></div>
+    
+
     <div class="relative z-[1] max-w-4xl mx-auto text-center px-4">
       <h1 class="text-4xl md:text-6xl font-semibold tracking-tight text-white/95">
         Automatiza hoy.<br/>
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#c026d3] to-[#7c3aed]">Eficiencia que se nota.</span>
       </h1>
+
       <p class="mt-4 text-white/85 leading-relaxed">
         Integramos IA en tus procesos con flujos nativos para reducir tiempos, errores y costos.
         Elegí un servicio y <a href="#contacto" class="btn-link">escribinos</a>.
       </p>
+
       <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
         <a href="#contacto"
            class="px-5 py-3 rounded-xl text-white text-sm font-medium
@@ -39,15 +40,16 @@ import alertIcon from "../assets/alert.svg?url";
           Ver servicios
         </a>
       </div>
+
       <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
         <span class="px-5 py-3 rounded-xl text-white text-sm font-medium bg-black/80 backdrop-blur-sm">Implementación ágil</span>
-        <span class="px-5 py-3 rounded-xl text-white text-sm font-medium bg-black/80 backdrop-blur-sm">Integrable con tus procesos</span>
-        <span class="px-5 py-3 rounded-xl text-white text-sm font-medium bg-black/80 backdrop-blur-sm">Ahorro de costo operativo</span>
+        <span class="px-5 py-3 rounded-xl text-white text-sm font-medium bg-black/80 backdrop-blur-sm">Integrable con tu stack</span>
+        <span class="px-5 py-3 rounded-xl text-white text-sm font-medium bg-black/80 backdrop-blur-sm">Ahorro de horas</span>
       </div>
     </div>
   </section>
 
-  <!-- =========================
+<!-- =========================
    BENEFICIOS 
    ========================= -->
 <section id="beneficios" class="relative z-[1] py-20">
@@ -116,7 +118,7 @@ import alertIcon from "../assets/alert.svg?url";
         </div>
         <div class="simple-card__body text-center">
           <h3 class="benefit-title text-[#c026d3] font-bold text-lg">Menos errores humanos</h3>
-          <p class="copy text-white/80 mt-2">Decisiones más precisas y estandarizadas. Menos fallos y más calidad en cada proceso.</p>
+          <p class="copy text-white/80 mt-2">Decisiones más precisas y estandarizadas. Menos fallos, menos retrabajos y más calidad en cada proceso.</p>
           <div class="badges mt-3">
             <span class="badge bg-black/50 border border-[#c026d3] text-[#c026d3] rounded-full px-3 py-1 inline-block">
               <b class="metric" data-to="60">0</b>% menos incidencias
@@ -128,8 +130,9 @@ import alertIcon from "../assets/alert.svg?url";
     </div>
   </div>
 </section>
-
-    <!-- SERVICIOS -->
+  <!-- =========================
+       SERVICIOS
+       ========================= -->
   <section id="servicios" class="relative z-[1] py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-10">
@@ -142,182 +145,177 @@ import alertIcon from "../assets/alert.svg?url";
       </div>
 
       <div class="grid gap-6 md:gap-8 md:grid-cols-2">
-
-        <!-- 1) Asistente para Selección de Candidatos -->
+        <!-- ========== 1) Asistente para Selección de Candidatos ========== -->
         <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
+          <div class="service-card__header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="4" y="3" width="14" height="18" rx="2" fill="none" stroke="#c026d3" stroke-width="1.6"/>
                 <path d="M7 7h8M7 10h8M7 13h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
               </svg>
             </div>
-            <!-- 👇 título con más protagonismo -->
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Asistente para Selección de Candidatos
-            </h3>
+            <h3 class="title">Asistente para Selección de Candidatos</h3>
           </div>
-          <p class="copy text-center">Filtra y clasifica automáticamente los CVs.</p>
-          <ul class="service-list text-center">
+          <p class="copy">Filtra y clasifica automáticamente los CVs.</p>
+          <ul class="service-list">
             <li>Calcula compatibilidad según experiencia y cercanía.</li>
             <li>Entrega un ranking listo para decidir más rápido.</li>
             <li>Optimiza todo el proceso de contratación de inicio a fin.</li>
           </ul>
-          <!-- ❌ Eliminado: Ahorro semanal -->
-          <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <div class="service-badges">
+            <span class="badge">Ahorro semanal: <b class="metric" data-to="20">0</b> h/sem</span>
+          </div>
+          <div class="service-cta flex flex-wrap gap-2 mt-6">
             <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
               Quiero esto
             </a>
           </div>
         </article>
 
-        <!-- 2) Agente Comercial que Nunca Duerme -->
+        <!-- ========== 2) Agente Comercial que Nunca Duerme ========== -->
         <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
+          <div class="service-card__header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M4 4h16v6H4z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
                 <path d="M4 14h10l2 3 2-3h2v6H4z" fill="#fff" opacity=".1"/>
               </svg>
             </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Agente Comercial que Nunca Duerme
-            </h3>
+            <h3 class="title">Agente Comercial que Nunca Duerme</h3>
           </div>
-          <p class="copy text-center">Extrae datos de potenciales clientes de distintas fuentes.</p>
-          <ul class="service-list text-center">
+          <p class="copy">Extrae datos de potenciales clientes de distintas fuentes.</p>
+          <ul class="service-list">
             <li>Centraliza y organiza los leads en una base única.</li>
             <li>Mantiene tu pipeline de ventas activo las 24 horas.</li>
             <li>Aumenta la eficiencia de todo tu proceso comercial.</li>
           </ul>
-          <!-- ❌ Eliminado: Automatizaciones -->
-          <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <div class="service-badges">
+            <span class="badge">Automatizaciones: <b class="metric" data-to="12">0</b> h/sem</span>
+          </div>
+          <div class="service-cta flex flex-wrap gap-2 mt-6">
             <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
               Quiero esto
             </a>
           </div>
         </article>
 
-        <!-- 3) Auxiliar Contable Automatizado -->
+        <!-- ========== 3) Auxiliar Contable Automatizado ========== -->
         <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 7h18v10H3z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
-                <path d="M3 7l9 6 9-6" fill="none" stroke="#fff" stroke-width="1.6"/>
+          <div class="service-card__header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 3h10a2 2 0 0 1 2 2v14l-3-2-3 2-3-2-3 2V5a2 2 0 0 1 2-2z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
+                <path d="M8 8h6M8 11h8M8 14h4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
               </svg>
             </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Auxiliar Contable Automatizado
-            </h3>
+            <h3 class="title">Auxiliar Contable Automatizado</h3>
           </div>
-          <p class="copy text-center">Registra facturas, clasifica gastos e integra con tu sistema.</p>
-          <ul class="service-list text-center">
-            <li>Conciliación y reportes automáticos.</li>
-            <li>Alertas de vencimientos.</li>
-            <li>Menos carga manual y menos errores.</li>
+          <p class="copy">Procesa facturas y recibos sin intervención manual.</p>
+          <ul class="service-list">
+            <li>Detecta errores, duplicados o inconsistencias.</li>
+            <li>Actualiza registros contables al instante.</li>
+            <li>Asegura una gestión financiera ordenada y confiable.</li>
           </ul>
-          <!-- ❌ Eliminado: Ahorro estimado -->
-          <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <div class="service-badges">
+            <span class="badge">Implementación: <b class="metric" data-to="10">0</b> días</span>
+          </div>
+          <div class="service-cta flex flex-wrap gap-2 mt-6">
             <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
               Quiero esto
             </a>
           </div>
         </article>
 
-        <!-- 4) Base de Datos + Chatbot Interno -->
+        <!-- ========== 4) Administrador de Bases de Datos con Respuesta Inmediata ========== -->
         <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 4h16v12H4z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
-                <path d="M7 7h10M7 10h8M7 13h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+          <div class="service-card__header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 7h16v10H4z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
+                <circle cx="8" cy="12" r="1.4" fill="#fff"/>
+                <circle cx="12" cy="12" r="1.4" fill="#fff"/>
+                <circle cx="16" cy="12" r="1.4" fill="#fff"/>
               </svg>
             </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Base de Datos + Chatbot Interno
-            </h3>
+            <h3 class="title">Administrador de Bases de Datos con Respuesta Inmediata</h3>
           </div>
-          <p class="copy text-center">Gestiona información de clientes, productos o empleados.</p>
-          <ul class="service-list text-center">
+          <p class="copy">Gestiona información de clientes, productos o empleados.</p>
+          <ul class="service-list">
             <li>Responde consultas por chatbot interno en segundos.</li>
             <li>Evita pérdidas de tiempo buscando datos dispersos.</li>
             <li>Centraliza y organiza el conocimiento de tu empresa.</li>
           </ul>
-          <!-- ❌ Eliminado: Ahorro estimado -->
-          <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <div class="service-badges">
+            <span class="badge">Ahorro mensual: <b class="metric" data-to="50">0</b> h/mes</span>
+          </div>
+          <div class="service-cta flex flex-wrap gap-2 mt-6">
             <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
               Quiero esto
             </a>
           </div>
         </article>
 
-        <!-- 5) Recepcionista Automatizado (IA de voz) -->
+        <!-- ========== 5) Recepcionista Automatizado Siempre Disponible (IA de voz) ========== -->
         <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
+          <div class="service-card__header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6 6h14l-2 8H8L6 6z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
                 <circle cx="9" cy="18" r="1.6" fill="#fff"/>
                 <circle cx="17" cy="18" r="1.6" fill="#fff"/>
               </svg>
             </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Recepcionista Automatizado Siempre Disponible (IA de voz)
-            </h3>
+            <h3 class="title">Recepcionista Automatizado Siempre Disponible (IA de voz)</h3>
           </div>
-          <p class="copy text-center">IA de voz que atiende llamadas entrantes automáticamente.</p>
-          <ul class="service-list text-center">
+          <p class="copy">IA de voz que atiende llamadas entrantes automáticamente.</p>
+          <ul class="service-list">
             <li>Identifica intención y deriva al área correcta.</li>
             <li>Disponible 24/7 sin ampliar el equipo.</li>
-            <li>Mejora la experiencia del cliente.</li>
+            <li>Mejora la experiencia del cliente desde el primer contacto.</li>
           </ul>
-          <!-- ❌ Eliminado: Ahorro estimado -->
-          <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <div class="service-badges">
+            <span class="badge">Atención: <b class="metric" data-to="18">0</b> h/sem</span>
+          </div>
+          <div class="service-cta flex flex-wrap gap-2 mt-6">
             <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
               Quiero esto
             </a>
           </div>
         </article>
 
-        <!-- 6) Automatización Personalizada -->
+        <!-- ========== 6) Automatización Personalizada ========== -->
         <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
+          <div class="service-card__header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6 6h12v12H6z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
                 <path d="M6 12h12M12 6v12" stroke="#fff" stroke-width="1.6"/>
               </svg>
             </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Automatización Personalizada
-            </h3>
+            <h3 class="title">Automatización Personalizada</h3>
           </div>
-          <p class="copy text-center">Diseñamos un flujo único adaptado a tu negocio.</p>
-          <ul class="service-list text-center">
+          <p class="copy">Diseñamos un flujo único adaptado a tu negocio.</p>
+          <ul class="service-list">
             <li>Integramos APIs, plataformas y procesos internos.</li>
             <li>Escalamos soluciones a medida según tus objetivos.</li>
             <li>Automatizamos lo que tu empresa necesite de forma integral.</li>
           </ul>
-          <!-- ❌ Eliminado: Ahorro estimado -->
-          <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <div class="service-badges">
+            <span class="badge">SLA de soporte</span>
+          </div>
+          <div class="service-cta flex flex-wrap gap-2 mt-6">
             <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
               Quiero esto
             </a>
           </div>
         </article>
-
       </div>
     </div>
   </section>
 
-  <!-- CÓMO TRABAJAMOS, CONTACTO, etc… (sin cambios) -->
-  <!-- … resto de tu página como ya lo tenías … -->
-
-</BaseLayout>
-
-
-  <!-- CÓMO TRABAJAMOS -->
+  <!-- =========================
+       CÓMO TRABAJAMOS (nuevo)
+       ========================= -->
   <section id="como-trabajamos" class="relative z-[1] py-20 mt-16">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-10">
@@ -328,6 +326,7 @@ import alertIcon from "../assets/alert.svg?url";
           Un modelo en 4 etapas, con tiempos acotados y sin frenar tu operación.
         </p>
       </div>
+
       <div class="grid md:grid-cols-2 gap-4 overflow-x-auto md:overflow-visible auto-cols-[minmax(320px,560px)] grid-flow-col md:grid-flow-row snap-x md:snap-none pb-2">
         <!-- 1 -->
         <article class="rounded-2xl border border-white/10 bg-white/[.02] backdrop-blur p-4 grid grid-cols-[auto,1fr] gap-3 snap-start">
@@ -382,6 +381,7 @@ import alertIcon from "../assets/alert.svg?url";
           </div>
         </article>
       </div>
+
       <ul class="flex flex-wrap gap-2 justify-center mt-6 text-white/80 text-sm">
         <li class="px-2.5 py-1 rounded-full border border-white/20">Cada etapa ≤ 2 semanas</li>
         <li class="px-2.5 py-1 rounded-full border border-white/20">Validación en paralelo</li>
@@ -391,18 +391,24 @@ import alertIcon from "../assets/alert.svg?url";
     </div>
   </section>
 
-  <!-- CONTACTO -->
+  <!-- =========================
+       CONTACTO (formulario actualizado)
+       ========================= -->
   <section id="contacto" class="relative z-[1] py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-10">
         <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">Contáctanos</h2>
         <p class="mt-3 text-white/80">Contanos tu proceso y te proponemos un camino en <b>48 hs</b>.</p>
       </div>
+
       <form class="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
         <input class="border rounded-xl px-3 py-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Nombre" required />
-        <input class="border rounded-xl px-3 py-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Apellido" required />
-        <input class="border rounded-xl px-3 py-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Correo electrónico" required />
-        <select class="border rounded-xl px-3 py-2 sm:col-span-2 bg-black text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
+
+        <input class="border rounded-xl px-3 py-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Nombre de la empresa" required />
+
+        <input class="border rounded-xl px-3 py-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Rubro (Ej: Retail, Logística, Salud)" required />
+
+        <select class="border rounded-xl px-3 py-2 sm:col-span-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
           <option value="">¿Qué necesitas automatizar?</option>
           <option value="leads">Captación de Leads</option>
           <option value="facturas">Procesamiento de Facturas</option>
@@ -411,7 +417,8 @@ import alertIcon from "../assets/alert.svg?url";
           <option value="llamadas">Atención Telefónica</option>
           <option value="personalizado">Otro (Personalizado)</option>
         </select>
-        <select class="border rounded-xl px-3 py-2 sm:col-span-2 bg-black text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
+
+        <select class="border rounded-xl px-3 py-2 sm:col-span-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
           <option value="">Rango de presupuesto estimado</option>
           <option value="500-1000">$500 – $1,000</option>
           <option value="1000-2000">$1,000 – $2,000</option>
@@ -419,7 +426,9 @@ import alertIcon from "../assets/alert.svg?url";
           <option value="3000-5000">$3,000 – $5,000</option>
           <option value="5000+">$5,000+</option>
         </select>
+
         <textarea class="border rounded-xl px-3 py-2 sm:col-span-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" rows="4" placeholder="Cuéntanos más sobre tu proyecto..." required></textarea>
+
         <button class="px-4 py-3 rounded-xl bg-gradient-to-r from-[#c026d3] to-[#7c3aed] text-white text-sm sm:col-span-2 font-medium shadow-lg hover:shadow-[0_0_20px_rgba(192,38,211,0.5)] transition-all duration-300" type="submit">
           Enviar
         </button>
