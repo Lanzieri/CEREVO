@@ -7,7 +7,6 @@
   transform: translateY(0);
   transition: transform 0.3s ease-in-out;
 }
-
 .header-scroll.scrolled {
   transform: translateY(-100%);
 }
@@ -20,25 +19,47 @@ body {
   color: #fff;
 }
 
+/* Links */
 .btn-link {
   color: #c026d3;
   text-decoration: underline;
   transition: all 0.3s ease;
 }
-
 .btn-link:hover {
   color: #7c3aed;
   text-decoration: none;
 }
 
+/* ====== HERO LAYERING (fondo visible en build) ====== */
+.hero-surface {
+  position: relative;      /* crea contexto para z-index hijos */
+  isolation: isolate;      /* evita mezclas fuera del hero */
+  overflow: hidden;
+}
+
+/* Contenido del hero por encima de las capas */
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Capas del fondo (todas por debajo del contenido, pero visibles) */
+.orb,
+.aurora,
+.lines,
+.spotlight {
+  pointer-events: none;
+}
+
+/* Orbes */
 .orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(20px);
   opacity: 0.2;
   animation: float 10s infinite linear;
+  z-index: 0; /* ✅ antes -1 */
 }
-
 .orb-1 {
   width: 800px;
   height: 800px;
@@ -47,7 +68,6 @@ body {
   left: -200px;
   animation-delay: -2s;
 }
-
 .orb-2 {
   width: 600px;
   height: 600px;
@@ -64,31 +84,31 @@ body {
   75% { transform: translate(-10px, 10px); }
 }
 
+/* Aurora */
 .aurora {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23c026d3"/><stop offset="100%" stop-color="%237c3aed"/></linearGradient></defs><path d="M10,10 L90,10 L90,90 L10,90 Z" fill="url(%23grad)" opacity="0.05" /></svg>');
   background-size: cover;
-  opacity: 0.1;
-  z-index: -1;
+  opacity: 0.10;
+  z-index: 0; /* ✅ antes -1 */
 }
 
+/* Líneas */
 .lines {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><line x1="0" y1="0" x2="100" y2="100" stroke="%23c026d3" stroke-width="0.5" opacity="0.1"/><line x1="100" y1="0" x2="0" y2="100" stroke="%237c3aed" stroke-width="0.5" opacity="0.1"/></svg>');
   background-size: cover;
-  z-index: -1;
+  z-index: 0; /* ✅ antes -1 */
 }
 
+/* Luz superior */
 .spotlight {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
-  z-index: -1;
+  z-index: 0; /* ✅ antes -1 */
 }
 
 /* Metric counter animation */
@@ -107,12 +127,34 @@ button:focus {
   box-shadow: 0 0 0 2px rgba(192, 38, 211, 0.5);
 }
 
-/* Responsive grid */
+/* Responsive grid helpers (si no usás Tailwind para esto) */
 @media (max-width: 768px) {
-  .md\:grid-cols-3 {
-    grid-template-columns: 1fr;
-  }
-  .md\:grid-cols-2 {
-    grid-template-columns: 1fr;
-  }
+  .md\:grid-cols-3 { grid-template-columns: 1fr; }
+  .md\:grid-cols-2 { grid-template-columns: 1fr; }
+}
+/* Altura del header (ajustá si tu header es más alto) */
+:root { --header-h: 64px; }
+
+/* Hero a pantalla completa, respetando el header fijo */
+.hero-full {
+  min-height: calc(100dvh - var(--header-h));
+  /* fallback para navegadores viejos */
+}
+@supports not (min-height: 100dvh) {
+  .hero-full { min-height: calc(100vh - var(--header-h)); }
+}
+
+/* Separación interior para que nada quede tapado por el header */
+.hero-padding {
+  padding-top: var(--header-h);
+}
+
+/* Degradé al final del hero para fundir con el fondo negro */
+.hero-fade-bottom {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,.85) 60%, #000 100%);
+  pointer-events: none;
+  z-index: 0; /* debajo del contenido */
 }
