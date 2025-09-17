@@ -436,3 +436,38 @@ import alertIcon from "../assets/alert.svg?url";
     </div>
   </section>
 </BaseLayout>
+<script is:inline>
+  // Anima <b class="metric" data-to="45">0</b>
+  (function () {
+    const ease = t => 1 - Math.pow(1 - t, 3); // easing suave
+
+    function animate(el) {
+      const target = parseFloat(el.getAttribute('data-to') || '0');
+      const dur = parseInt(el.getAttribute('data-duration') || '1200', 10);
+      const start = performance.now();
+
+      function frame(now) {
+        const p = Math.min(1, (now - start) / dur);
+        const value = Math.round(ease(p) * target);
+        el.textContent = value; // solo el número; % o "veces" quedan fuera
+        if (p < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    const metrics = document.querySelectorAll('.metric');
+    if (!metrics.length) return;
+
+    // Lanza cuando la métrica entra en viewport
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animate(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    metrics.forEach(m => io.observe(m));
+  })();
+</script>
