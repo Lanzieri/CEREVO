@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="96" height="96" fill="none">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c026d3"/><stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <!-- duotono -->
+  <circle cx="24" cy="24" r="18" fill="rgba(255,255,255,.04)"/>
+  <!-- micrófono -->
+  <rect x="20" y="14" width="8" height="16" rx="4" stroke="url(#brand)" stroke-width="2"/>
+  <path d="M16 24a8 8 0 0 0 16 0" stroke="url(#brand)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M24 32v4" stroke="url(#brand)" stroke-width="2" stroke-linecap="round"/>
+  <rect x="18" y="36" width="12" height="2" rx="1" fill="url(#brand)"/>
+  <!-- ondas -->
+  <path d="M14 20c-1.5 2-1.5 6 0 8M34 20c1.5 2 1.5 6 0 8" stroke="url(#brand)" stroke-width="2" stroke-linecap="round"/>
+</svg>

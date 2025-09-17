@@ -138,187 +138,160 @@ import alertIcon from "../assets/alert.svg?url";
   </div>
 </section>
 
-    <!-- SERVICIOS -->
-  <section id="servicios" class="relative z-[1] py-20">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">
-          Servicios
-        </h2>
-        <p class="mt-3 text-white/80">
-          Roles digitales de Dala para acelerar tu negocio.
-        </p>
-      </div>
-
-      <div class="grid gap-6 md:gap-8 md:grid-cols-2">
-
-        <!-- 1) Asistente para Selección de Candidatos -->
-        <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="4" y="3" width="14" height="18" rx="2" fill="none" stroke="#c026d3" stroke-width="1.6"/>
-                <path d="M7 7h8M7 10h8M7 13h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <!-- 👇 título con más protagonismo -->
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Asistente para Selección de Candidatos
-            </h3>
-          </div>
-          <p class="copy text-center">Filtra y clasifica automáticamente los CVs.</p>
-          <ul class="service-list text-center">
-            <li>Calcula compatibilidad según experiencia y cercanía.</li>
-            <li>Entrega un ranking listo para decidir más rápido.</li>
-            <li>Optimiza todo el proceso de contratación de inicio a fin.</li>
-          </ul>
-          <!-- ❌ Eliminado: Ahorro semanal -->
-          <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
-            <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-              Quiero esto
-            </a>
-          </div>
-        </article>
-
-        <!-- 2) Agente Comercial que Nunca Duerme -->
-        <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 4h16v6H4z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
-                <path d="M4 14h10l2 3 2-3h2v6H4z" fill="#fff" opacity=".1"/>
-              </svg>
-            </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Agente Comercial que Nunca Duerme
-            </h3>
-          </div>
-          <p class="copy text-center">Extrae datos de potenciales clientes de distintas fuentes.</p>
-          <ul class="service-list text-center">
-            <li>Centraliza y organiza los leads en una base única.</li>
-            <li>Mantiene tu pipeline de ventas activo las 24 horas.</li>
-            <li>Aumenta la eficiencia de todo tu proceso comercial.</li>
-          </ul>
-          <!-- ❌ Eliminado: Automatizaciones -->
-          <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
-            <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-              Quiero esto
-            </a>
-          </div>
-        </article>
-
-        <!-- 3) Auxiliar Contable Automatizado -->
-        <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 7h18v10H3z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
-                <path d="M3 7l9 6 9-6" fill="none" stroke="#fff" stroke-width="1.6"/>
-              </svg>
-            </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Auxiliar Contable Automatizado
-            </h3>
-          </div>
-          <p class="copy text-center">Registra facturas, clasifica gastos e integra con tu sistema.</p>
-          <ul class="service-list text-center">
-            <li>Conciliación y reportes automáticos.</li>
-            <li>Alertas de vencimientos.</li>
-            <li>Menos carga manual y menos errores.</li>
-          </ul>
-          <!-- ❌ Eliminado: Ahorro estimado -->
-          <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
-            <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-              Quiero esto
-            </a>
-          </div>
-        </article>
-
-        <!-- 4) Base de Datos + Chatbot Interno -->
-        <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 4h16v12H4z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
-                <path d="M7 7h10M7 10h8M7 13h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Base de Datos + Chatbot Interno
-            </h3>
-          </div>
-          <p class="copy text-center">Gestiona información de clientes, productos o empleados.</p>
-          <ul class="service-list text-center">
-            <li>Responde consultas por chatbot interno en segundos.</li>
-            <li>Evita pérdidas de tiempo buscando datos dispersos.</li>
-            <li>Centraliza y organiza el conocimiento de tu empresa.</li>
-          </ul>
-          <!-- ❌ Eliminado: Ahorro estimado -->
-          <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
-            <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-              Quiero esto
-            </a>
-          </div>
-        </article>
-
-        <!-- 5) Recepcionista Automatizado (IA de voz) -->
-        <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 6h14l-2 8H8L6 6z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
-                <circle cx="9" cy="18" r="1.6" fill="#fff"/>
-                <circle cx="17" cy="18" r="1.6" fill="#fff"/>
-              </svg>
-            </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Recepcionista Automatizado Siempre Disponible (IA de voz)
-            </h3>
-          </div>
-          <p class="copy text-center">IA de voz que atiende llamadas entrantes automáticamente.</p>
-          <ul class="service-list text-center">
-            <li>Identifica intención y deriva al área correcta.</li>
-            <li>Disponible 24/7 sin ampliar el equipo.</li>
-            <li>Mejora la experiencia del cliente.</li>
-          </ul>
-          <!-- ❌ Eliminado: Ahorro estimado -->
-          <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
-            <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-              Quiero esto
-            </a>
-          </div>
-        </article>
-
-        <!-- 6) Automatización Personalizada -->
-        <article class="simple-card service-card js-reveal">
-          <div class="service-card__header flex flex-col items-center text-center gap-4">
-            <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-              <svg class="w-full h-auto" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 6h12v12H6z" fill="none" stroke="#c026d3" stroke-width="1.6"/>
-                <path d="M6 12h12M12 6v12" stroke="#fff" stroke-width="1.6"/>
-              </svg>
-            </div>
-            <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-              Automatización Personalizada
-            </h3>
-          </div>
-          <p class="copy text-center">Diseñamos un flujo único adaptado a tu negocio.</p>
-          <ul class="service-list text-center">
-            <li>Integramos APIs, plataformas y procesos internos.</li>
-            <li>Escalamos soluciones a medida según tus objetivos.</li>
-            <li>Automatizamos lo que tu empresa necesite de forma integral.</li>
-          </ul>
-          <!-- ❌ Eliminado: Ahorro estimado -->
-          <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
-            <a href="#contacto" class="px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-              Quiero esto
-            </a>
-          </div>
-        </article>
-
-      </div>
+<!-- SERVICIOS -->
+<section id="servicios" class="section-surface py-20">
+  <div class="section-content max-w-6xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">
+        Servicios
+      </h2>
+      <p class="mt-3 text-white/80">Roles digitales de Dala para acelerar tu negocio.</p>
     </div>
-  </section>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
+
+      <!-- 1) Asistente para Selección de Candidatos -->
+      <article class="simple-card service-card js-reveal">
+        <div class="service-card__header flex flex-col items-center text-center gap-4">
+          <div class="service-icon w-16 md:w-24 h-auto mx-auto">
+            <img src="icons/candidate.svg" alt="Selección de candidatos" class="w-full h-auto opacity-90" />
+          </div>
+          <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
+            Asistente para Selección de Candidatos
+          </h3>
+        </div>
+        <p class="copy text-center text-sm md:text-base">Filtra y clasifica automáticamente los CVs.</p>
+        <ul class="service-list text-center text-sm md:text-base">
+          <li>Calcula compatibilidad según experiencia y cercanía.</li>
+          <li>Entrega un ranking listo para decidir más rápido.</li>
+          <li>Optimiza todo el proceso de contratación de inicio a fin.</li>
+        </ul>
+        <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
+            Quiero esto
+          </a>
+        </div>
+      </article>
+
+      <!-- 2) Agente Comercial que Nunca Duerme -->
+      <article class="simple-card service-card js-reveal">
+        <div class="service-card__header flex flex-col items-center text-center gap-4">
+          <div class="service-icon w-16 md:w-24 h-auto mx-auto">
+            <img src="icons/sales-agent.svg" alt="Agente comercial 24/7" class="w-full h-auto opacity-90" />
+          </div>
+          <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
+            Agente Comercial que Nunca Duerme
+          </h3>
+        </div>
+        <p class="copy text-center text-sm md:text-base">Extrae datos de potenciales clientes de distintas fuentes.</p>
+        <ul class="service-list text-center text-sm md:text-base">
+          <li>Centraliza y organiza los leads en una base única.</li>
+          <li>Mantiene tu pipeline de ventas activo las 24 horas.</li>
+          <li>Aumenta la eficiencia de todo tu proceso comercial.</li>
+        </ul>
+        <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
+            Quiero esto
+          </a>
+        </div>
+      </article>
+
+      <!-- 3) Auxiliar Contable Automatizado -->
+      <article class="simple-card service-card js-reveal">
+        <div class="service-card__header flex flex-col items-center text-center gap-4">
+          <div class="service-icon w-16 md:w-24 h-auto mx-auto">
+            <img src="icons/accounting.svg" alt="Auxiliar contable" class="w-full h-auto opacity-90" />
+          </div>
+          <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
+            Auxiliar Contable Automatizado
+          </h3>
+        </div>
+        <p class="copy text-center text-sm md:text-base">Registra facturas, clasifica gastos e integra con tu sistema.</p>
+        <ul class="service-list text-center text-sm md:text-base">
+          <li>Conciliación y reportes automáticos.</li>
+          <li>Alertas de vencimientos.</li>
+          <li>Menos carga manual y menos errores.</li>
+        </ul>
+        <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
+            Quiero esto
+          </a>
+        </div>
+      </article>
+
+      <!-- 4) Base de Datos + Chatbot Interno -->
+      <article class="simple-card service-card js-reveal">
+        <div class="service-card__header flex flex-col items-center text-center gap-4">
+          <div class="service-icon w-16 md:w-24 h-auto mx-auto">
+            <img src="icons/database-chat.svg" alt="Base de datos y chatbot" class="w-full h-auto opacity-90" />
+          </div>
+          <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
+            Base de Datos + Chatbot Interno
+          </h3>
+        </div>
+        <p class="copy text-center text-sm md:text-base">Gestiona información de clientes, productos o empleados.</p>
+        <ul class="service-list text-center text-sm md:text-base">
+          <li>Responde consultas por chatbot interno en segundos.</li>
+          <li>Evita pérdidas de tiempo buscando datos dispersos.</li>
+          <li>Centraliza y organiza el conocimiento de tu empresa.</li>
+        </ul>
+        <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
+            Quiero esto
+          </a>
+        </div>
+      </article>
+
+      <!-- 5) Recepcionista Automatizado (IA de voz) -->
+      <article class="simple-card service-card js-reveal">
+        <div class="service-card__header flex flex-col items-center text-center gap-4">
+          <div class="service-icon w-16 md:w-24 h-auto mx-auto">
+            <img src="icons/voice-assistant.svg" alt="Recepcionista IA de voz" class="w-full h-auto opacity-90" />
+          </div>
+          <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
+            Recepcionista Automatizado Siempre Disponible (IA de voz)
+          </h3>
+        </div>
+        <p class="copy text-center text-sm md:text-base">IA de voz que atiende llamadas entrantes automáticamente.</p>
+        <ul class="service-list text-center text-sm md:text-base">
+          <li>Identifica intención y deriva al área correcta.</li>
+          <li>Disponible 24/7 sin ampliar el equipo.</li>
+          <li>Mejora la experiencia del cliente.</li>
+        </ul>
+        <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
+            Quiero esto
+          </a>
+        </div>
+      </article>
+
+      <!-- 6) Automatización Personalizada -->
+      <article class="simple-card service-card js-reveal">
+        <div class="service-card__header flex flex-col items-center text-center gap-4">
+          <div class="service-icon w-16 md:w-24 h-auto mx-auto">
+            <img src="icons/workflow-nodes.svg" alt="Automatización personalizada" class="w-full h-auto opacity-90" />
+          </div>
+          <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
+            Automatización Personalizada
+          </h3>
+        </div>
+        <p class="copy text-center text-sm md:text-base">Diseñamos un flujo único adaptado a tu negocio.</p>
+        <ul class="service-list text-center text-sm md:text-base">
+          <li>Integramos APIs, plataformas y procesos internos.</li>
+          <li>Escalamos soluciones a medida según tus objetivos.</li>
+          <li>Automatizamos lo que tu empresa necesite de forma integral.</li>
+        </ul>
+        <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
+            Quiero esto
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 
   <!-- CÓMO TRABAJAMOS, CONTACTO, etc… (sin cambios) -->
   <!-- … resto de tu página como ya lo tenías … -->
@@ -326,79 +299,85 @@ import alertIcon from "../assets/alert.svg?url";
 </BaseLayout>
 
 
-  <!-- CÓMO TRABAJAMOS -->
-  <section id="como-trabajamos" class="relative z-[1] py-20 mt-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">
-          Cómo trabajamos
-        </h2>
-        <p class="mt-3 text-white/80">
-          Un modelo en 4 etapas, con tiempos acotados y sin frenar tu operación.
-        </p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-4 overflow-x-auto md:overflow-visible auto-cols-[minmax(320px,560px)] grid-flow-col md:grid-flow-row snap-x md:snap-none pb-2">
-        <!-- 1 -->
-        <article class="rounded-2xl border border-white/10 bg-white/[.02] backdrop-blur p-4 grid grid-cols-[auto,1fr] gap-3 snap-start">
-          <div class="text-xl" aria-hidden="true">🧭</div>
-          <div>
-            <h3 class="font-semibold text-white/95">Contacto inicial y relevamiento</h3>
-            <ul class="mt-2 space-y-1 text-white/80 text-sm">
-              <li>Entendemos tu necesidad y puntos críticos.</li>
-              <li>Definimos alcance y objetivos iniciales.</li>
-              <li>Confirmamos viabilidad técnica con ejemplos de referencia.</li>
-            </ul>
-            <span class="inline-flex mt-2 text-xs px-2 py-1 rounded-full border border-violet-400/40 text-violet-200/90 bg-violet-500/10">Tiempo máx. 2 semanas</span>
-          </div>
-        </article>
-        <!-- 2 -->
-        <article class="rounded-2xl border border-white/10 bg-white/[.02] backdrop-blur p-4 grid grid-cols-[auto,1fr] gap-3 snap-start">
-          <div class="text-xl" aria-hidden="true">🧠</div>
-          <div>
-            <h3 class="font-semibold text-white/95">MOC y concepto lógico</h3>
-            <ul class="mt-2 space-y-1 text-white/80 text-sm">
-              <li>Presentamos el Modelo Operativo Conceptual.</li>
-              <li>Alineamos expectativas con tu equipo y refinamos.</li>
-              <li>Dejamos criterios claros para diseño y desarrollo.</li>
-            </ul>
-            <span class="inline-flex mt-2 text-xs px-2 py-1 rounded-full border border-violet-400/40 text-violet-200/90 bg-violet-500/10">Tiempo máx. 2 semanas</span>
-          </div>
-        </article>
-        <!-- 3 -->
-        <article class="rounded-2xl border border-white/10 bg-white/[.02] backdrop-blur p-4 grid grid-cols-[auto,1fr] gap-3 snap-start">
-          <div class="text-xl" aria-hidden="true">🧪</div>
-          <div>
-            <h3 class="font-semibold text-white/95">Testing en paralelo (validación)</h3>
-            <ul class="mt-2 space-y-1 text-white/80 text-sm">
-              <li>Ejecutamos en paralelo a tu entorno real.</li>
-              <li>Ajustamos con feedback continuo, sin afectar producción.</li>
-              <li>Validamos calidad y resultados antes del go-live.</li>
-            </ul>
-            <span class="inline-flex mt-2 text-xs px-2 py-1 rounded-full border border-violet-400/40 text-violet-200/90 bg-violet-500/10">Tiempo máx. 2 semanas</span>
-          </div>
-        </article>
-        <!-- 4 -->
-        <article class="rounded-2xl border border-white/10 bg-white/[.02] backdrop-blur p-4 grid grid-cols-[auto,1fr] gap-3 snap-start">
-          <div class="text-xl" aria-hidden="true">🚀</div>
-          <div>
-            <h3 class="font-semibold text-white/95">Producción y soporte</h3>
-            <ul class="mt-2 space-y-1 text-white/80 text-sm">
-              <li>Integramos la automatización a tu flujo real.</li>
-              <li>Estabilización inicial y soporte continuo.</li>
-              <li>Evolución por métricas y nuevas necesidades.</li>
-            </ul>
-            <span class="inline-flex mt-2 text-xs px-2 py-1 rounded-full border border-violet-400/40 text-violet-200/90 bg-violet-500/10">Estabilización máx. 2 semanas</span>
-          </div>
-        </article>
-      </div>
-      <ul class="flex flex-wrap gap-2 justify-center mt-6 text-white/80 text-sm">
-        <li class="px-2.5 py-1 rounded-full border border-white/20">Cada etapa ≤ 2 semanas</li>
-        <li class="px-2.5 py-1 rounded-full border border-white/20">Validación en paralelo</li>
-        <li class="px-2.5 py-1 rounded-full border border-white/20">Go-live sin frenar el día a día</li>
-        <li class="px-2.5 py-1 rounded-full border border-white/20">Soporte continuo</li>
-      </ul>
+<!-- CÓMO TRABAJAMOS -->
+<section id="como-trabajamos" class="relative z-[1] py-20 mt-16">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">
+        Cómo trabajamos
+      </h2>
+      <p class="mt-3 text-white/80">
+        Un modelo en 4 etapas, con tiempos acotados y sin frenar tu operación.
+      </p>
     </div>
-  </section>
+
+    <div class="grid md:grid-cols-2 gap-4 overflow-x-auto md:overflow-visible auto-cols-[minmax(320px,560px)] grid-flow-col md:grid-flow-row snap-x md:snap-none pb-2">
+      <!-- 1 (FIX ancho móvil) -->
+      <article class="rounded-2xl border border-white/10 bg-white/[.02] backdrop-blur p-4 grid grid-cols-[auto,1fr] gap-3 snap-start min-w-[320px] max-w-[560px] w-full md:w-auto">
+        <div class="text-xl" aria-hidden="true">🧭</div>
+        <div>
+          <h3 class="font-semibold text-white/95">Contacto inicial y relevamiento</h3>
+          <ul class="mt-2 space-y-1 text-white/80 text-sm">
+            <li>Entendemos tu necesidad y puntos críticos.</li>
+            <li>Definimos alcance y objetivos iniciales.</li>
+            <li>Confirmamos viabilidad técnica con ejemplos de referencia.</li>
+          </ul>
+          <span class="inline-flex mt-2 text-xs px-2 py-1 rounded-full border border-violet-400/40 text-violet-200/90 bg-violet-500/10">Tiempo máx. 2 semanas</span>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="rounded-2xl border border-white/10 bg-white/[.02] backdrop-blur p-4 grid grid-cols-[auto,1fr] gap-3 snap-start">
+        <div class="text-xl" aria-hidden="true">🧠</div>
+        <div>
+          <h3 class="font-semibold text-white/95">MOC y concepto lógico</h3>
+          <ul class="mt-2 space-y-1 text-white/80 text-sm">
+            <li>Presentamos el Modelo Operativo Conceptual.</li>
+            <li>Alineamos expectativas con tu equipo y refinamos.</li>
+            <li>Dejamos criterios claros para diseño y desarrollo.</li>
+          </ul>
+          <span class="inline-flex mt-2 text-xs px-2 py-1 rounded-full border border-violet-400/40 text-violet-200/90 bg-violet-500/10">Tiempo máx. 2 semanas</span>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="rounded-2xl border border-white/10 bg-white/[.02] backdrop-blur p-4 grid grid-cols-[auto,1fr] gap-3 snap-start">
+        <div class="text-xl" aria-hidden="true">🧪</div>
+        <div>
+          <h3 class="font-semibold text-white/95">Testing en paralelo (validación)</h3>
+          <ul class="mt-2 space-y-1 text-white/80 text-sm">
+            <li>Ejecutamos en paralelo a tu entorno real.</li>
+            <li>Ajustamos con feedback continuo, sin afectar producción.</li>
+            <li>Validamos calidad y resultados antes del go-live.</li>
+          </ul>
+          <span class="inline-flex mt-2 text-xs px-2 py-1 rounded-full border border-violet-400/40 text-violet-200/90 bg-violet-500/10">Tiempo máx. 2 semanas</span>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="rounded-2xl border border-white/10 bg-white/[.02] backdrop-blur p-4 grid grid-cols-[auto,1fr] gap-3 snap-start">
+        <div class="text-xl" aria-hidden="true">🚀</div>
+        <div>
+          <h3 class="font-semibold text-white/95">Producción y soporte</h3>
+          <ul class="mt-2 space-y-1 text-white/80 text-sm">
+            <li>Integramos la automatización a tu flujo real.</li>
+            <li>Estabilización inicial y soporte continuo.</li>
+            <li>Evolución por métricas y nuevas necesidades.</li>
+          </ul>
+          <span class="inline-flex mt-2 text-xs px-2 py-1 rounded-full border border-violet-400/40 text-violet-200/90 bg-violet-500/10">Estabilización máx. 2 semanas</span>
+        </div>
+      </article>
+    </div>
+
+    <ul class="flex flex-wrap gap-2 justify-center mt-6 text-white/80 text-sm">
+      <li class="px-2.5 py-1 rounded-full border border-white/20">Cada etapa ≤ 2 semanas</li>
+      <li class="px-2.5 py-1 rounded-full border border-white/20">Validación en paralelo</li>
+      <li class="px-2.5 py-1 rounded-full border border-white/20">Go-live sin frenar el día a día</li>
+      <li class="px-2.5 py-1 rounded-full border border-white/20">Soporte continuo</li>
+    </ul>
+  </div>
+</section>
+
 
   <!-- CONTACTO -->
   <section id="contacto" class="relative z-[1] py-20">

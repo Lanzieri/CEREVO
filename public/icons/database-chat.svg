@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="96" height="96" fill="none">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c026d3"/><stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <!-- duotono -->
+  <ellipse cx="18" cy="11" rx="10" ry="4" fill="rgba(255,255,255,.06)"/>
+  <!-- cilindro (DB) -->
+  <ellipse cx="18" cy="12" rx="10" ry="4" stroke="url(#brand)" stroke-width="2"/>
+  <path d="M8 12v14c0 2.2 4.5 4 10 4s10-1.8 10-4V12" stroke="url(#brand)" stroke-width="2" fill="none"/>
+  <path d="M8 19c0 2.2 4.5 4 10 4s10-1.8 10-4" stroke="url(#brand)" stroke-width="2" fill="none"/>
+  <path d="M8 26c0 2.2 4.5 4 10 4s10-1.8 10-4" stroke="url(#brand)" stroke-width="2" fill="none"/>
+  <!-- globo de chat -->
+  <path d="M30 20h8a5 5 0 0 1 5 5v5a5 5 0 0 1-5 5h-4l-3 4v-4h-1a5 5 0 0 1-5-5v-5a5 5 0 0 1 5-5Z" stroke="url(#brand)" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="34" cy="29" r="1.2" fill="#fff"/><circle cx="37" cy="29" r="1.2" fill="#fff"/><circle cx="40" cy="29" r="1.2" fill="#fff"/>
+</svg>
