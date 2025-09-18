@@ -18,24 +18,42 @@ const base = import.meta.env.BASE_URL || "/";
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
   </head>
-  <body class="bg-black text-white">
+
+  <!-- sticky footer: body como columna y main ocupa el resto -->
+  <body class="bg-black text-white min-h-screen flex flex-col">
     <!-- Header (sólido + hide on scroll + chips) -->
     <header
       data-header
       class="header-scroll fixed inset-x-0 top-0 z-50 bg-black/90 backdrop-blur supports-[backdrop-filter]:bg-black/70"
     >
       <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <!-- BRAND: Vectis + logo SVG en tonos blanco/gris -->
+        <!-- BRAND: Vectis + logo SVG -->
         <a href={`${base}`} class="flex items-center gap-2 font-semibold tracking-tight text-white hover:opacity-90">
           <img src={`${base}icons/vectis-mark.svg`} alt="Vectis" class="w-6 h-6 opacity-90" />
           <span>VECTIS</span>
         </a>
 
         <ul class="hidden gap-2 md:flex">
-          <li><a href="#inicio" class="px-3 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 text-sm hover:bg-neutral-800">Inicio</a></li>
-          <li><a href="#beneficios" class="px-3 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 text-sm hover:bg-neutral-800">Beneficios</a></li>
-          <li><a href="#servicios" class="px-3 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 text-sm hover:bg-neutral-800">Servicios</a></li>
-          <li><a href="#como-trabajamos" class="px-3 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 text-sm hover:bg-neutral-800">Cómo trabajamos</a></li>
+          <li>
+            <a href="#inicio" class="px-3 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 text-sm hover:bg-neutral-800">
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a href="#beneficios" class="px-3 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 text-sm hover:bg-neutral-800">
+              Beneficios
+            </a>
+          </li>
+          <li>
+            <a href="#servicios" class="px-3 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 text-sm hover:bg-neutral-800">
+              Servicios
+            </a>
+          </li>
+          <li>
+            <a href="#como-trabajamos" class="px-3 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 text-sm hover:bg-neutral-800">
+              Cómo trabajamos
+            </a>
+          </li>
         </ul>
 
         <a
@@ -47,9 +65,15 @@ const base = import.meta.env.BASE_URL || "/";
       </nav>
     </header>
 
-    <main id="inicio" class="pt-16">
+    <!-- main crece para empujar el footer al fondo -->
+    <main id="inicio" class="pt-16 flex-1">
       <slot />
     </main>
+
+    <!-- Footer dentro del <body> y al final -->
+    <footer class="mt-20 border-t border-white/10 py-10 text-center text-white/60">
+      <p class="text-sm">© {new Date().getFullYear()} VECTIS — Automatizaciones con IA</p>
+    </footer>
 
     <!-- Script: ocultar header al scrollear hacia abajo, mostrar al subir -->
     <script is:inline>
@@ -60,20 +84,20 @@ const base = import.meta.env.BASE_URL || "/";
         let lastY = window.scrollY;
         const TH = 10; // umbral
 
-        window.addEventListener("scroll", () => {
-          const y = window.scrollY;
-          if (y > lastY + TH) {
-            el.classList.add("scrolled"); // se oculta (ver global.css)
-          } else if (y < lastY - TH) {
-            el.classList.remove("scrolled"); // se muestra
-          }
-          lastY = y;
-        }, { passive: true });
+        window.addEventListener(
+          "scroll",
+          () => {
+            const y = window.scrollY;
+            if (y > lastY + TH) {
+              el.classList.add("scrolled"); // se oculta (ver global.css)
+            } else if (y < lastY - TH) {
+              el.classList.remove("scrolled"); // se muestra
+            }
+            lastY = y;
+          },
+          { passive: true }
+        );
       })();
     </script>
   </body>
 </html>
-
- <footer class="mt-20 border-t border-white/10/5 py-10 text-center text-white/60">
-      <p class="text-sm">© {new Date().getFullYear()} VECTIS — Automatizaciones con IA</p>
-    </footer>
