@@ -8,7 +8,7 @@ import alertIcon from "../assets/alert.svg?url";
 ---
 
 <BaseLayout
-  title="LumenOps — Automatizaciones con IA"
+  title="Dala Inc — Automatizaciones con IA"
   description="Automatiza procesos con inteligencia artificial para ahorrar tiempo y costos."
 >
  <!-- HERO -->
@@ -380,95 +380,40 @@ import alertIcon from "../assets/alert.svg?url";
 
 
   <!-- CONTACTO -->
-<section id="contacto" class="relative z-[1] py-20">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="text-center mb-10">
-      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">Contáctanos</h2>
-      <p class="mt-3 text-white/80">Contanos tu proceso y te proponemos un camino en <b>48 hs</b>.</p>
+  <section id="contacto" class="relative z-[1] py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">Contáctanos</h2>
+        <p class="mt-3 text-white/80">Contanos tu proceso y te proponemos un camino en <b>48 hs</b>.</p>
+      </div>
+      <form class="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
+        <input class="border rounded-xl px-3 py-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Nombre" required />
+        <input class="border rounded-xl px-3 py-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Apellido" required />
+        <input class="border rounded-xl px-3 py-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Correo electrónico" required />
+        <select class="border rounded-xl px-3 py-2 sm:col-span-2 bg-black text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
+          <option value="">¿Qué necesitas automatizar?</option>
+          <option value="leads">Agente Comercial 24/7</option>
+          <option value="facturas">Procesamiento de Facturas</option>
+          <option value="base-datos">Chatbot Corporativo</option>
+          <option value="reclutamiento">Selección de Candidatos</option>
+          <option value="llamadas">Recepcionista Automatizado (IA de voz)</option>
+          <option value="personalizado">Automatización Personalizada</option>
+        </select>
+        <select class="border rounded-xl px-3 py-2 sm:col-span-2 bg-black text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
+          <option value="">Rango de presupuesto estimado</option>
+          <option value="500-1000">$500 – $1,000</option>
+          <option value="1000-2000">$1,000 – $2,000</option>
+          <option value="2000-3000">$2,000 – $3,000</option>
+          <option value="3000-5000">$3,000 – $5,000</option>
+          <option value="5000+">$5,000+</option>
+        </select>
+        <textarea class="border rounded-xl px-3 py-2 sm:col-span-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" rows="4" placeholder="Cuéntanos más sobre tu proyecto..." required></textarea>
+        <button class="px-4 py-3 rounded-xl bg-gradient-to-r from-[#c026d3] to-[#7c3aed] text-white text-sm sm:col-span-2 font-medium shadow-lg hover:shadow-[0_0_20px_rgba(192,38,211,0.5)] transition-all duration-300" type="submit">
+          Enviar
+        </button>
+      </form>
     </div>
-
-    <form id="form-contacto" class="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto" autocomplete="on" novalidate>
-      <input name="nombre" id="nombre" class="border rounded-xl px-3 py-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Nombre" required />
-      <input name="apellido" id="apellido" class="border rounded-xl px-3 py-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Apellido" required />
-      <input type="email" name="email" id="email" class="border rounded-xl px-3 py-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Correo electrónico" required />
-
-      <select name="necesidad" id="necesidad" class="border rounded-xl px-3 py-2 sm:col-span-2 bg-black text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
-        <option value="">¿Qué necesitas automatizar?</option>
-        <option value="leads">Agente Comercial 24/7</option>
-        <option value="facturas">Procesamiento de Facturas</option>
-        <option value="base-datos">Chatbot Corporativo</option>
-        <option value="reclutamiento">Selección de Candidatos</option>
-        <option value="llamadas">Recepcionista Automatizado (IA de voz)</option>
-        <option value="personalizado">Automatización Personalizada</option>
-      </select>
-
-      <select name="presupuesto" id="presupuesto" class="border rounded-xl px-3 py-2 sm:col-span-2 bg-black text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
-        <option value="">Rango de presupuesto estimado</option>
-        <option value="500-1000">$500 – $1,000</option>
-        <option value="1000-2000">$1,000 – $2,000</option>
-        <option value="2000-3000">$2,000 – $3,000</option>
-        <option value="3000-5000">$3,000 – $5,000</option>
-        <option value="5000+">$5,000+</option>
-      </select>
-
-      <textarea name="mensaje" id="mensaje" class="border rounded-xl px-3 py-2 sm:col-span-2 bg-white/5 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-400" rows="4" placeholder="Cuéntanos más sobre tu proyecto..." required></textarea>
-
-      <!-- Honeypot anti-bots (oculto) -->
-      <input type="text" name="empresa" id="empresa" style="display:none" tabindex="-1" autocomplete="off" />
-
-      <button class="px-4 py-3 rounded-xl bg-gradient-to-r from-[#c026d3] to-[#7c3aed] text-white text-sm sm:col-span-2 font-medium shadow-lg hover:shadow-[0_0_20px_rgba(192,38,211,0.5)] transition-all duration-300" type="submit">
-        Enviar
-      </button>
-
-      <!-- Mensajes -->
-      <p id="ok" class="sm:col-span-2 text-green-300 mt-2 hidden">¡Gracias! Te escribimos en breve.</p>
-      <p id="error" class="sm:col-span-2 text-red-300 mt-2 hidden">Ups, hubo un problema. Probá de nuevo.</p>
-    </form>
-  </div>
-</section>
-<script>
-  // 1) Usa la URL de prueba de n8n primero (webhook-test), luego cambiá a /webhook/ (producción)
-  const WEBHOOK_URL = "https://agustinsalgado.app.n8n.cloud/webhook/form-contacto"; 
-  // Ej: https://n8n.tudominio.com/webhook-test/form-contacto
-
-  const form = document.getElementById('form-contacto');
-  const okMsg = document.getElementById('ok');
-  const errMsg = document.getElementById('error');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // Honeypot: si ‘empresa’ viene con texto, ignoramos (probable bot)
-    if (form.empresa.value.trim() !== "") return;
-
-    const data = {
-      nombre: form.nombre.value.trim(),
-      apellido: form.apellido.value.trim(),
-      email: form.email.value.trim(),
-      necesidad: form.necesidad.value,
-      presupuesto: form.presupuesto.value,
-      mensaje: form.mensaje.value.trim(),
-    };
-
-    try {
-      const res = await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-        mode: "cors",
-      });
-      if (!res.ok) throw new Error("Estado " + res.status);
-      okMsg.classList.remove('hidden');
-      errMsg.classList.add('hidden');
-      form.reset();
-    } catch (err) {
-      console.error(err);
-      errMsg.classList.remove('hidden');
-      okMsg.classList.add('hidden');
-    }
-  });
-</script>
-
+  </section>
 </BaseLayout>
 <script is:inline>
   // Anima <b class="metric" data-to="45">0</b>
