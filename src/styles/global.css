@@ -63,7 +63,7 @@ body {
 .orb-1 {
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, #c026d3, transparent);
+  background: radial-gradient(circle, rgb(197,51,100), transparent);
   top: -200px;
   left: -200px;
   animation-delay: -2s;
@@ -71,7 +71,7 @@ body {
 .orb-2 {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, #7c3aed, transparent);
+  background: radial-gradient(circle, rgb(197,51,100), transparent);
   bottom: -100px;
   right: -100px;
   animation-delay: 1s;
@@ -124,7 +124,7 @@ select:focus,
 textarea:focus,
 button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(192, 38, 211, 0.5);
+  box-shadow: 0 0 0 2px rgb(197,51,100);
 }
 
 /* Responsive grid helpers (si no usás Tailwind para esto) */
@@ -157,4 +157,305 @@ button:focus {
   background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,.85) 60%, #000 100%);
   pointer-events: none;
   z-index: 0; /* debajo del contenido */
+}
+
+/* ========== Caso de Éxito (tabs + tarjetas + esquema) ========== */
+.case-tabs{
+  display:flex; gap:10px; justify-content:center; margin-bottom: 16px;
+}
+.case-tab{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  color:#EDEDF8; font-weight:700; padding:10px 14px; border-radius:999px;
+  cursor:pointer; transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+}
+.case-tab.is-active{
+  background: linear-gradient(135deg,#c026d3,#7c3aed);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 10px 28px rgba(124,58,237,.22);
+}
+.case-pane{ display:none; }
+.case-pane.is-active{ display:block; }
+
+.case-card{
+  position:relative; border-radius:18px; padding:18px; 
+  background: radial-gradient(140% 140% at 10% -10%, rgba(192,38,211,.12), rgba(124,58,237,.08) 50%, rgba(6,6,10,.9) 100%);
+  border:1px solid rgba(255,255,255,.10);
+  overflow:hidden;
+}
+.case-card::before{
+  content:""; position:absolute; inset:-1px; border-radius:inherit; padding:1px;
+  background:
+    linear-gradient(#0000,#0000) padding-box,
+    conic-gradient(from var(--ang,0deg), #7c3aed, #c026d3, #7c3aed) border-box;
+  -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0) border-box;
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events:none; opacity:.22; animation: case-spin 22s linear infinite;
+}
+@keyframes case-spin{ to{ --ang:360deg; } }
+
+.case-grid{ display:grid; gap:16px; grid-template-columns: 1.2fr .8fr; }
+.case-sub{ font-weight:800; color:#fff; margin-bottom: 8px; }
+.case-list{ color:#DDDDF6; list-style: disc; list-style-position: outside; margin-left: 1.15rem; }
+.case-aside{ align-self:start; }
+
+.kpi-grid{
+  display:grid; gap:10px; grid-template-columns: repeat(2,minmax(0,1fr)); margin-bottom:8px;
+}
+.kpi{
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:12px; padding:10px; color:#EDEDF8;
+}
+.kpi span{ font-size:.85rem; color:#CFCFE7; display:block; }
+.kpi strong{ font-size:1.2rem; }
+
+.case-note{ color:#CFCFE7; font-size:.9rem; margin: 6px 0 10px; }
+.case-cta{ display:flex; gap:10px; flex-wrap:wrap; }
+
+/* -------- Esquema (flow) -------- */
+.flow{ display:flex; flex-direction:column; gap:16px; }
+.flow-row{ display:flex; align-items:center; gap:12px; overflow:auto; padding-bottom: 4px; }
+.flow-node{
+  min-width: 220px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 14px; padding: 12px;
+  color:#EDEDF8; position:relative;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);
+}
+.flow-node::after{
+  /* halo respirando */
+  content:""; position:absolute; inset:-1px; border-radius: inherit;
+  background: radial-gradient(120% 120% at 0% 0%, rgba(192,38,211,.18), rgba(124,58,237,.08) 60%, #0000);
+  animation: node-breathe 3.2s ease-in-out infinite;
+  pointer-events: none; opacity:.35;
+}
+@keyframes node-breathe{
+  0%,100%{ opacity:.28; filter: blur(0px); }
+  50%{ opacity:.46; filter: blur(2px); }
+}
+.flow-node h4{ font-weight:800; margin-bottom:4px; color:#fff; }
+.flow-node p{ color:#DCDCF0; font-size:.95rem; }
+
+.flow-arrow{
+  width: 54px; height: 12px; flex: 0 0 auto;
+  stroke: rgba(255,255,255,.5); stroke-width: 2; fill:none;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .case-grid{ grid-template-columns: 1fr; }
+  .kpi-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px){
+  .kpi-grid{ grid-template-columns: 1fr; }
+}
+
+/* ============================= */
+/*  OVERRIDES MÍNIMOS SOLICITADOS */
+/* ============================= */
+
+/* Íconos de producto y logo CEREVO (mismo tamaño y centrados) */
+.product-icon,
+.products-logo {
+  width: 96px;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  opacity: .9;
+}
+@media (min-width: 768px){
+  .product-icon,
+  .products-logo { width: 120px; }
+}
+
+/* Subtítulo bajo el icono de producto */
+.product-subtitle{
+  margin-top: .35rem;
+  color: #EDEDF8;
+  opacity: .9;
+  font-weight: 700;
+  font-size: .97rem;
+  text-align: center;
+}
+
+/* Tarjetas de video (Implementaciones en producción) */
+.video-grid{
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px){
+  .video-grid{ grid-template-columns: 1fr 1fr; }
+}
+.video-card{
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.02);
+  border-radius: 16px;
+  padding: 16px;
+}
+.video-head{
+  display: grid; justify-items: center; text-align: center; gap: 8px;
+}
+.video-icon{ width: 72px; height: auto; opacity: .95; }
+.video-title{ font-size: 1.15rem; font-weight: 700; color: #fff; }
+.video-desc{ color: #E0DFF4; font-size: .95rem; }
+.video-frame{
+  margin-top: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+}
+.video-frame video{
+  width: 100%; height: auto; display: block; background: #000;
+  object-fit: cover;
+}
+.video-actions{
+  margin-top: 10px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+}
+/* Productos: tamaño de iconos y logo CEREVO */
+#productos .product-icon,
+#productos .products-logo {
+  width: 140px;
+  height: auto;
+}
+
+@media (min-width: 768px){
+  #productos .product-icon,
+  #productos .products-logo {
+    width: 180px;
+  }
+}
+
+/* Un poco más de aire entre icono y subtítulo */
+#productos .service-card__header { gap: 10px; margin-bottom: 6px; }
+
+/* Si alguno de tus SVG viene con borde/“cuadrado”, en lo visual
+   podés redondear el contenedor mientras limpias el SVG */
+#productos .product-icon {
+  display: block;
+  margin-inline: auto;
+  border-radius: 16px;       /* sólo visual, no quita el rect blanco del archivo */
+}
+/* Productos: iconos y logo más grandes */
+#productos .product-icon,
+#productos .products-logo {
+  width: 180px;
+  height: auto;
+}
+@media (min-width: 768px){
+  #productos .product-icon,
+  #productos .products-logo {
+    width: 220px;
+  }
+}
+
+/* Un poco más de aire entre icono y subtítulo */
+#productos .service-card__header { gap: 10px; margin-bottom: 6px; }
+/* === Productos: iconos + subtítulo violeta === */
+#productos .product-icon,
+#productos .products-logo {
+  width: 220px;   /* mobile */
+  height: auto;
+}
+
+@media (min-width: 768px){
+  #productos .product-icon,
+  #productos .products-logo {
+    width: 280px; /* desktop */
+  }
+}
+
+/* Subtítulo debajo del icono: violeta (gradiente marca) */
+#productos .product-subtitle{
+  margin-top: .356rem;
+  font-weight: 800;
+  letter-spacing: .2px;
+  text-align: center;
+
+  /* gradiente CEREVO */
+  background: linear-gradient(135deg, #c026d3, #7c3aed);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent; /* Safari */
+}
+
+/* Un poco más de aire entre icono y subtítulo */
+#productos .service-card__header { gap: 12px; margin-bottom: 8px; }
+/* === Implementaciones en producción: iconos + títulos violeta === */
+#implementaciones .video-card{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-color: rgba(255,255,255,.14);
+  background: radial-gradient(140% 140% at 10% -10%, rgba(192,38,211,.08), rgba(124,58,237,.05) 50%, rgba(6,6,10,.85) 100%);
+}
+
+#implementaciones .video-head{
+  display: grid;
+  justify-items: center;
+  align-content: end;
+  gap: 12px;
+  min-height: 220px;   /* misma caja para alinear columnas */
+}
+@media (min-width: 768px){
+  #implementaciones .video-head{ min-height: 260px; }
+}
+
+#implementaciones .video-icon{
+  width: 140px;        /* mobile */
+  height: auto;
+  filter: drop-shadow(0 0 12px rgba(124,58,237,.25));
+}
+@media (min-width: 768px){
+  #implementaciones .video-icon{ width: 180px; }  /* desktop */
+}
+
+#implementaciones .video-title{
+  font-weight: 900;
+  text-align: center;
+  font-size: 1.35rem;  /* mobile */
+  line-height: 1.25;
+
+  /* gradiente CEREVO */
+  background: linear-gradient(135deg, #c026d3, #7c3aed);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (min-width: 768px){
+  #implementaciones .video-title{ font-size: 1.6rem; }  /* desktop */
+}
+
+#implementaciones .video-desc{
+  color: #E0DFF4;
+  text-align: center;
+  max-width: 52ch;
+  margin: 0 auto;
+}
+
+#implementaciones .video-frame{ margin-top: 14px; }
+#implementaciones .video-actions{ margin-top: auto; }
+/* Productos: mismo “box” con luz violeta que Implementaciones */
+#productos .service-card.product-card{
+  border: 1px solid rgba(255,255,255,.14);
+  background: radial-gradient(140% 140% at 10% -10%,
+              rgba(192,38,211,.08),
+              rgba(124,58,237,.05) 50%,
+              rgba(6,6,10,.85) 100%);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+/* Mantener alineación visual de icono/título como venías usando */
+#productos .service-card.product-card .service-card__header{
+  display: grid;
+  justify-items: center;
+  align-content: end;
+  gap: 12px;
+  min-height: 300px;
+}
+@media (min-width: 1024px){
+  #productos .service-card.product-card .service-card__header{ min-height: 340px; }
 }

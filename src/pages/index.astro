@@ -5,10 +5,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import clockIcon from "../assets/clock.svg?url";
 import dashboardIcon from "../assets/dashboard.svg?url";
 import alertIcon from "../assets/alert.svg?url";
+
+// base para rutas en GitHub Pages/subrutas
+const base = import.meta.env.BASE_URL || "/";
 ---
 
 <BaseLayout
-  title="LumenOps — Automatizaciones con IA"
+  title="CEREVO — Automatizaciones con IA"
   description="Automatiza procesos con inteligencia artificial para ahorrar tiempo y costos."
 >
  <!-- HERO -->
@@ -38,10 +41,10 @@ import alertIcon from "../assets/alert.svg?url";
                 bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
         Solicitar plan
       </a>
-      <a href="#servicios"
+      <a href="#productos"
          class="px-5 py-3 rounded-xl text-white text-sm font-medium
                 bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-        Ver servicios
+        Ver productos
       </a>
     </div>
 
@@ -138,153 +141,93 @@ import alertIcon from "../assets/alert.svg?url";
   </div>
 </section>
 
-<!-- SERVICIOS -->
-<section id="servicios" class="section-surface py-20">
+<!-- =================== PRODUCTOS =================== -->
+<section id="productos" class="section-surface py-20">
   <div class="section-content max-w-6xl mx-auto px-4">
     <div class="text-center mb-10">
-      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">
-        Servicios
+      <!-- Logo CEREVO centrado, mismo tamaño que iconos -->
+      <img src={`${base}icons/cerevologo.svg`} alt="CEREVO" class="products-logo" />
+      <h2 class="mt-4 text-3xl md:text-5xl font-semibold tracking-tight text-white/95">
+        Productos
       </h2>
-      <p class="mt-3 text-white/80">Roles digitales de Dala para acelerar tu negocio.</p>
+      <p class="mt-3 text-white/80">Roles digitales de CEREVO para acelerar tu negocio.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
 
-      <!-- 1) Asistente para Selección de Candidatos -->
-      <article class="simple-card service-card js-reveal">
-        <div class="service-card__header flex flex-col items-center text-center gap-4">
-          <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-            <img src="icons/candidate.svg" alt="Selección de candidatos" class="w-full h-auto opacity-90" />
-          </div>
-          <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-            Asistente para Selección de Candidatos
-          </h3>
+      <!-- AURA -->
+      <article class="simple-card service-card product-card js-reveal">
+        <div class="service-card__header flex flex-col items-center text-center gap-2">
+          <img src={`${base}icons/aura.svg`} alt="AURA" class="product-icon" />
+          <p class="product-subtitle">Asistente de Recursos Humanos</p>
         </div>
-        <p class="copy text-center text-sm md:text-base">Filtra y clasifica automáticamente los CVs.</p>
         <ul class="service-list text-center text-sm md:text-base">
-          <li>Calcula compatibilidad según experiencia y cercanía.</li>
+          <li>Verifica información personal y laboral.</li>
+          <li>Agenda entrevistas de forma automática y coordinada.</li>
+          <li>Filtra y clasifica CVs según experiencia y cercanía.</li>
+          <li>Calcula compatibilidad con los perfiles buscados.</li>
           <li>Entrega un ranking listo para decidir más rápido.</li>
-          <li>Optimiza todo el proceso de contratación de inicio a fin.</li>
+          <li>Optimiza el proceso de contratación de inicio a fin.</li>
         </ul>
         <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
-          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-            Quiero esto
-          </a>
+          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">Quiero esto</a>
         </div>
       </article>
 
-      <!-- 2) Agente Comercial que Nunca Duerme -->
-      <article class="simple-card service-card js-reveal">
-        <div class="service-card__header flex flex-col items-center text-center gap-4">
-          <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-            <img src="icons/sales-agent.svg" alt="Agente comercial 24/7" class="w-full h-auto opacity-90" />
-          </div>
-          <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-            Agente Comercial 24/7
-          </h3>
+      <!-- Syncro -->
+      <article class="simple-card service-card product-card js-reveal">
+        <div class="service-card__header flex flex-col items-center text-center gap-2">
+          <img src={`${base}icons/syncro.svg`} alt="Syncro" class="product-icon" />
+          <p class="product-subtitle">Auxiliar Administrativo Inteligente</p>
         </div>
-        <p class="copy text-center text-sm md:text-base">Extrae datos de potenciales clientes de distintas fuentes.</p>
         <ul class="service-list text-center text-sm md:text-base">
+          <li>Gestiona órdenes de compra aplicando reglas de negocio.</li>
+          <li>Aprende las decisiones estratégicas de tu empresa.</li>
+          <li>Envía facturas a tu ERP y órdenes de distribución logística.</li>
+          <li>Notifica por mail y permite interacción por WhatsApp o Telegram.</li>
+          <li>Genera reportes automáticos de gestión y seguimiento.</li>
+          <li>Reduce carga manual y errores en tareas administrativas.</li>
+        </ul>
+        <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
+          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">Quiero esto</a>
+        </div>
+      </article>
+
+      <!-- Vector -->
+      <article class="simple-card service-card product-card js-reveal">
+        <div class="service-card__header flex flex-col items-center text-center gap-2">
+          <img src={`${base}icons/vector.svg`} alt="Vector" class="product-icon" />
+          <p class="product-subtitle">Agente Comercial 24/7</p>
+        </div>
+        <ul class="service-list text-center text-sm md:text-base">
+          <li>Extrae datos de potenciales clientes de distintas fuentes.</li>
           <li>Centraliza y organiza los leads en una base única.</li>
           <li>Mantiene tu pipeline de ventas activo las 24 horas.</li>
-          <li>Aumenta la eficiencia de todo tu proceso comercial.</li>
+          <li>Aumenta la eficiencia y la conversión del equipo comercial.</li>
+          <li>Automatiza el seguimiento de oportunidades y recordatorios.</li>
+          <li>Analiza el rendimiento comercial para detectar oportunidades.</li>
         </ul>
         <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
-          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-            Quiero esto
-          </a>
+          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">Quiero esto</a>
         </div>
       </article>
 
-      <!-- 3) Auxiliar Contable Automatizado -->
-      <article class="simple-card service-card js-reveal">
-        <div class="service-card__header flex flex-col items-center text-center gap-4">
-          <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-            <img src="icons/accounting.svg" alt="Auxiliar contable" class="w-full h-auto opacity-90" />
-          </div>
-          <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-            Auxiliar Contable Automatizado
-          </h3>
+      <!-- Nova -->
+      <article class="simple-card service-card product-card js-reveal">
+        <div class="service-card__header flex flex-col items-center text-center gap-2">
+          <img src={`${base}icons/nova.svg`} alt="Nova" class="product-icon" />
+          <p class="product-subtitle">Secretaria Ejecutiva Automatizada (IA de voz)</p>
         </div>
-        <p class="copy text-center text-sm md:text-base">Registra facturas, clasifica gastos e integra con tu sistema.</p>
         <ul class="service-list text-center text-sm md:text-base">
-          <li>Conciliación y reportes automáticos.</li>
-          <li>Alertas de vencimientos.</li>
-          <li>Menos carga manual y menos errores.</li>
-        </ul>
-        <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
-          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-            Quiero esto
-          </a>
-        </div>
-      </article>
-
-      <!-- 4) Base de Datos + Chatbot Interno -->
-      <article class="simple-card service-card js-reveal">
-        <div class="service-card__header flex flex-col items-center text-center gap-4">
-          <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-            <img src="icons/database-chat.svg" alt="Base de datos y chatbot" class="w-full h-auto opacity-90" />
-          </div>
-          <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-             Chatbot Corporativo
-          </h3>
-        </div>
-        <p class="copy text-center text-sm md:text-base">Gestiona información de clientes, productos o empleados.</p>
-        <ul class="service-list text-center text-sm md:text-base">
-          <li>Responde consultas por chatbot interno en segundos.</li>
-          <li>Evita pérdidas de tiempo buscando datos dispersos.</li>
-          <li>Centraliza y organiza el conocimiento de tu empresa.</li>
-        </ul>
-        <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
-          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-            Quiero esto
-          </a>
-        </div>
-      </article>
-
-      <!-- 5) Recepcionista Automatizado (IA de voz) -->
-      <article class="simple-card service-card js-reveal">
-        <div class="service-card__header flex flex-col items-center text-center gap-4">
-          <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-            <img src="icons/voice-assistant.svg" alt="Recepcionista IA de voz" class="w-full h-auto opacity-90" />
-          </div>
-          <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-            Recepcionista Automatizado (IA de voz)
-          </h3>
-        </div>
-        <p class="copy text-center text-sm md:text-base">IA de voz que atiende llamadas entrantes automáticamente.</p>
-        <ul class="service-list text-center text-sm md:text-base">
-          <li>Identifica intención y deriva al área correcta.</li>
+          <li>Atiende llamadas entrantes con IA de voz natural.</li>
+          <li>Identifica intención y deriva al área o persona correcta.</li>
           <li>Disponible 24/7 sin ampliar el equipo.</li>
-          <li>Mejora la experiencia del cliente.</li>
+          <li>Mejora la experiencia y la atención al cliente.</li>
+          <li>Gestiona agendas, recordatorios y tareas por voz.</li>
+          <li>Se integra con sistemas internos para respuestas precisas.</li>
         </ul>
         <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
-          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-            Quiero esto
-          </a>
-        </div>
-      </article>
-
-      <!-- 6) Automatización Personalizada -->
-      <article class="simple-card service-card js-reveal">
-        <div class="service-card__header flex flex-col items-center text-center gap-4">
-          <div class="service-icon w-16 md:w-24 h-auto mx-auto">
-            <img src="icons/workflow-nodes.svg" alt="Automatización personalizada" class="w-full h-auto opacity-90" />
-          </div>
-          <h3 class="text-center text-[#c026d3] text-lg md:text-xl font-semibold tracking-tight">
-            Automatización Personalizada
-          </h3>
-        </div>
-        <p class="copy text-center text-sm md:text-base">Diseñamos un flujo único adaptado a tu negocio.</p>
-        <ul class="service-list text-center text-sm md:text-base">
-          <li>Integramos APIs, plataformas y procesos internos.</li>
-          <li>Escalamos soluciones a medida según tus objetivos.</li>
-          <li>Automatizamos lo que tu empresa necesite de forma integral.</li>
-        </ul>
-        <div class="service-cta flex flex-wrap gap-2 mt-6 justify-center">
-          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">
-            Quiero esto
-          </a>
+          <a href="#contacto" class="px-4 md:px-5 py-2.5 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">Quiero esto</a>
         </div>
       </article>
 
@@ -292,14 +235,60 @@ import alertIcon from "../assets/alert.svg?url";
   </div>
 </section>
 
+<!-- =============== IMPLEMENTACIONES EN PRODUCCIÓN (VIDEOS) =============== -->
+<section id="implementaciones" class="relative z-[1] py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white/95">
+        Implementaciones en producción
+      </h2>
+      <p class="mt-3 text-white/80 max-w-3xl mx-auto">
+        Dos productos funcionando hoy en empresas reales. Mirá un resumen en video.
+      </p>
+    </div>
 
-  <!-- CÓMO TRABAJAMOS, CONTACTO, etc… (sin cambios) -->
-  <!-- … resto de tu página como ya lo tenías … -->
+    <div class="video-grid">
+      <!-- Video AURA -->
+      <article class="video-card">
+        <header class="video-head">
+          <img class="video-icon" src={`${base}icons/aura.svg`} alt="AURA" title="AURA" />
+          <h3 class="video-title">AURA — Asistente de Recursos Humanos</h3>
+          <p class="video-desc">Verifica datos, agenda entrevistas y filtra/ranquea CVs por experiencia y cercanía para entregar un ranking listo.</p>
+        </header>
+        <div class="video-frame">
+          <video controls preload="metadata" aria-label="Video demo AURA" poster={`${base}Videos/aura.jpg`}>
+            <source src={`${base}Videos/aura.mp4`} type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        <div class="video-actions">
+          <a href={`${base}Videos/aura.mp4`} target="_blank" rel="noopener" class="btn-link">Ver en pantalla completa</a>
+        </div>
+      </article>
+
+      <!-- Video Syncro -->
+      <article class="video-card">
+        <header class="video-head">
+          <img class="video-icon" src={`${base}icons/syncro.svg`} alt="Syncro" title="Syncro" />
+          <h3 class="video-title">Syncro — Auxiliar Administrativo Inteligente</h3>
+          <p class="video-desc">Gestiona órdenes de compra con reglas, integra ERP y logística, genera reportes automáticos.</p>
+        </header>
+        <div class="video-frame">
+          <video controls preload="metadata" aria-label="Video demo Syncro" poster={`${base}Videos/syncro.jpg`}>
+            <source src={`${base}Videos/syncro.mp4`} type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        <div class="video-actions">
+          <a href={`${base}Videos/syncro.mp4`} target="_blank" rel="noopener" class="btn-link">Ver en pantalla completa</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
 
-
-
-<!-- CÓMO TRABAJAMOS -->
+  <!-- CÓMO TRABAJAMOS -->
 <section id="como-trabajamos" class="relative z-[1] py-20 mt-16">
   <div class="max-w-6xl mx-auto px-4">
     <div class="text-center mb-10">
