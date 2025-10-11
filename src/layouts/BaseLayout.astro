@@ -1,5 +1,5 @@
 ---
-/* Cargar CSS con URL resuelta por Vite/Astro (v5) */
+/* URL del CSS resuelta por Astro/Vite (v5 friendly) */
 import globalCssUrl from "../styles/global.css?url";
 
 const {
@@ -7,7 +7,6 @@ const {
   description = "Automatiza procesos con IA para reducir tiempos, errores y costos.",
 } = Astro.props;
 
-// base para recursos en GitHub Pages bajo subruta (/CEREVO/)
 const base = import.meta.env.BASE_URL || "/";
 ---
 <!DOCTYPE html>
@@ -19,33 +18,24 @@ const base = import.meta.env.BASE_URL || "/";
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 
-    <!-- ✅ CSS servirá con la base correcta; además, con inlineStylesheets el CSS queda embebido -->
+    <!-- ✅ el href ya sale como /CEREVO/_astro/...css en producción -->
     <link rel="stylesheet" href={globalCssUrl} />
   </head>
 
   <body class="bg-black text-white min-h-screen flex flex-col">
-    <!-- Header -->
-    <header
-      data-header
-      class="header-scroll fixed inset-x-0 top-0 z-50 bg-black/90 backdrop-blur supports-[backdrop-filter]:bg-black/70"
-    >
+    <header data-header class="header-scroll fixed inset-x-0 top-0 z-50 bg-black/90 backdrop-blur supports-[backdrop-filter]:bg-black/70">
       <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <a href={`${base}`} class="flex items-center gap-2 font-semibold tracking-tight text-white hover:opacity-90">
           <img src={`${base}icons/cerevologo.svg`} alt="Cerevo" class="w-10 h-10 opacity-90" />
           <span class="text-lg">CEREVO</span>
         </a>
-
         <ul class="hidden gap-2 md:flex">
           <li><a href="#inicio" class="px-3 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 text-sm hover:bg-neutral-800">Inicio</a></li>
           <li><a href="#beneficios" class="px-3 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 text-sm hover:bg-neutral-800">Beneficios</a></li>
           <li><a href="#productos" class="px-3 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 text-sm hover:bg-neutral-800">Productos</a></li>
           <li><a href="#como-trabajamos" class="px-3 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 text-sm hover:bg-neutral-800">Cómo trabajamos</a></li>
         </ul>
-
-        <a
-          href="#contacto"
-          class="ml-3 rounded-full px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition"
-        >Empezar</a>
+        <a href="#contacto" class="ml-3 rounded-full px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#c026d3] to-[#7c3aed] hover:opacity-95 transition">Empezar</a>
       </nav>
     </header>
 
@@ -57,13 +47,11 @@ const base = import.meta.env.BASE_URL || "/";
       <p class="text-sm">© {new Date().getFullYear()} CEREVO — Automatizaciones con IA</p>
     </footer>
 
-    <!-- Scroll header hide/show -->
     <script is:inline>
       (() => {
         const el = document.querySelector("[data-header]");
         if (!el) return;
-        let lastY = window.scrollY;
-        const TH = 10;
+        let lastY = window.scrollY, TH = 10;
         window.addEventListener("scroll", () => {
           const y = window.scrollY;
           if (y > lastY + TH) el.classList.add("scrolled");
