@@ -1,5 +1,5 @@
 ---
-/* Cargar CSS con URL resuelta por Vite/Astro (compatible v5) */
+/* Cargar CSS con URL resuelta por Vite/Astro (v5) */
 import globalCssUrl from "../styles/global.css?url";
 
 const {
@@ -7,7 +7,7 @@ const {
   description = "Automatiza procesos con IA para reducir tiempos, errores y costos.",
 } = Astro.props;
 
-/* Base para recursos en GitHub Pages bajo subruta (/CEREVO/) */
+// base para recursos en GitHub Pages bajo subruta (/CEREVO/)
 const base = import.meta.env.BASE_URL || "/";
 ---
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL || "/";
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 
-    <!-- ✅ CSS servido con la base correcta (evita 404 en GitHub Pages) -->
+    <!-- ✅ CSS servirá con la base correcta; además, con inlineStylesheets el CSS queda embebido -->
     <link rel="stylesheet" href={globalCssUrl} />
   </head>
 
